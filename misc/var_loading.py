@@ -1,6 +1,6 @@
 import optparse
 import sys
-from Algorithm.main import Class
+from ..Algorithm import Class
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
@@ -49,9 +49,7 @@ def read_constraints(constraint_filename):
     for row in c_data[end_room_index + 2:]:
         row_data = row.strip().split()
         if class_dict.get(int(row_data[0])) is None:
-            class_dict[int(row_data[0])] = Class(int(row_data[0]), {'teacher':[int(row_data[1])]}
-        else:
-            class_dict[int(row_data[0])]['teacher'].append(int(row_data[1]))
+            class_dict[int(row_data[0])] = Class(int(row_data[0]), int(row_data[1]))
         if teacher_dict.get(int(row_data[1])) is None:
             teacher_dict[int(row_data[1])] = {'class':[int(row_data[0])]}
         else:
@@ -60,4 +58,4 @@ def read_constraints(constraint_filename):
 
 if __name__ == "__main__":
     args = parse_args('Set up student dictionary')
-    print(read_preferences(args.pref_filename))
+    print(read_constraints(args.constraint_filename))
