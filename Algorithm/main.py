@@ -143,11 +143,7 @@ def enroll_students(matches, S, R, T, C):
 
     for student in S:
         enrolled_classes = interval_scheduling(matches, student.preferences, C)
-        for enrolled_class in enrolled_classes:
-            if matches[enrolled_class].get("students") is None:
-                matches[enrolled_class]["students"] = [student]
-            else:
-                matches[enrolled_class]["students"].append(student)
+            
 
         for desired_class in enrolled_classes:  # Attempt to enroll student in each class from interval scheduling.
             room = matches[desired_class]["room"]
@@ -155,6 +151,10 @@ def enroll_students(matches, S, R, T, C):
             if room_capacities[room][timeslot] > 0:  # There is still room in this class.
                 score += 1
                 room_capacities[room][timeslot] -= 1
+                if matches[desired_class].get("students") is None:
+                    matches[desired_class]["students"] = [student]
+                else:
+                    matches[desired_class]["students"].append(student)
 
     return score, matches
 
