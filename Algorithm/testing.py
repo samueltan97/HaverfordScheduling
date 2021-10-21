@@ -17,7 +17,7 @@ def create_timeslots(num_slots):
     while mwf_counter+tth_counter < num_slots :
         new_slot_start = first_class_start + mwf_counter
         new_slot_end = first_class_start + mwf_counter + 1
-        if new_slot_end > 16:
+        if new_slot_end > last_class_end:
             print("Error: create_timeslots ran out of slots to create.")
             raise IndexError
         new_slot_days = "MWF"
