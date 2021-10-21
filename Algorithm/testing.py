@@ -1,3 +1,23 @@
+import optparse
+import sys
+
+from .
+
+def parse_args(description):
+    parser = optparse.OptionParser(description=description)
+    parser.add_option("-p", "--pref_filename", type="string", \
+                      help="input file with student preferences")
+    parser.add_option("-c", "--constraint_filename", type="string", \
+                      help="input file with scheduling constraints")
+
+    mandatories = ["pref_filename", "constraint_filename"]
+    (opts, args) = parser.parse_args()
+    for m in mandatories:
+        if not opts.__dict__[m]:
+            parser.print_help()
+            sys.exit()
+    return opts
+
 def test_load_variables():
     input_str = "(4, 14, 4, 7, {1: 12, 2: 445, 3: 135, 4: 111}, " \
                 "{1: 6, 2: 1, 3: 2, 4: 6, 5: 4, 6: 3, 7: 4, 8: 3, 9: 2, 10: 1, 11: 5, 12: 5, 13: 7, 14: 7}, " \
@@ -21,3 +41,7 @@ def test_load_variables():
                 "46: [\'6\', \'5\', \'2\', \'4\'], 47: [\'12\', \'8\', \'9\', \'1\'], 48: [\'10\', \'6\', \'12\', \'11\'], " \
                 "49: [\'5\', \'13\', \'9\', \'8\'], 50: [\'9\', \'11\', \'14\', \'1\']})"
 
+if __name__ == "__main__":
+    args = parse_args('Set up student dictionary')
+    print(read_constraints(args.constraint_filename))
+    print(read_preferences(args.pref_filename))
