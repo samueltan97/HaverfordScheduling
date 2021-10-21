@@ -1,8 +1,14 @@
 import optparse
 import sys
+import os
 import re
 import time
-
+from main import class_schedule
+from var_loading import load_variables_into_obj
+"""
+Example runs from command line:
+WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\""
+"""
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
@@ -12,8 +18,10 @@ def parse_args(description):
                       help="input file with scheduling constraints")
     parser.add_option("-s", "--schedule_filename", type="string", \
                       help="input file with proposed schedule")
+    parser.add_option("-f", "--folder_name", type="string", \
+                      help="input name of folder that contains all instances of a certain test case")
 
-    mandatories = ["pref_filename", "constraint_filename","schedule_filename"]
+    mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
     (opts, args) = parser.parse_args()
     for m in mandatories:
         if not opts.__dict__[m]:
@@ -137,7 +145,7 @@ def test(schedule_filename, constraint_filename, pref_filename):
                                     print("Student", student, "assigned to time conflicting courses", cour, "and", course)
                                     sys.exit()
 
-                            student_courses[student].append(course)
+                            student_courses[student].add(course)
                         
                         else:
                             temp = set([course])
@@ -170,18 +178,32 @@ def convert_matches_to_schedule_file(matches,schedule_file):
     
     
 
-def evaluate_runtime_and_performance(main, pref_file, constraint_file, schedule_file):
+def evaluate_runtime_and_performance(class_schedule_function, pref_file, constraint_file, schedule_file):
+    R, C, P, S, T = load_variables_into_obj(pref_file, constraint_file)
     start_time = time.time()
-    score, matches = main(pref_file, constraint_file)
+    score, matches = class_schedule_function(T, S, C, R, P)
     runtime = time.time() - start_time
     print("--- %s seconds ---" % runtime)
     convert_matches_to_schedule_file(matches, schedule_file)
     student_pref_score = test(schedule_file, constraint_file, pref_file)
     return student_pref_score, runtime
 
+def run_all_test_cases_in_test_folder(folder_name):
+    iteration_count = int(folder_name.split('r')[0].split('k')[1])
+    results_dict = dict()
+    for i in range(iteration_count):
+        pref_filename = os.path.join(folder_name, "prefs_" + str(i))
+        constraint_filename = os.path.join(folder_name, "constraints_" + str(i))
+        schedule_filename = os.path.join(folder_name, "schedule_" + str(i))
+        student_pref_score, runtime = evaluate_runtime_and_performance(class_schedule, pref_filename, constraint_filename, schedule_filename)
+        results_dict[i] = (student_pref_score, runtime)
+    return results_dict
+
 if __name__ == "__main__":
     args = parse_args('Set up student dictionary')
     # print(read_constraints(args.constraint_filename))
     # print(read_preferences(args.pref_filename))
 
-    print(test(args.schedule_filename, args.constraint_filename, args.pref_filename))
+    # print(test(args.schedule_filename, args.constraint_filename, args.pref_filename))
+    # print(evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename))
+    print(run_all_test_cases_in_test_folder(args.folder_name))
