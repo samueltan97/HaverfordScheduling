@@ -2,6 +2,7 @@ import optparse
 import sys
 
 "Sample code: python .\misc\var_loading.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0"
+"Sample code: python ./misc/var_loading.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0"
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
