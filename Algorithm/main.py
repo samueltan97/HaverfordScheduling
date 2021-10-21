@@ -211,7 +211,7 @@ if __name__ == "__main__":
 
     R, C, P, S, T = load_variables_into_obj(args.pref_filename, args.constraint_filename)
     score, matches = class_schedule(T, S, C, R, P)
-    file = convert_matches_to_schedule_file(matches, "schedule_file.txt")
+    file = (matches, "schedule_file.txt")
     str_matches = matches_to_string(matches)
     print(str_matches)
     print("Wrote to file: "+file)
