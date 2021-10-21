@@ -28,7 +28,7 @@ def read_preferences(pref_filename):
     p_data = p_data[1:]
     for row in p_data:
         row_data = row.strip().split()
-        student_dict[int(row_data[0])] = row_data[1:]
+        student_dict[int(row_data[0])] = [int(class_id) for class_id in row_data[1:]]
     return num_students, student_dict
 
 def read_constraints(constraint_filename):
