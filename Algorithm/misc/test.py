@@ -1,7 +1,7 @@
 import optparse
 import sys
 import re
-from .var_loading import read_constraints, read_preferences
+from var_loading import read_constraints, read_preferences
 import time
 
 

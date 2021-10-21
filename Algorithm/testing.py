@@ -1,5 +1,5 @@
-from misc.var_loading import read_constraints, read_preferences
-from Algorithm.objects import *
+from var_loading import read_constraints, read_preferences
+from objects import *
 
 
 def create_timeslots(num_slots):
