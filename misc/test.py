@@ -109,5 +109,7 @@ def test(schedule_filename, constraint_filename, pref_filename):
                             print("student", student, "assigned to unrequested course", course)
                             sys.exit()
                     
-                    student_preferences += 1
-
+                        student_preferences += 1
+                        
+    print("Schedule is valid")
+    print("Student preferences value:", student_preferences)
