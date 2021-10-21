@@ -63,7 +63,6 @@ def sort_classes(S,C):
 
 def sort_class_times(T):
     class_time_conflicts = {}
-    sorted_class_times = []
     T_sorted = sorted(T, key=lambda x: x.start_time, reverse=True)
     for t in T_sorted:
         class_time_conflicts[t] = 0
@@ -72,9 +71,7 @@ def sort_class_times(T):
         for t_1 in T_copy:
             if does_conflict(t, t_1):
                 t_1.conflicts += 1
-    for t in T:
-        sorted_class_times.append(t)
-    sorted_class_times = sorted(sorted_class_times, key=lambda x: x.conflicts)
+    sorted_class_times = sorted(T, key=lambda x: x.conflicts)
     return sorted_class_times
 
 
@@ -124,7 +121,7 @@ def interval_scheduling(matches, preferences):
     scheduled = []
     sorted_preferences = sorted(preferences, key=lambda class_name: matches[class_name]["time_slot"].end_time)
     previous_class = None
-    for current_class in preferences:
+    for current_class in sorted_preferences:
         previous_time_slot = matches[previous_class]["time_slot"]
         current_time_slot = matches[current_class]["time_slot"]
 
