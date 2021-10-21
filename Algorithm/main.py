@@ -2,7 +2,7 @@
 class Class:
     def __init__(self, id, professor):
         self.id = id
-        self.professor = professor
+        self.professor = set([professor])
 
 
 def sortClasses(S,C):
