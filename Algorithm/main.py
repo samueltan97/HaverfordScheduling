@@ -10,7 +10,6 @@ Ex.
 
 def sort_classes(S,C):
     """
-
     :param S: List[Student]
     :param C: List[Class]
     :return: List[Class] -> C sorted by total interest.
@@ -31,6 +30,11 @@ def sort_classes(S,C):
 
 
 def sort_class_times(T):
+    """
+    :param T: List[TimeSlot]
+    :return: List[TimeSlot] -> sorted by potential conflicts with other time slots.
+    """
+
     T_sorted = sorted(T, key=lambda x: x.start_time, reverse=True)
     for t in T_sorted:
         T_copy  = T_sorted
@@ -44,7 +48,6 @@ def sort_class_times(T):
 
 def identify_rooms_for_class(R,C):
     """
-
     :param R: List[Room]
     :param C: List[Class]
     :return: List[Class] -> rooms sorted by their capacity in reverse.
@@ -54,6 +57,11 @@ def identify_rooms_for_class(R,C):
     return sorted_rooms
 
 def set_up_availabilty(input, sorted_class_times):
+    """
+    :param input: List[Obj] either rooms or professors
+    :param sorted_class_times:
+    :return: Dict[Obj : Dict[TimeSlot : True]] -> Initialize all professors and rooms to be available at all time slots.
+    """
     availability = {}
     for r in input:
         isOpen = {}
@@ -79,7 +87,7 @@ def does_conflict(first_slot, second_slot):
 
 def interval_scheduling(matches, preferences):
     """
-
+    :param matches: Dict[Class : Dict[str : Obj]]
     :param preferences: List[Class] the classes that some student s wishes to take.
     :return: a list of classes, representing their optimal schedule without conflicts.
 
@@ -101,13 +109,13 @@ def interval_scheduling(matches, preferences):
 
 def enroll_students(matches, S, R, T):
     """
-
     :param matches: Dictionary of dictionaries containing rooms, timeslots, professors assigned to each class.
     :param S: List[Student]
     :param R: List[Room]
     :param T: List[TimeSlot]
     :return: # of classes we were able to enroll students in and the updated matches dictionary that has the students enrolled in each class.
     """
+
     room_capacities = {}
     score = 0
 
@@ -130,35 +138,45 @@ def enroll_students(matches, S, R, T):
             if room_capacities[room][timeslot] > 0:  # There is still room in this class.
                 score += 1
                 room_capacities[room][timeslot] -= 1
+
     return score,matches
 
 
-def classSchedule(T,S,C,R,P):
-    sortedClass = sort_classes(S,C)
-    sortedClassTimes = sort_class_times(T)
-    roomsForClasses = identify_rooms_for_class(R,C)
-    roomAvailability = set_up_availabilty(C, sortedClassTimes)
-    profAvailability = set_up_availabilty(P, sortedClassTimes)
+def class_schedule(T,S,C,R,P):
+    """
+
+    :param T: List[TimeSlot]
+    :param S: List[Student]
+    :param C: List[Classes]
+    :param R: List[Rooms]
+    :param P: List[Professor]
+    :return: Tuple[Int, Dict[Class : Dict[str : Obj]]] Score of the schedule + the matches it generated.
+    """
+    sorted_class = sort_classes(S,C)
+    sorted_class_times = sort_class_times(T)
+    rooms_for_classes = identify_rooms_for_class(R,C)
+    room_availability = set_up_availabilty(C, sorted_class_times)
+    prof_availability = set_up_availabilty(P, sorted_class_times)
 
     matches = {}
-    for c in sortedClass:
+    for c in sorted_class:
         #define professor
         p = c.professor
-        for t in sortedClassTimes:
+        for t in sorted_class_times:
             if c in matches.keys():
                 break
-            elif profAvailability[p][t] == True:
-                for r in roomsForClasses[c]:
-                    if roomAvailability[r][t] == True:
+            elif prof_availability[p][t] == True:
+                for r in rooms_for_classes[c]:
+                    if room_availability[r][t] == True:
                         matches[c] = {"timeslot": t, "room": r}
-                        roomAvailability[r][t] = False
-                        profAvailability[r][t] = False
-                        t.conflicts *= min(r.capacity, sortedClass[c])
+                        room_availability[r][t] = False
+                        prof_availability[r][t] = False
+                        t.conflicts *= min(r.capacity, sorted_class[c])
                         #time conflicts
                         break
 
-        sortedClassTimes = sorted(sortedClassTimes, key=lambda x: x[1])
-    score,matches = enroll_students(matches, S, R, T)
+        sorted_class_times = sorted(sorted_class_times, key=lambda x: x[1])
+    score, matches = enroll_students(matches, S, R, T)
     return score, matches
 
 
