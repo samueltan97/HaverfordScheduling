@@ -6,6 +6,13 @@ class Class:
         self.writing_seminar = writing_seminar
         self.language = language
 
+class TimeSlots:
+    def __init__(self, id, days, start_time, end_time):
+        self.id = id
+        self.days = days
+        self.start_time = start_time
+        self.end_time = end_time
+
 
 def sortClasses(S,C):
     classInterestCount = {}
@@ -21,13 +28,15 @@ def sortClasses(S,C):
     sorted_classInterestCount = sorted(classInterestCount.items(), key=lambda x: x[1], reverse=True)
     return sorted_classInterestCount
 
-#I think we should preprocess T such that it is a tuple
+
 def sortClassTimes(T):
     classTimeConflicts = {}
     sortedClassTimes = []
     T.sort(key=lambda x: x[3])
     for t in T:
-        classTimeConflicts[t[0]]
+        classTimeConflicts[t] = 0
+        for
+
 
 def identifyRoomsForClass(R,C):
     sorted_Rooms = sorted(R.items(), key=lambda x: x[1], reverse=True)
