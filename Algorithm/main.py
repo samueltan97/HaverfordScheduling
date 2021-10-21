@@ -1,49 +1,6 @@
-from var_loading import parse_args, load_variables_into_obj
-"""
-example run: python main.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0
-"""
-
-"""
-For the matches datastructure, i assumed a dictionary keyed by classes, with values being another dictionary. 
-The inner dictionary is then keyed with the rooms, timeslot, professor and so on. 
-Ex.
-    matches[class][room] gives me the room object matched with that class object. 
-    matches[class][time] gives me the timeslot object matched with that class. 
-"""
-
-
-class bcolors:
-    PINK = '\033[95m'
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    GREEN = '\033[92m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
-
-def matches_to_string(matches):
-
-    schedule_colors = bcolors.BOLD+bcolors.UNDERLINE+bcolors.PINK
-    end_color = bcolors.ENDC
-
-    full_string = ""
-    for class_obj in matches:
-        room_obj = matches[class_obj]['room']
-        timeslot_obj = matches[class_obj]['timeslot']
-        students_list = [s.id for s in matches[class_obj]['students']]
-
-        class_str = bcolors.GREEN + str(class_obj) + end_color
-        room_str = bcolors.CYAN + str(room_obj) + end_color
-        timeslot_str = bcolors.BLUE + str(timeslot_obj) + end_color
-        students_str = bcolors.YELLOW + str(students_list) + end_color
-
-        result = "{} in {} at {} with students {}".format(class_str, room_str, timeslot_str, students_str)
-        full_string += schedule_colors+"Scheduled:" + end_color + " " + result
-        full_string += "\n"
-    return full_string
+from var_loading import load_variables_into_obj
+from args import parse_args
+from output import *
 
 
 def get_obj_by_id(obj_list, id):
@@ -242,30 +199,18 @@ def class_schedule(T,S,C,R,P):
     return score, matches
 
 
-def convert_matches_to_schedule_file(matches,schedule_file):
-    lines = ['Course\tRoom\tTeacher\tTime\tStudents']
-    f = open(schedule_file, 'w')
-    for key,value in matches.items():
-        line = []
-        line.append(str(key.id))
-        line.append(str(value['room'].id))
-        line.append(str(key.professor))
-        line.append(str(value['timeslot'].id))
-        line.append(' '.join([str(x.id) for x in value['students']]))
-        lines.append('\t'.join(line))
-    for x in lines:
-        f.write("{}\n".format(x))
-    f.close()
-
 if __name__ == "__main__":
+    """
+    example run: python main.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0
+    """
+
     args = parse_args('Set up student dictionary')
-    # print(read_constraints(args.constraint_filename))
-    # print(read_preferences(args.pref_filename))
 
     R, C, P, S, T = load_variables_into_obj(args.pref_filename, args.constraint_filename)
     score, matches = class_schedule(T, S, C, R, P)
     file = convert_matches_to_schedule_file(matches, "schedule_file.txt")
     str_matches = matches_to_string(matches)
     print(str_matches)
+    print("Wrote to file: "+file)
 
 
