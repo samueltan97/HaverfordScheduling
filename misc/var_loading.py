@@ -1,6 +1,7 @@
 import optparse
 import sys
-from ..Algorithm import Class
+
+"Sample code: python .\misc\var_loading.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0"
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
@@ -22,7 +23,7 @@ def read_preferences(pref_filename):
     p_data = p_file.readlines()
     p_file.close()
     student_dict = dict()
-    num_students = int(p_data[0].strip().split()[2])
+    num_students = int(p_data[0].strip().split()[1])
     p_data = p_data[1:]
     for row in p_data:
         row_data = row.strip().split()
@@ -30,7 +31,7 @@ def read_preferences(pref_filename):
     return num_students, student_dict
 
 def read_constraints(constraint_filename):
-    c_file = open(constraint_filename, "c")
+    c_file = open(constraint_filename, "r")
     c_data = c_file.readlines()
     c_file.close()
     class_dict = dict()
@@ -50,7 +51,7 @@ def read_constraints(constraint_filename):
     for row in c_data[end_room_index + 2:]:
         row_data = row.strip().split()
         if class_dict.get(int(row_data[0])) is None:
-            class_dict[int(row_data[0])] = Class(int(row_data[0]), int(row_data[1]))
+            class_dict[int(row_data[0])] = int(row_data[1])
         if teacher_dict.get(int(row_data[1])) is None:
             teacher_dict[int(row_data[1])] = {'class':[int(row_data[0])]}
         else:
@@ -60,3 +61,4 @@ def read_constraints(constraint_filename):
 if __name__ == "__main__":
     args = parse_args('Set up student dictionary')
     print(read_constraints(args.constraint_filename))
+    print(read_preferences(args.pref_filename))

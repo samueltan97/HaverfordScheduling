@@ -71,5 +71,43 @@ def test(schedule_filename, constraint_filename, pref_filename):
                         print("Room", room, "is too small to hold course", course, "with", class_size, "students.")
                         sys.exit()
                     
-                    if teacher_dict
+                    if class_dict[course] != teacher:
+                        print("Course", course, "does not have the correct teacher.")
+                        sys.exit()
+
+                    if teacher_course_1.get(teacher) is None:
+                        teacher_course_1[teacher] = course
+                    else:
+                        if time == course_time[teacher_course_1[teacher]]:
+                            print("Teacher", teacher, "scheduled for two courses at time", time)
+                            sys.exit()
+                    
+                    course_time[course] = time
+
+                    if time_room.get(time).get(room) is not None:
+                        print("Multiple courses scheduled for time", time, "and room", room)
+                        sys.exit()
+                    else:
+                        time_room[time][room] = course
+                    
+                    course_students[course] = students
+
+                    for student in students:
+                        if student_courses.get(student) is not None:
+                            for cour in student_courses:
+                                if course_time[cour] == time:
+                                    print("Student", student, "assigned to time conflicting courses", cour, "and", course)
+                                    sys.exit()
+
+                            student_courses[student].append(course)
+                        
+                        else:
+                            temp = set([course])
+                            student_courses[student] = temp
+                        
+                        if course not in student_dict[student]:
+                            print("student", student, "assigned to unrequested course", course)
+                            sys.exit()
+                    
+                    student_preferences += 1
 
