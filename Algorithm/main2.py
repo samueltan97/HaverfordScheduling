@@ -36,6 +36,14 @@ def interval_scheduling(matches, preferences):
 
 
 def enroll_students(matches, S, R, T):
+    """
+
+    :param matches: Dictionary of dictionaries containing rooms, timeslots, professors assigned to each class.
+    :param S: List[Student]
+    :param R: List[Room]
+    :param T: List[TimeSlot]
+    :return: # of classes we were able to enroll students in.
+    """
     room_capacities = {}
     score = 0
 
