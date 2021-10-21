@@ -10,7 +10,10 @@ class Class:
         return self.__init__(self.id, self.professor, self.writing_seminar, self.language)
 
     def __str__(self):
-        return f"(Class:{self.id}, Professor: {self.professor}, WritingSem: {self.writing_seminar}, Lang: {self.language})"
+        return "(Class: {}, " \
+            "Professor: {}, " \
+            "WritingSem: {}, " \
+            "Lang: {})".format(self.id, self.professor, self.writing_seminar, self.language)
 
 
 class TimeSlot:
@@ -22,7 +25,7 @@ class TimeSlot:
         self.conflicts = conflicts
 
     def __str__(self):
-        return f"(TimeSlot:{self.id} {self.days}:{self.start_time}-{self.end_time})"
+        return "(TimeSlot:{} {}:{}-{})".format(self.id, self.days, self.start_time, self.end_time)
 
 
 class Room:
@@ -31,7 +34,7 @@ class Room:
         self.capacity = capacity
 
     def __str__(self):
-        return f"(Room:{self.id}, capacity: {self.capacity})"
+        return "(Room:{}, capacity: {})".format(self.id, self.capacity)
 
 
 class Student:
@@ -40,7 +43,7 @@ class Student:
         self.preferences = preferences  # A list of class objects.
 
     def __str__(self):
-        return f"(Student:{self.id}, preferences: {self.preferences})"
+        return "(Student:{}, preferences: {})".format(self.id, self.preferences)
 
 
 class Professor:
@@ -49,4 +52,4 @@ class Professor:
         self.classes = classes
 
     def __str__(self):
-        return f"(Professor:{self.id}, classes: {self.classes})"
+        return "(Professor:{}, classes: {})".format(self.id, self.classes)

@@ -1,4 +1,9 @@
-from Algorithm.objects import *
+from var_loading import parse_args, load_variables_into_obj
+
+"""
+example run: python main.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0
+"""
+
 """
 For the matches datastructure, i assumed a dictionary keyed by classes, with values being another dictionary. 
 The inner dictionary is then keyed with the rooms, timeslot, professor and so on. 
@@ -181,6 +186,12 @@ def class_schedule(T,S,C,R,P):
 
 
 if __name__ == "__main__":
+    args = parse_args('Set up student dictionary')
+    # print(read_constraints(args.constraint_filename))
+    # print(read_preferences(args.pref_filename))
 
-    #define objects and run class scheduling
+    objs = load_variables_into_obj(args.pref_filename, args.constraint_filename)
+    for obj_type in objs:
+        print([str(o) for o in obj_type])
+
 

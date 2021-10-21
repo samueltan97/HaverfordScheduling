@@ -1,6 +1,6 @@
 import optparse
 import sys
-from Algorithm.objects import *
+from objects import *
 
 """
 Example runs from command line: 
