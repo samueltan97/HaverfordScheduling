@@ -6,12 +6,25 @@ class Class:
         self.writing_seminar = writing_seminar
         self.language = language
 
+    def copy(self):
+        return self.__init__(self.id, self.professor, self.writing_seminar, self.language)
+
 class TimeSlots:
     def __init__(self, id, days, start_time, end_time):
         self.id = id
         self.days = days
         self.start_time = start_time
         self.end_time = end_time
+
+class Room:
+    def __init__(self, id, capacity):
+        self.id = id
+        self.capacity = capacity
+
+class Student:
+    def __init__(self, id, preferences):
+        self.id = id
+        self.preferences = preferences # A list of class objects.
 
 
 def sortClasses(S,C):
