@@ -31,10 +31,8 @@ def sort_classes(S,C):
 
 
 def sort_class_times(T):
-    class_time_conflicts = {}
     T_sorted = sorted(T, key=lambda x: x.start_time, reverse=True)
     for t in T_sorted:
-        class_time_conflicts[t] = 0
         T_copy  = T_sorted
         T_copy.remove(t)
         for t_1 in T_copy:
