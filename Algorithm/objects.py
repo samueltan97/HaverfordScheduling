@@ -19,7 +19,7 @@ class TimeSlot:
         self.conflicts = conflicts
 
     def __str__(self):
-        return f"({self.id}) {self.days}:{self.start_time}-{self.end_time}"
+        return f"(TimeSlot:{self.id}) {self.days}:{self.start_time}-{self.end_time}"
 
 
 class Room:
@@ -27,14 +27,23 @@ class Room:
         self.id = id
         self.capacity = capacity
 
+    def __str__(self):
+        return f"(Room:{self.id}, capacity: {self.capacity}"
+
 
 class Student:
     def __init__(self, id, preferences):
         self.id = id
         self.preferences = preferences # A list of class objects.
 
+    def __str__(self):
+        return f"(Student:{self.id}, preferences: {self.preferences}"
+
 
 class Professor:
     def __init__(self, id, classes):
         self.id = id
         self.classes = classes
+
+    def __str__(self):
+        return f"(Professor:{self.id}, classes: {self.classes}"
