@@ -1,5 +1,4 @@
 from var_loading import parse_args, load_variables_into_obj
-
 """
 example run: python main.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0
 """
@@ -11,32 +10,37 @@ Ex.
     matches[class][room] gives me the room object matched with that class object. 
     matches[class][time] gives me the timeslot object matched with that class. 
 """
+
+
 class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
+    PINK = '\033[95m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+
 def matches_to_string(matches):
 
-    schedule_colors = bcolors.BOLD+bcolors.UNDERLINE+bcolors.HEADER
+    schedule_colors = bcolors.BOLD+bcolors.UNDERLINE+bcolors.PINK
     end_color = bcolors.ENDC
 
     full_string = ""
     for class_obj in matches:
         room_obj = matches[class_obj]['room']
         timeslot_obj = matches[class_obj]['timeslot']
+        students_list = [s.id for s in matches[class_obj]['students']]
 
-        class_str = bcolors.OKGREEN + str(class_obj) + end_color
-        room_str = bcolors.OKCYAN + str(room_obj) + end_color
-        timeslot_str = bcolors.OKBLUE + str(timeslot_obj) + end_color
+        class_str = bcolors.GREEN + str(class_obj) + end_color
+        room_str = bcolors.CYAN + str(room_obj) + end_color
+        timeslot_str = bcolors.BLUE + str(timeslot_obj) + end_color
+        students_str = bcolors.YELLOW + str(students_list) + end_color
 
-        result = "{} in {} at {}".format(class_str, room_str, timeslot_str)
+        result = "{} in {} at {} with students {}".format(class_str, room_str, timeslot_str, students_str)
         full_string += schedule_colors+"Scheduled:" + end_color + " " + result
         full_string += "\n"
     return full_string
@@ -150,7 +154,10 @@ def interval_scheduling(matches, preferences, C):
     for current_class_id in sorted_preferences:
         current_class = get_obj_by_id(C, current_class_id)
         current_time_slot = matches[current_class]["timeslot"]
-        if previous_class is not None:
+        if previous_class is None:
+            scheduled.append(current_class)
+            previous_class = current_class.copy()
+        else:
             previous_time_slot = matches[previous_class]["timeslot"]
 
             if not does_conflict(previous_time_slot, current_time_slot):
@@ -192,7 +199,7 @@ def enroll_students(matches, S, R, T, C):
                 score += 1
                 room_capacities[room][timeslot] -= 1
 
-    return score,matches
+    return score, matches
 
 
 def class_schedule(T,S,C,R,P):
@@ -235,6 +242,21 @@ def class_schedule(T,S,C,R,P):
     return score, matches
 
 
+def convert_matches_to_schedule_file(matches,schedule_file):
+    lines = ['Course\tRoom\tTeacher\tTime\tStudents']
+    f = open(schedule_file, 'w')
+    for key,value in matches.items():
+        line = []
+        line.append(str(key.id))
+        line.append(str(value['room'].id))
+        line.append(str(key.professor))
+        line.append(str(value['timeslot'].id))
+        line.append(' '.join([str(x.id) for x in value['students']]))
+        lines.append('\t'.join(line))
+    for x in lines:
+        f.write("{}\n".format(x))
+    f.close()
+
 if __name__ == "__main__":
     args = parse_args('Set up student dictionary')
     # print(read_constraints(args.constraint_filename))
@@ -242,6 +264,7 @@ if __name__ == "__main__":
 
     R, C, P, S, T = load_variables_into_obj(args.pref_filename, args.constraint_filename)
     score, matches = class_schedule(T, S, C, R, P)
+    file = convert_matches_to_schedule_file(matches, "schedule_file.txt")
     str_matches = matches_to_string(matches)
     print(str_matches)
 
