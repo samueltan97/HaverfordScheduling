@@ -34,7 +34,7 @@ class Student:
 For the matches datastructure, i assumed a dictionary keyed by classes, with values being another dictionary. 
 The inner dictionary is then keyed with the rooms, timeslot, professor and so on. 
 Ex.
-    matches[class][room] gives me the room object matched with that class ojbect. 
+    matches[class][room] gives me the room object matched with that class object. 
     matches[class][time] gives me the timeslot object matched with that class. 
 """
 
@@ -181,7 +181,7 @@ def classSchedule(T,S,C,R,P):
             elif profAvailability[p][t] == True:
                 for r in roomsForClasses[c]:
                     if roomAvailability[r][t] == True:
-                        matches[c] = (t,r,p)
+                        matches[c] = {"timeslot": t, "room": r}
                         roomAvailability[r][t] = False
                         profAvailability[r][t] = False
                         t.conflicts *= min(r.capacity, sortedClass[c])
@@ -193,4 +193,7 @@ def classSchedule(T,S,C,R,P):
     return score, matches
 
 
+if __name__ == "__main__":
+
+    #define objects and run class scheduling
 
