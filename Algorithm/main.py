@@ -91,7 +91,7 @@ def does_conflict(first_slot, second_slot):
     :return: Whether or not they conflict. (Assuming second slot starts after first slot.)
     """
 
-    if first_slot.start_time < second_slot.end_time:
+    if first_slot.end_time > second_slot.start_time:
         return True
     else:
         return False
@@ -111,15 +111,18 @@ def interval_scheduling(matches, preferences, C):
     for current_class_id in sorted_preferences:
         current_class = get_obj_by_id(C, current_class_id)
         current_time_slot = matches[current_class]["timeslot"]
+
         if previous_class is None:
             scheduled.append(current_class)
-            previous_class = current_class.copy()
+            previous_class = current_class
+
         else:
+
             previous_time_slot = matches[previous_class]["timeslot"]
 
             if not does_conflict(previous_time_slot, current_time_slot):
                 scheduled.append(current_class)
-                previous_class = current_class.copy()
+                previous_class = current_class
 
     return scheduled
 
@@ -142,8 +145,8 @@ def enroll_students(matches, S, R, T, C):
             room_capacities[room][timeslot] = room.capacity
 
     for student in S:
+
         enrolled_classes = interval_scheduling(matches, student.preferences, C)
-            
 
         for desired_class in enrolled_classes:  # Attempt to enroll student in each class from interval scheduling.
             room = matches[desired_class]["room"]
