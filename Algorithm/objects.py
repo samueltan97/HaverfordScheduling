@@ -9,6 +9,9 @@ class Class:
     def copy(self):
         return self.__init__(self.id, self.professor, self.writing_seminar, self.language)
 
+    def __str__(self):
+        return f"(Class:{self.id}, Professor: {self.professor}, WritingSem: {self.writing_seminar}, Lang: {self.language})"
+
 
 class TimeSlot:
     def __init__(self, id, days, start_time, end_time, conflicts = 0):
@@ -19,7 +22,7 @@ class TimeSlot:
         self.conflicts = conflicts
 
     def __str__(self):
-        return f"(TimeSlot:{self.id}) {self.days}:{self.start_time}-{self.end_time}"
+        return f"(TimeSlot:{self.id} {self.days}:{self.start_time}-{self.end_time})"
 
 
 class Room:
@@ -28,16 +31,16 @@ class Room:
         self.capacity = capacity
 
     def __str__(self):
-        return f"(Room:{self.id}, capacity: {self.capacity}"
+        return f"(Room:{self.id}, capacity: {self.capacity})"
 
 
 class Student:
     def __init__(self, id, preferences):
         self.id = id
-        self.preferences = preferences # A list of class objects.
+        self.preferences = preferences  # A list of class objects.
 
     def __str__(self):
-        return f"(Student:{self.id}, preferences: {self.preferences}"
+        return f"(Student:{self.id}, preferences: {self.preferences})"
 
 
 class Professor:
@@ -46,4 +49,4 @@ class Professor:
         self.classes = classes
 
     def __str__(self):
-        return f"(Professor:{self.id}, classes: {self.classes}"
+        return f"(Professor:{self.id}, classes: {self.classes})"
