@@ -1,8 +1,10 @@
 
 class Class:
-    def __init__(self, id, professor):
+    def __init__(self, id, professor, writing_seminar, language):
         self.id = id
-        self.professor = set([professor])
+        self.professor = professor
+        self.writing_seminar = writing_seminar
+        self.language = language
 
 
 def sortClasses(S,C):
@@ -19,11 +21,13 @@ def sortClasses(S,C):
     sorted_classInterestCount = sorted(classInterestCount.items(), key=lambda x: x[1], reverse=True)
     return sorted_classInterestCount
 
+#I think we should preprocess T such that it is a tuple
 def sortClassTimes(T):
     classTimeConflicts = {}
     sortedClassTimes = []
-
-
+    T.sort(key=lambda x: x[3])
+    for t in T:
+        classTimeConflicts[t[0]]
 
 def identifyRoomsForClass(R,C):
     sorted_Rooms = sorted(R.items(), key=lambda x: x[1], reverse=True)
