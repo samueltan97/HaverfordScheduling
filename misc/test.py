@@ -2,6 +2,8 @@ import optparse
 import sys
 import re
 from .var_loading import read_constraints, read_preferences
+import time
+
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
@@ -152,5 +154,11 @@ def test(schedule_filename, constraint_filename, pref_filename):
 
     print("Schedule is valid")
     print("Student preferences value:", student_preferences)
+    return student_preferences
 
-def evaluate_runtime()
+def evaluate_runtime(main):
+    start_time = time.time()
+    score = main()
+    runtime = time.time() - start_time
+    print("--- %s seconds ---" % runtime)
+    
