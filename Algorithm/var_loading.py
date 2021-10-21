@@ -5,7 +5,7 @@ from objects import *
 
 """
 Example runs from command line: 
-Win: python .\misc\var_loading.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0
+Win: python .\var_loading.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0
 Mac: python ./misc/var_loading.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0
 python misc/var_loading.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0
 

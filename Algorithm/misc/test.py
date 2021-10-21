@@ -1,7 +1,6 @@
 import optparse
 import sys
 import re
-from var_loading import read_constraints, read_preferences
 import time
 
 
@@ -69,8 +68,6 @@ def test(schedule_filename, constraint_filename, pref_filename):
     s_data = s_file.readlines()
     s_file.close()
     student_dict = dict()
-    header_pattern = re.compile("Course\tRoom\tTeacher\tTime\tStudents$")
-    content_line_pattern = re.compile()
     if re.match(r"Course\tRoom\tTeacher\tTime\tStudents", s_data[0]) is False:
         print("Header line has incorrect format.")
         sys.exit()
@@ -107,8 +104,7 @@ def test(schedule_filename, constraint_filename, pref_filename):
                         sys.exit()
 
                     course_room[course] = room
-
-                    if class_size > room_dict[room]:
+                    if class_size > int(room_dict[room]):
                         print("Room", room, "is too small to hold course", course, "with", class_size, "students.")
                         sys.exit()
                     
@@ -125,17 +121,18 @@ def test(schedule_filename, constraint_filename, pref_filename):
                     
                     course_time[course] = time
 
-                    if time_room.get(time).get(room) is not None:
+                    if time_room.get(time) is not None and time_room.get(time).get(room) is not None:
                         print("Multiple courses scheduled for time", time, "and room", room)
                         sys.exit()
                     else:
+                        time_room[time] = dict()
                         time_room[time][room] = course
                     
                     course_students[course] = students
 
                     for student in students:
                         if student_courses.get(student) is not None:
-                            for cour in student_courses:
+                            for cour in student_courses[student]:
                                 if course_time[cour] == time:
                                     print("Student", student, "assigned to time conflicting courses", cour, "and", course)
                                     sys.exit()
@@ -145,8 +142,8 @@ def test(schedule_filename, constraint_filename, pref_filename):
                         else:
                             temp = set([course])
                             student_courses[student] = temp
-                        
-                        if course not in student_dict[student]:
+
+                        if student_dict.get(student) is not None and course not in student_dict[student]:
                             print("student", student, "assigned to unrequested course", course)
                             sys.exit()
                     
@@ -181,3 +178,10 @@ def evaluate_runtime_and_performance(main, pref_file, constraint_file, schedule_
     convert_matches_to_schedule_file(matches, schedule_file)
     student_pref_score = test(schedule_file, constraint_file, pref_file)
     return student_pref_score, runtime
+
+if __name__ == "__main__":
+    args = parse_args('Set up student dictionary')
+    # print(read_constraints(args.constraint_filename))
+    # print(read_preferences(args.pref_filename))
+
+    print(test(args.schedule_filename, args.constraint_filename, args.pref_filename))
