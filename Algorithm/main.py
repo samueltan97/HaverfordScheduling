@@ -1,7 +1,8 @@
 
 class Class:
-    def __init__(self, id):
+    def __init__(self, id, professor):
         self.id = id
+        self.professor = professor
 
 
 def sortClasses(S,C):
@@ -29,4 +30,8 @@ def identifyRoomsForClass(R,C):
     return sorted_Rooms
 
 def setUpAvailabilty(input, sortedClassTimes):
-
+    availability = {}
+    for r in input:
+        isOpen = {}
+        for t in sortedClassTimes:
+            isOpen[t] = "True"
