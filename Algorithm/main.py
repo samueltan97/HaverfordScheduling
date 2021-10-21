@@ -11,6 +11,48 @@ Ex.
     matches[class][room] gives me the room object matched with that class object. 
     matches[class][time] gives me the timeslot object matched with that class. 
 """
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+def matches_to_string(matches):
+
+    schedule_colors = bcolors.BOLD+bcolors.UNDERLINE+bcolors.HEADER
+    end_color = bcolors.ENDC
+
+    full_string = ""
+    for class_obj in matches:
+        room_obj = matches[class_obj]['room']
+        timeslot_obj = matches[class_obj]['timeslot']
+
+        class_str = bcolors.OKGREEN + str(class_obj) + end_color
+        room_str = bcolors.OKCYAN + str(room_obj) + end_color
+        timeslot_str = bcolors.OKBLUE + str(timeslot_obj) + end_color
+
+        result = "{} in {} at {}".format(class_str, room_str, timeslot_str)
+        full_string += schedule_colors+"Scheduled:" + end_color + " " + result
+        full_string += "\n"
+    return full_string
+
+
+def get_obj_by_id(obj_list, id):
+    """
+    :param obj_list: List[Obj]
+    :param id: Int
+    :return: Obj -> Return the object with corresponding id.
+    """
+
+    for obj in obj_list:
+        if obj.id == id:
+            return obj
+    return None
 
 
 def sort_classes(S,C):
@@ -22,7 +64,7 @@ def sort_classes(S,C):
 
     class_interest_count = {}
     for s in S:
-        for p in S[s]:
+        for p in s.preferences:
             #  and p is not a first year seminar
             if p in class_interest_count.keys():
                 class_interest_count[p] = 1
@@ -30,7 +72,7 @@ def sort_classes(S,C):
                 #i  f p first year seminar, classInterestCount[p] = 0
                 class_interest_count[p] = 1
     #  sort by highest interest, descending order
-    sorted_class_interest_count = sorted(class_interest_count.items(), key=lambda x: x[1], reverse=True)
+    sorted_class_interest_count = sorted(C, key=lambda c: class_interest_count[c.id], reverse=True)
     return sorted_class_interest_count
 
 
@@ -55,11 +97,15 @@ def identify_rooms_for_class(R,C):
     """
     :param R: List[Room]
     :param C: List[Class]
-    :return: List[Class] -> rooms sorted by their capacity in reverse.
+    :return: Dict[Class : List[Rooms] -> the rooms that each class can occupy.
     """
-
+    rooms_for_classes = {}
     sorted_rooms = sorted(R, key=lambda r: r.capacity, reverse=True)
-    return sorted_rooms
+    for cur_class in C:
+        rooms_for_classes[cur_class] = sorted_rooms
+
+    return rooms_for_classes
+
 
 def set_up_availabilty(input, sorted_class_times):
     """
@@ -90,7 +136,7 @@ def does_conflict(first_slot, second_slot):
         return False
 
 
-def interval_scheduling(matches, preferences):
+def interval_scheduling(matches, preferences, C):
     """
     :param matches: Dict[Class : Dict[str : Obj]]
     :param preferences: List[Class] the classes that some student s wishes to take.
@@ -99,20 +145,22 @@ def interval_scheduling(matches, preferences):
     """
 
     scheduled = []
-    sorted_preferences = sorted(preferences, key=lambda class_name: matches[class_name]["time_slot"].end_time)
+    sorted_preferences = sorted(preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_time)
     previous_class = None
-    for current_class in sorted_preferences:
-        previous_time_slot = matches[previous_class]["time_slot"]
-        current_time_slot = matches[current_class]["time_slot"]
+    for current_class_id in sorted_preferences:
+        current_class = get_obj_by_id(C, current_class_id)
+        current_time_slot = matches[current_class]["timeslot"]
+        if previous_class is not None:
+            previous_time_slot = matches[previous_class]["timeslot"]
 
-        if not does_conflict(previous_time_slot, current_time_slot):
-            scheduled.append(current_class)
-            previous_class = current_class.copy()
+            if not does_conflict(previous_time_slot, current_time_slot):
+                scheduled.append(current_class)
+                previous_class = current_class.copy()
 
     return scheduled
 
 
-def enroll_students(matches, S, R, T):
+def enroll_students(matches, S, R, T, C):
     """
     :param matches: Dictionary of dictionaries containing rooms, timeslots, professors assigned to each class.
     :param S: List[Student]
@@ -130,7 +178,7 @@ def enroll_students(matches, S, R, T):
             room_capacities[room][timeslot] = room.capacity
 
     for student in S:
-        enrolled_classes = interval_scheduling(matches, student.preferences)
+        enrolled_classes = interval_scheduling(matches, student.preferences, C)
         for enrolled_class in enrolled_classes:
             if matches[enrolled_class].get("students") is None:
                 matches[enrolled_class]["students"] = [student]
@@ -160,13 +208,13 @@ def class_schedule(T,S,C,R,P):
     sorted_class = sort_classes(S,C)
     sorted_class_times = sort_class_times(T)
     rooms_for_classes = identify_rooms_for_class(R,C)
-    room_availability = set_up_availabilty(C, sorted_class_times)
+    room_availability = set_up_availabilty(R, sorted_class_times)
     prof_availability = set_up_availabilty(P, sorted_class_times)
-
     matches = {}
     for c in sorted_class:
-        #define professor
-        p = c.professor
+        #  define professor
+        p_id = c.professor
+        p = get_obj_by_id(P, p_id)
         for t in sorted_class_times:
             if c in matches.keys():
                 break
@@ -175,13 +223,15 @@ def class_schedule(T,S,C,R,P):
                     if room_availability[r][t] == True:
                         matches[c] = {"timeslot": t, "room": r}
                         room_availability[r][t] = False
-                        prof_availability[r][t] = False
-                        t.conflicts *= min(r.capacity, sorted_class[c])
-                        #time conflicts
+                        prof_availability[p][t] = False
+                        # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
+                        # t.conflicts *= min(r.capacity, sorted_class[c])
+                        t.conflicts *= r.capacity
+                        #  time conflicts
                         break
 
-        sorted_class_times = sorted(sorted_class_times, key=lambda x: x[1])
-    score, matches = enroll_students(matches, S, R, T)
+        sorted_class_times = sorted(sorted_class_times, key=lambda x: x.conflicts)
+    score, matches = enroll_students(matches, S, R, T, C)
     return score, matches
 
 
@@ -190,8 +240,9 @@ if __name__ == "__main__":
     # print(read_constraints(args.constraint_filename))
     # print(read_preferences(args.pref_filename))
 
-    objs = load_variables_into_obj(args.pref_filename, args.constraint_filename)
-    for obj_type in objs:
-        print([str(o) for o in obj_type])
+    R, C, P, S, T = load_variables_into_obj(args.pref_filename, args.constraint_filename)
+    score, matches = class_schedule(T, S, C, R, P)
+    str_matches = matches_to_string(matches)
+    print(str_matches)
 
 
