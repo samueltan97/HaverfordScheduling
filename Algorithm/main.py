@@ -106,7 +106,7 @@ def enroll_students(matches, S, R, T):
     :param S: List[Student]
     :param R: List[Room]
     :param T: List[TimeSlot]
-    :return: # of classes we were able to enroll students in.
+    :return: # of classes we were able to enroll students in and the updated matches dictionary that has the students enrolled in each class.
     """
     room_capacities = {}
     score = 0
@@ -118,6 +118,11 @@ def enroll_students(matches, S, R, T):
 
     for student in S:
         enrolled_classes = interval_scheduling(matches, student.preferences)
+        for enrolled_class in enrolled_classes:
+            if matches[enrolled_class].get("students") is None:
+                matches[enrolled_class]["students"] = [student]
+            else:
+                matches[enrolled_class]["students"].append(student)
 
         for desired_class in enrolled_classes:  # Attempt to enroll student in each class from interval scheduling.
             room = matches[desired_class]["room"]
@@ -125,7 +130,7 @@ def enroll_students(matches, S, R, T):
             if room_capacities[room][timeslot] > 0:  # There is still room in this class.
                 score += 1
                 room_capacities[room][timeslot] -= 1
-    return score
+    return score,matches
 
 
 def classSchedule(T,S,C,R,P):
@@ -153,7 +158,7 @@ def classSchedule(T,S,C,R,P):
                         break
 
         sortedClassTimes = sorted(sortedClassTimes, key=lambda x: x[1])
-    score = enroll_students(matches, S, R, T)
+    score,matches = enroll_students(matches, S, R, T)
     return score, matches
 
 

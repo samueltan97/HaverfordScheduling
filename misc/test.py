@@ -156,9 +156,28 @@ def test(schedule_filename, constraint_filename, pref_filename):
     print("Student preferences value:", student_preferences)
     return student_preferences
 
-def evaluate_runtime(main):
+def convert_matches_to_schedule_file(matches,schedule_file):
+    lines = ['Course\tRoom\tTeacher\tTime\tStudents']
+    f = open(schedule_file, 'w')
+    for key,value in matches.items():
+        line = []
+        line.append(str(key.id))
+        line.append(str(value['room'].id))
+        line.append(str(key.professor))
+        line.append(str(value['timeslot'].id))
+        line.append(' '.join([str(x.id) for x in value['students']]))
+        lines.append('\t'.join(line))
+    for x in lines:
+        f.write("{}\n".format(x))
+    f.close()
+    
+    
+
+def evaluate_runtime_and_performance(main, pref_file, constraint_file, schedule_file):
     start_time = time.time()
-    score = main()
+    score, matches = main(pref_file, constraint_file)
     runtime = time.time() - start_time
     print("--- %s seconds ---" % runtime)
-    
+    convert_matches_to_schedule_file(matches, schedule_file)
+    student_pref_score = test(schedule_file, constraint_file, pref_file)
+    return student_pref_score, runtime
