@@ -27,7 +27,7 @@ def parse_args(description):
                       help="tells program to run all tests. ")
     parser.add_option("-d", "--debug",
                       action="store_true",
-                      help="Tells the program how much to print")
+                      help="Tells the program how much to print. ")
 
     mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
     (opts, args) = parser.parse_args()
@@ -177,6 +177,7 @@ def test(schedule_filename, constraint_filename, pref_filename, debug=False):
         print("Student preferences value:", student_preferences)
     return student_preferences
 
+
 def convert_matches_to_schedule_file(matches,schedule_file):
     lines = ['Course\tRoom\tTeacher\tTime\tStudents']
     f = open(schedule_file, 'w')
@@ -209,6 +210,13 @@ def evaluate_runtime_and_performance(class_schedule_function, pref_file, constra
 
 
 def run_all_test_cases_in_test_folder(folder_name, offset=0, debug=False):
+    """
+    :param folder_name: str -> folder_name containing test
+    :param offset: int -> used when running on multiple folders to allow merging of results.
+    :param debug: Bool -> whether or not to print
+    :return: Dict[int, Tuple[int, int]] -> ditionary keyed by file index of run result.
+    """
+
     iteration_count = int(folder_name.split('r')[0].split('k')[1])
     results_dict = dict()
     for i in range(iteration_count):
@@ -221,6 +229,11 @@ def run_all_test_cases_in_test_folder(folder_name, offset=0, debug=False):
 
 
 def run_all_tests(debug=False):
+    """
+    :param debug: Bool -> whether or not to print.
+    :return: Dict[int, Tuple[int, int]] Merged dictionary of test runs.
+    """
+
     test_dir = os.path.join("misc", "test_cases")
     indiv_test_folders = os.listdir(test_dir)
     offset = 0
