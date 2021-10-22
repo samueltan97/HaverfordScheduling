@@ -22,11 +22,18 @@ def parse_args(description):
                       help="input file with proposed schedule")
     parser.add_option("-f", "--folder_name", type="string", \
                       help="input name of folder that contains all instances of a certain test case")
+    parser.add_option("-a", "--all_tests",
+                      action="store_true",
+                      help="tells program to run all tests. ")
 
     mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
     (opts, args) = parser.parse_args()
+
     if opts.folder_name is not None:  # Make the pref, constraint files only necessary if folder not given.
-        mandatories = ["schedule_filename", "folder_name"]
+        mandatories = ["folder_name"]
+
+    if opts.all_tests:
+        mandatories = []
 
     for m in mandatories:
         if not opts.__dict__[m]:
@@ -193,6 +200,7 @@ def evaluate_runtime_and_performance(class_schedule_function, pref_file, constra
     student_pref_score = test(schedule_file, constraint_file, pref_file)
     return student_pref_score, runtime
 
+
 def run_all_test_cases_in_test_folder(folder_name):
     iteration_count = int(folder_name.split('r')[0].split('k')[1])
     results_dict = dict()
@@ -204,6 +212,17 @@ def run_all_test_cases_in_test_folder(folder_name):
         results_dict[i] = (student_pref_score, runtime)
     return results_dict
 
+
+def run_all_tests():
+    test_dir = os.path.join("misc", "test_cases")
+    indiv_test_folders = os.listdir(test_dir)
+    for test_folder in indiv_test_folders:
+        full_path = os.path.join(test_dir, test_folder)
+        print("*", full_path)
+        results = run_all_test_cases_in_test_folder(full_path)
+
+
+
 if __name__ == "__main__":
     args = parse_args('Set up student dictionary')
     # print(read_constraints(args.constraint_filename))
@@ -211,4 +230,8 @@ if __name__ == "__main__":
 
     # print(test(args.schedule_filename, args.constraint_filename, args.pref_filename))
     # print(evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename))
-    print(run_all_test_cases_in_test_folder(args.folder_name))
+    #print(run_all_test_cases_in_test_folder(args.folder_name))
+    if args.all_tests:
+        print(run_all_tests())
+    else:
+        print(run_all_test_cases_in_test_folder(args.folder_name))
