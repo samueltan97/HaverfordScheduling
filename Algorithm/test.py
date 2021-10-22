@@ -8,7 +8,9 @@ from var_loading import load_variables_into_obj
 """
 Example runs from command line:
 WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\""
+MAC: 
 """
+
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
@@ -23,6 +25,9 @@ def parse_args(description):
 
     mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
     (opts, args) = parser.parse_args()
+    if opts.folder_name is not None:  # Make the pref, constraint files only necessary if folder not given.
+        mandatories = ["schedule_filename", "folder_name"]
+
     for m in mandatories:
         if not opts.__dict__[m]:
             parser.print_help()
