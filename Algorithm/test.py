@@ -25,6 +25,9 @@ def parse_args(description):
     parser.add_option("-a", "--all_tests",
                       action="store_true",
                       help="tells program to run all tests. ")
+    parser.add_option("-d", "--debug",
+                      action="store_true",
+                      help="Tells the program how much to print")
 
     mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
     (opts, args) = parser.parse_args()
@@ -80,7 +83,7 @@ def read_constraints(constraint_filename):
     return num_rooms, num_classes, num_class_times, num_teachers, room_dict, class_dict, teacher_dict
 
 
-def test(schedule_filename, constraint_filename, pref_filename):
+def test(schedule_filename, constraint_filename, pref_filename, debug=False):
     num_students, student_dict = read_preferences(pref_filename)
     num_rooms, num_classes, num_class_times, num_teachers, room_dict, class_dict, teacher_dict = read_constraints(constraint_filename)
     
@@ -169,8 +172,9 @@ def test(schedule_filename, constraint_filename, pref_filename):
                     
                         student_preferences += 1
 
-    print("Schedule is valid")
-    print("Student preferences value:", student_preferences)
+    if debug:
+        print("Schedule is valid")
+        print("Student preferences value:", student_preferences)
     return student_preferences
 
 def convert_matches_to_schedule_file(matches,schedule_file):
@@ -182,45 +186,52 @@ def convert_matches_to_schedule_file(matches,schedule_file):
         line.append(str(value['room'].id))
         line.append(str(key.professor))
         line.append(str(value['timeslot'].id))
-        line.append(' '.join([str(x.id) for x in value['students']]))
+        if "students" in value:  # If we have students in the class
+            line.append(' '.join([str(x.id) for x in value['students']]))
         lines.append('\t'.join(line))
     for x in lines:
         f.write("{}\n".format(x))
     f.close()
-    
-    
 
-def evaluate_runtime_and_performance(class_schedule_function, pref_file, constraint_file, schedule_file):
+
+def evaluate_runtime_and_performance(class_schedule_function, pref_file, constraint_file, schedule_file, debug=False):
     R, C, P, S, T = load_variables_into_obj(pref_file, constraint_file)
     start_time = time.time()
     score, matches = class_schedule_function(T, S, C, R, P)
     runtime = time.time() - start_time
-    print("--- %s seconds ---" % runtime)
+
+    if debug:
+        print("--- %s seconds ---" % runtime)
+
     convert_matches_to_schedule_file(matches, schedule_file)
-    student_pref_score = test(schedule_file, constraint_file, pref_file)
+    student_pref_score = test(schedule_file, constraint_file, pref_file, debug)
     return student_pref_score, runtime
 
 
-def run_all_test_cases_in_test_folder(folder_name):
+def run_all_test_cases_in_test_folder(folder_name, offset=0, debug=False):
     iteration_count = int(folder_name.split('r')[0].split('k')[1])
     results_dict = dict()
     for i in range(iteration_count):
         pref_filename = os.path.join(folder_name, "prefs_" + str(i))
         constraint_filename = os.path.join(folder_name, "constraints_" + str(i))
         schedule_filename = os.path.join(folder_name, "schedule_" + str(i))
-        student_pref_score, runtime = evaluate_runtime_and_performance(class_schedule, pref_filename, constraint_filename, schedule_filename)
-        results_dict[i] = (student_pref_score, runtime)
+        student_pref_score, runtime = evaluate_runtime_and_performance(class_schedule, pref_filename, constraint_filename, schedule_filename, debug)
+        results_dict[i+offset] = (student_pref_score, runtime)
     return results_dict
 
 
-def run_all_tests():
+def run_all_tests(debug=False):
     test_dir = os.path.join("misc", "test_cases")
     indiv_test_folders = os.listdir(test_dir)
+    offset = 0
+    all_items = []
     for test_folder in indiv_test_folders:
         full_path = os.path.join(test_dir, test_folder)
-        print("*", full_path)
-        results = run_all_test_cases_in_test_folder(full_path)
-
+        results = run_all_test_cases_in_test_folder(full_path, offset, debug)
+        offset += len(results)
+        all_items += results.items()
+    full_dict = dict(all_items)
+    return full_dict
 
 
 if __name__ == "__main__":
@@ -232,6 +243,6 @@ if __name__ == "__main__":
     # print(evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename))
     #print(run_all_test_cases_in_test_folder(args.folder_name))
     if args.all_tests:
-        print(run_all_tests())
+        print(run_all_tests(args.debug))
     else:
-        print(run_all_test_cases_in_test_folder(args.folder_name))
+        print(run_all_test_cases_in_test_folder(args.folder_name, args.debug))
