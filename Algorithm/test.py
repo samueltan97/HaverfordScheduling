@@ -3,11 +3,12 @@ import sys
 import os
 import re
 import time
+import pathlib
 from main import class_schedule
 from var_loading import load_variables_into_obj
 """
 Example runs from command line:
-WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\""
+WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\ -a
 MAC: 
 """
 
@@ -237,13 +238,16 @@ def run_all_tests(debug=False):
     test_dir = os.path.join("misc", "test_cases")
     indiv_test_folders = os.listdir(test_dir)
     offset = 0
-    all_items = []
+    full_dict = dict()
+    # all_items = []
     for test_folder in indiv_test_folders:
         full_path = os.path.join(test_dir, test_folder)
+        test_case = pathlib.PurePath(full_path).name
         results = run_all_test_cases_in_test_folder(full_path, offset, debug)
-        offset += len(results)
-        all_items += results.items()
-    full_dict = dict(all_items)
+        full_dict[test_case] = results
+        # offset += len(results)
+        # all_items += results.items()
+    # full_dict = dict(all_items)
     return full_dict
 
 
