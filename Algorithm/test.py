@@ -4,7 +4,7 @@ import os
 import re
 import time
 import pathlib
-import math
+import statistics
 from main import class_schedule
 from var_loading import load_variables_into_obj
 """
@@ -245,8 +245,8 @@ def run_all_tests(debug=False):
         full_path = os.path.join(test_dir, test_folder)
         test_case = pathlib.PurePath(full_path).name
         results = run_all_test_cases_in_test_folder(full_path, offset, debug)
-        averaged_student_pref_score = math.mean([y[0] for x,y in results.items()])
-        averaged_runtime = math.mean([y[1] for x,y in results.items()])
+        averaged_student_pref_score = statistics.mean([y[0] for x,y in results.items()])
+        averaged_runtime = statistics.mean([y[1] for x,y in results.items()])
         full_dict[test_case] = (averaged_student_pref_score, averaged_runtime)
         # offset += len(results)
         # all_items += results.items()

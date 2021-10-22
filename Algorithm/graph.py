@@ -1,6 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import optparse
+import sys
 from test import run_all_test_cases_in_test_folder, run_all_tests
+
+"""
+Example code to run:
+
+WINDOWS: python .\graph.py -a
+"""
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
@@ -56,5 +64,5 @@ if __name__ == "__main__":
     #print(run_all_test_cases_in_test_folder(args.folder_name))
     if args.all_tests:
         results = run_all_tests(args.debug)
-    
+        print(results)
     
