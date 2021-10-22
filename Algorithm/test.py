@@ -241,7 +241,17 @@ def run_all_tests(debug=False):
     offset = 0
     full_dict = dict()
     # all_items = []
+    # indiv_test_folders.remove("k10r40c90t8s150")
+    # indiv_test_folders.remove("k10r40c70t8s150")
+    # indiv_test_folders.remove("k10r40c100t8s150")
+    # indiv_test_folders.remove("k10r40c40t6s50")
+    # indiv_test_folders.remove("k10r40c120t8s150")
+    # indiv_test_folders.remove("k10r40c110t8s150")
+    # indiv_test_folders.remove("k10r40c130t8s150")
+    indiv_test_folders = sorted(indiv_test_folders)
+
     for test_folder in indiv_test_folders:
+        #print(test_folder)
         full_path = os.path.join(test_dir, test_folder)
         test_case = pathlib.PurePath(full_path).name
         results = run_all_test_cases_in_test_folder(full_path, offset, debug)

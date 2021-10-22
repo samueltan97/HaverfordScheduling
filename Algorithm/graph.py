@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib as mlp
+mlp.use('tkagg')
 import matplotlib.pyplot as plt
 import optparse
 import sys
@@ -8,6 +10,7 @@ from test import run_all_test_cases_in_test_folder, run_all_tests
 Example code to run:
 
 WINDOWS: python .\graph.py -a
+MAC: python3 graph.py -a
 """
 
 def parse_args(description):
@@ -42,16 +45,18 @@ def parse_args(description):
             sys.exit()
     return opts
 
-def create_graph(runtime, indp_var):
+def create_graph(runtime, indp_var, indp_var_name):
     degree = 4
-    coeffs = np.polyfit(indp_var,runtime, degree)
-    p = np.poly1d(coeffs)
+    #coeffs = np.polyfit(indp_var,runtime, degree)
+    #p = np.poly1d(coeffs)
     plt.plot(indp_var, runtime, 'or')
-    plt.plot(indp_var, [p(n) for n in indp_var], '-b')
-
-    plt.xlabel(indp_var)
+    #plt.plot(indp_var, [p(n) for n in indp_var], '-b')
+    plt.xlabel(indp_var_name)
     plt.ylabel("Runtime (seconds)")
-
+    plt.title("Runtime dependent on " + indp_var_name)
+    plt.ylim(bottom=0)
+    plt.xlim(xmin=0)
+    plt.savefig(indp_var_name)
     plt.show()
 
 if __name__ == "__main__":
@@ -64,5 +69,36 @@ if __name__ == "__main__":
     #print(run_all_test_cases_in_test_folder(args.folder_name))
     if args.all_tests:
         results = run_all_tests(args.debug)
+        room_sizes = [200,180,160,140,120,100,80,60,40,20]
+        no_timeslots = [3,4,5,6,7,9,10]
+        no_students = [50,75,100,125,150,175,200,225,250,275]
+        no_classrooms = [50,60,70,80,90,100,110,120,130]
+        runtimes_R = []
+        runtimes_T = []
+        runtimes_S = []
+        runtimes_C = []
         print(results)
+        R = ["k10r200c42t8s150", "k10r180c42t8s150","k10r160c42t8s150","k10r140c42t8s150","k10r120c42t8s150","k10r100c42t8s150","k10r80c42t8s150","k10r60c42t8s150", "k10r40c42t8s150",
+             "k10r20c42t8s150"]
+        T = ["k10r40c40t3s150","k10r40c40t4s150","k10r40c40t5s150","k10r40c40t6s150","k10r40c40t7s150","k10r40c40t9s150","k10r40c40t10s150"]
+        S = ["k10r40c40t6s50","k10r40c40t6s75","k10r40c40t6s100","k10r40c40t6s125","k10r40c40t6s150","k10r40c40t6s175","k10r40c40t6s200","k10r40c40t6s225","k10r40c40t6s250","k10r40c40t6s275"]
+        C = ["k10r40c50t8s150","k10r40c60t8s150","k10r40c70t8s150","k10r40c80t8s150","k10r40c90t8s150","k10r40c100t8s150","k10r40c110t8s150","k10r40c120t8s150","k10r40c130t8s150"]
+        for i in R:
+            print(i)
+            runtimes_R.append(results[i][1])
+        for i in T:
+            print(i)
+            runtimes_T.append(results[i][1])
+        for i in S:
+            print(i)
+            runtimes_S.append(results[i][1])
+        for i in C:
+            print(i)
+            runtimes_C.append(results[i][1])
+
+        create_graph(runtimes_R, room_sizes, "Rooms")
+        create_graph(runtimes_T, no_timeslots, "Timeslots")
+        create_graph(runtimes_S, no_students, "Students")
+        create_graph(runtimes_C, no_classrooms, "Classrooms")
+        #print(results)
     

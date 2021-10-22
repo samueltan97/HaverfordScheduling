@@ -23,7 +23,8 @@ def sort_classes(S,C):
     :return: List[Class] -> C sorted by total interest.
     """
 
-    class_interest_count = {}
+    class_interest_count = {k.id:0for k in C}
+    #print(class_interest_count)
     for s in S:
         for p in s.preferences:
             #  and p is not a first year seminar
@@ -33,6 +34,8 @@ def sort_classes(S,C):
                 #i  f p first year seminar, classInterestCount[p] = 0
                 class_interest_count[p] = 1
     #  sort by highest interest, descending order
+    # print([str(c) for c in C])
+    # print(class_interest_count)
     sorted_class_interest_count = sorted(C, key=lambda c: class_interest_count[c.id], reverse=True)
     return sorted_class_interest_count
 
