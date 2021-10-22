@@ -45,18 +45,18 @@ def parse_args(description):
             sys.exit()
     return opts
 
-def create_graph(runtime, indp_var, indp_var_name):
+def create_graph(runtime, indp_var, indp_var_name, filename):
     degree = 4
     #coeffs = np.polyfit(indp_var,runtime, degree)
     #p = np.poly1d(coeffs)
     plt.plot(indp_var, runtime, 'or')
     #plt.plot(indp_var, [p(n) for n in indp_var], '-b')
     plt.xlabel(indp_var_name)
-    plt.ylabel("Runtime (seconds)")
-    plt.title("Runtime dependent on " + indp_var_name)
+    plt.ylabel(filename)
+    plt.title(filename + " dependent on " + indp_var_name)
     plt.ylim(bottom=0)
     plt.xlim(xmin=0)
-    plt.savefig(indp_var_name)
+    plt.savefig(filename)
     plt.show()
 
 if __name__ == "__main__":
@@ -77,6 +77,10 @@ if __name__ == "__main__":
         runtimes_T = []
         runtimes_S = []
         runtimes_C = []
+        scores_R = []
+        scores_T = []
+        scores_S = []
+        scores_C = []
         print(results)
         R = ["k10r200c42t8s150", "k10r180c42t8s150","k10r160c42t8s150","k10r140c42t8s150","k10r120c42t8s150","k10r100c42t8s150","k10r80c42t8s150","k10r60c42t8s150", "k10r40c42t8s150",
              "k10r20c42t8s150"]
@@ -86,19 +90,30 @@ if __name__ == "__main__":
         for i in R:
             print(i)
             runtimes_R.append(results[i][1])
+            scores_R.append(results[i][0])
         for i in T:
             print(i)
             runtimes_T.append(results[i][1])
+            scores_T.append(results[i][0])
+
         for i in S:
             print(i)
             runtimes_S.append(results[i][1])
+            scores_S.append(results[i][0])
+
         for i in C:
             print(i)
             runtimes_C.append(results[i][1])
+            scores_C.append(results[i][0])
 
-        create_graph(runtimes_R, room_sizes, "Rooms")
-        create_graph(runtimes_T, no_timeslots, "Timeslots")
-        create_graph(runtimes_S, no_students, "Students")
-        create_graph(runtimes_C, no_classrooms, "Classrooms")
+
+        create_graph(runtimes_R, room_sizes, "Rooms", 'runtime_rooms')
+        create_graph(runtimes_T, no_timeslots, "Timeslots", 'runtime_timeslots')
+        create_graph(runtimes_S, no_students, "Students", 'runtime_students')
+        create_graph(runtimes_C, no_classrooms, "Classrooms", 'runtime_classrooms')
+        create_graph(scores_R, room_sizes, "Rooms", 'scores_rooms')
+        create_graph(scores_T, no_timeslots, "Timeslots", 'scores_timeslots')
+        create_graph(scores_S, no_students, "Students", 'scores_students')
+        create_graph(scores_C, no_classrooms, "Classrooms", 'scores_classrooms')
         #print(results)
     

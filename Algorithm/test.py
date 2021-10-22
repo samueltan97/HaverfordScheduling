@@ -220,13 +220,14 @@ def run_all_test_cases_in_test_folder(folder_name, offset=0, debug=False):
     """
 
     iteration_count = int(folder_name.split('r')[0].split('k')[1])
+    num_students = int(folder_name.split('s')[-1])
     results_dict = dict()
     for i in range(iteration_count):
         pref_filename = os.path.join(folder_name, "prefs_" + str(i))
         constraint_filename = os.path.join(folder_name, "constraints_" + str(i))
         schedule_filename = os.path.join(folder_name, "schedule_" + str(i))
         student_pref_score, runtime = evaluate_runtime_and_performance(class_schedule, pref_filename, constraint_filename, schedule_filename, debug)
-        results_dict[i+offset] = (student_pref_score, runtime)
+        results_dict[i+offset] = (student_pref_score/num_students, runtime)
     return results_dict
 
 
