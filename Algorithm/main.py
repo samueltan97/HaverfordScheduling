@@ -208,7 +208,8 @@ def class_schedule(T,S,C,R,P):
 
 if __name__ == "__main__":
     """
-    example run: python main.py -p ./misc/k10r4c14t4s50/prefs_0 -c ./misc/k10r4c14t4s50/constraints_0
+    example run: python main.py -p /misc/test_cases/k10r4c14t4s50/prefs_0 -c /misc/test_cases/k10r4c14t4s50/constraints_0
+    python main.py -p misc/test_cases/k10r20c42t8s150/prefs_0 -c misc/test_cases/k10r20c42t8s150/constraints_0
     """
 
     args = parse_args('Set up student dictionary')
