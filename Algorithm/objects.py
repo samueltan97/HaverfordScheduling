@@ -30,19 +30,28 @@ class Class:
 
 
 class TimeSlot:
-    def __init__(self, id, days, start_time, end_time, conflicts=0):
+    def __init__(self, id, days, start_times, end_times, conflicts=0):
 
         """
         :param id: Int
-        :param days: List[str]
-        :param start_time: int
-        :param end_time: int
+        :param days: List[str] days
+        :param start_times: List[List[int]] start times per day
+        :param end_times: List[List[int]] end times per day
         :param conflicts: int -> counter used to sort timeslots by # of conflicts.
+
+        for start_time and end_time are list of lists in case multiple slots per day.
+        Len(days) = len(start_time) = len(end_time)
         """
+
+        if len(days) != len(start_times) != len(end_times):
+            print("Invalid input to Timeslot: days, start_time, \
+            and end_time must be same length: (days, start_time, end_time)", days, start_times, end_times)
+            raise ValueError
+
         self.id = id
         self.days = days  # List of days where the class happens.
-        self.start_time = start_time
-        self.end_time = end_time
+        self.start_times = start_times
+        self.end_times = end_times
         self.conflicts = conflicts
 
     def __str__(self):
