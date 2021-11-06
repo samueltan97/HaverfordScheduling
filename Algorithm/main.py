@@ -93,8 +93,9 @@ def does_conflict(first_slot, second_slot):
     :param second_slot: Timeslot Object
     :return: Whether or not they conflict. (Assuming second slot starts after first slot.)
     """
+    overlapping_days = list(set(first_slot.days) & set(second_slot.days))
 
-    if first_slot.end_time > second_slot.start_time:
+    if overlapping_days != [] and first_slot.end_time > second_slot.start_time:
         return True
     else:
         return False
