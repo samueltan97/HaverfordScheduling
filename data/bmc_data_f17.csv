@@ -1,0 +1,509 @@
+﻿Class Nbr,Subject,Catalog,Section,Descr,Crse Topic,Name,Name,Name,Name,Name,Class Cap,Enrl Stat,Start Date,End Date,Tot Enrl,Class Stat,Days 1,Srt1 AM/PM,End 1 AMPM,Building 1,Room 1,Exam type,Facil ID 1,Room Capacity
+1617,ENGL,B320,001,Black Feminist Literature,,"Sullivan,Mecca Jamilah",,,,,19,Closed,9/5/17,12/22/17,19,A,TTH, 2:25 PM, 3:45 PM,DAL,119,NOEXAM,DAL119,42
+1730,ARAB,B003,001,2nd Yr Mod Standard Arabic,,"Darwish,Manar","Perry,Farnaz Farokh",,,,15,Open,9/5/17,12/22/17,9,A,MWF,12:10 PM, 1:00 PM,DAL,006,TUESAM,DAL6,16
+1731,MATH,B303,001,Abstract Algebra I,,"Cheng,Leslie C.",,,,,22,Closed,9/5/17,12/22/17,23,A,TTH, 8:25 AM, 9:45 AM,PK,336,TAKEHOME,PK336,30
+1732,MATH,B303,002,Abstract Algebra I,,"Melvin,Paul",,,,,22,Closed,9/5/17,12/22/17,22,A,TTH, 2:25 PM, 3:45 PM,PK,336,TAKEHOME,PK336,30
+1733,PSYC,B327,001,Adolescent Development,,"Albert,William Dustin",,,,,14,Open,9/5/17,12/22/17,8,A,F, 9:10 AM,12:00 PM,BYC,239,PAPER,BYC239,12
+1734,PSYC,B353,001,Adv Topic in Clinical Psych,Mindfulness,"Schulz,Marc S.",,,,,16,Open,9/5/17,12/22/17,14,A,TTH,12:55 PM, 2:15 PM,BYC,239,NOEXAM,BYC239,12
+1735,CITY,B345,001,Adv Topics Environ & Society,Sustainable Cities,"Raddatz,Liv",,,,,15,Closed,9/5/17,12/22/17,15,A,F,12:10 PM, 2:00 PM,DAL,212A,PAPER,DAL212A,18
+1736,GERM,B321,001,Adv Topics German Cultural St,German Encounters/East Asia,"Shen,Qinna",,,,,0,Open,9/5/17,12/22/17,8,A,TH, 1:10 PM, 3:00 PM,CH,111,PAPER,CH111,30
+1737,CHEM,B345,001,Advanced Biological Chemistry,,"Kung,Yan",,,,,15,Open,9/5/17,12/22/17,9,A,TTH, 9:55 AM,11:15 AM,PK,264,SELF,PK264,15
+1740,PHYS,B308,001,Advanced Classical Mechanics,,"Bahreyni,Newshaw","Cheng,Xuemei",,,,0,Open,9/5/17,12/22/17,17,A,TTH, 9:55 AM,11:15 AM,PK,337,SELF,PK337,20
+1741,CHEM,B311,001,Advanced Organic Chemistry,,"Malachowski,William P",,,,,15,Closed,9/5/17,12/22/17,16,A,TTH,11:25 AM,12:45 PM,PK,264,TUESAM,PK264,15
+1743,ARTT,B353,001,Advanced Performance Ensemble,,"Kim,Seonjae","Lord,Mark Evans",,,,16,Open,9/5/17,12/22/17,6,A,, 0:00 AM, 0:00 AM,GO,COM,NORESPON,GOCOM,35
+1744,RUSS,B201,001,Advanced Russian,,"Walsh,Irina K.",,,,,15,Open,9/5/17,12/22/17,2,A,MWF,10:10 AM,11:00 AM,DAL,212A,SELF,DAL212A,18
+1745,CMSC,B340,001,Analysis of Algorithms,,"Xu,Yilun",,,,,18,Closed,9/5/17,12/22/17,18,A,TTH,11:25 AM,12:45 PM,PK,337,SELF,PK337,20
+1746,EALC,B355,001,Animals Vegetables Minerals,,"Roses,Shiamin Kwa",,,,,15,Open,9/5/17,12/22/17,4,A,T,12:10 PM, 2:00 PM,CH,118,PAPER,CH118,12
+1747,SPAN,B110,001,Análisis cultural y gramática,,"Song,H. Rosi",,,,,18,Closed,9/5/17,12/22/17,18,A,MW, 1:10 PM, 2:30 PM,CH,111,PAPER,CH111,30
+1750,SPAN,B260,001,Ariel/Calibán y el discurso,,"Sacerio-Gari,Enrique",,,,,0,Open,9/5/17,12/22/17,3,A,TTH, 9:55 AM,11:15 AM,CH,102,PAPER,CH102,14
+1751,ARTA,B251,001,Arts Teaching,,"Cantor,Madeline R.",,,,,12,Open,9/5/17,12/22/17,7,A,M, 7:10 PM,10:00 PM,GO,B,PROJECT,GOB,20
+1752,ARTD,B331,001,Ballet: Advanced Technique,,"D'Angelo,Denise S",,,,,20,Open,9/5/17,12/22/17,14,A,MW, 7:10 PM, 9:00 PM,PE,STUD,NOEXAM,PEMSTD,50
+1753,ARTD,B231,001,Ballet: Intermediate Technique,,"Mintzer,Linda K.",,,,,20,Open,9/5/17,12/22/17,8,A,TTH,12:55 PM, 2:15 PM,PE,STUD,NOEXAM,PEMSTD,50
+1754,SPAN,B001,001,Beginning Spanish I,,"Bishop,Stephen Lawrence",,,,,18,Closed,9/5/17,12/22/17,19,A,MWF, 8:10 AM, 9:00 AM,CH,104,MONAM,CH104,30
+1755,SPAN,B001,002,Beginning Spanish I,,"Bishop,Stephen Lawrence",,,,,18,Closed,9/5/17,12/22/17,22,A,MWF, 9:10 AM,10:00 AM,CH,116,MONAM,CH116,25
+1756,SPAN,B001,003,Beginning Spanish I,,"Arribas,Ines Monique",,,,,18,Closed,9/5/17,12/22/17,19,A,MWF, 9:10 AM,10:00 AM,CH,104,MONPM,CH104,30
+1757,SPAN,B001,004,Beginning Spanish I,,"Berard,Kaylea Blaise",,,,,18,Open,9/5/17,12/22/17,17,A,MWF,10:10 AM,11:00 AM,TAY,F,MONPM,TAYF,50
+1758,SPAN,B002,001,Beginning Spanish II,,"Berard,Kaylea Blaise",,,,,18,Open,9/5/17,12/22/17,9,A,MWF, 8:10 AM, 9:00 AM,TAY,F,MONAM,TAYF,50
+1759,SPAN,B002,002,Beginning Spanish II,,"Berard,Kaylea Blaise",,,,,18,Open,9/5/17,12/22/17,17,A,MWF, 9:10 AM,10:00 AM,TAY,E,MONAM,TAYE,35
+1760,ANTH,B274,001,Bioarchaeology,,"VanSickle,Caroline Marie",,,,,25,Open,9/5/17,12/22/17,19,A,F, 1:10 PM, 3:30 PM,DAL,315,NOEXAM,DAL315,30
+1761,CHEM,B242,001,Biological Chemistry,,"Kung,Yan",,,,,20,Open,9/5/17,12/22/17,18,A,MW,10:10 AM,11:30 AM,PK,264,SELF,PK264,15
+1762,BIOL,B110,001,Biological Exploration I,Biology of Cancer,"Greif,Karen F.",,,,,55,Open,9/5/17,12/22/17,46,A,MWF, 9:10 AM,10:00 AM,DAL,300,SELF,DAL300,72
+1763,BIOL,B110,002,Biological Exploration I,From Genotype to Phenotype,"Davis,Tamara L.",,,,,55,Open,9/5/17,12/22/17,46,A,MWF,11:10 AM,12:00 PM,PK,180,SELF,PK180,70
+1764,BIOL,B110,00A,Biological Exploration I,,"Skirkanich,Jennifer Nicole",,,,,26,Open,9/5/17,12/22/17,22,A,M, 1:10 PM, 2:00 PM,PK,020,,PK20,30
+1765,BIOL,B110,00B,Biological Exploration I,,"Skirkanich,Jennifer Nicole",,,,,26,Open,9/5/17,12/22/17,21,A,T, 1:40 PM, 2:30 PM,PK,020,,PK20,30
+1766,BIOL,B110,00C,Biological Exploration I,,"Skirkanich,Jennifer Nicole",,,,,26,Open,9/5/17,12/22/17,16,A,W, 1:10 PM, 2:00 PM,PK,020,,PK20,30
+1767,BIOL,B110,00D,Biological Exploration I,,"Skirkanich,Jennifer Nicole",,,,,26,Open,9/5/17,12/22/17,19,A,F, 1:10 PM, 2:00 PM,PK,020,,PK20,30
+1769,SOCL,B342,001,Bodies in Social Life,,"Coutinho-Sledge,Piper Elizabeth",,,,,15,Closed,9/5/17,12/22/17,18,A,W, 1:10 PM, 3:00 PM,BYC,127,NOEXAM,BYC127,30
+1770,HIST,B257,001,British Empire I: Capitalism,,"Kale,Madhavi",,,,,0,Open,9/5/17,12/22/17,12,A,TTH, 2:25 PM, 3:45 PM,CARP,13,NOEXAM,CARP13,15
+1771,MATH,B101,001,Calculus I,,"Smiley,Danielle Elizabeth",,,,,35,Open,9/5/17,12/22/17,33,A,MWF, 9:10 AM,10:00 AM,PK,338,SELF,PK338,50
+1772,MATH,B101,002,Calculus I,,"Myers,Amy N.",,,,,50,Open,9/5/17,12/22/17,44,A,MWF,10:10 AM,11:00 AM,PK,338,THURSAM,PK338,50
+1773,MATH,B101,003,Calculus I,,"Myers,Amy N.",,,,,35,Open,9/5/17,12/22/17,31,A,MWF,11:10 AM,12:00 PM,PK,349,THURSAM,PK349,42
+1774,MATH,B102,001,Calculus II,,"Kasius,Peter G.",,,,,35,Open,9/5/17,12/22/17,29,A,MWF,10:10 AM,11:00 AM,PK,349,SELF,PK349,42
+1775,MATH,B102,002,Calculus II,,"Kasius,Peter G.",,,,,35,Open,9/5/17,12/22/17,14,A,TTH, 9:55 AM,11:15 AM,PK,338,SELF,PK338,50
+1776,ENGL,B201,001,Chaucer: Canterbury Tales,,"Taylor,Jamie K.",,,,,18,Closed,9/5/17,12/22/17,23,A,TTH,11:25 AM,12:45 PM,EH,LEC,PAPER,EHLEC,40
+1777,POLS,B367,001,China and the World,,"Oh,Seung-Youn",,,,,12,Open,9/5/17,12/22/17,9,A,T, 1:10 PM, 4:00 PM,DAL,212E,PAPER,DAL212E,12
+1780,HART,B104,001,Classical Tradition,,"Cast,David J.D.",,,,,20,Open,9/5/17,12/22/17,16,A,MWF,10:10 AM,11:00 AM,CARP,25,TUESAM,CARP25,30
+1781,PSYC,B289,001,Laboratory/Clinical Psychology,,"Schulz,Marc S.",,,,,15,Open,9/5/17,12/22/17,11,A,W, 1:10 PM, 2:30 PM,BYC,100,NOEXAM,BYC100,10
+1783,CMSC,B240,001,Computer Organization,,"Blank,Douglas",,,,,24,Open,9/5/17,12/22/17,18,A,MW, 1:10 PM, 2:30 PM,PK,336,SELF,PK336,30
+1785,HART,B325,001,Contemporary Art Conservation,,"Weldon,Marianne Carole",,,,,15,Closed,9/5/17,12/22/17,12,S,F, 9:10 AM,12:00 PM,DAL,2,PROJECT,DAL2,24
+1786,HART,B373,001,Contemporary Art in Exhibition,,"Robbins,Carrie Marie",,,,,19,Open,9/5/17,12/22/17,18,S,F, 2:10 PM, 4:00 PM,DAL,25,PAPER,DAL25,20
+1791,ARTW,B265,001,Creative Nonfiction,,"Liontas,Anna",,,,,15,Open,9/5/17,12/22/17,9,A,T, 1:10 PM, 4:00 PM,EH,II,,EHII,18
+1792,PSYC,B224,001,Cross-Cultural Psychology,,"Park,Heejung",,,,,36,Open,9/5/17,12/22/17,34,A,TTH, 2:25 PM, 3:45 PM,CH,224,PAPER,CH224,50
+1793,ARTD,B142,001,Dance Composition: Process,,"Brick,David Dean",,,,,10,Closed,9/5/17,12/22/17,11,A,TTH, 2:25 PM, 3:45 PM,PE,STUD,PROJECT,PEMSTD,50
+1794,ARTD,B346,001,Dance Ensemble: Ballet,,"Cruz,Felicia V.",,,,,12,Open,9/5/17,12/22/17,6,A,TH, 7:10 PM, 8:30 PM,PE,STUD,PROJECT,PEMSTD,50
+1795,ARTD,B345,001,Dance Ensemble: Modern,,"Prince,Olive Kachina",,,,,12,Open,9/5/17,12/22/17,2,A,MW, 4:10 PM, 5:30 PM,PE,STUD,PROJECT,PEMSTD,50
+1797,ECON,B385,001,Democracy and Development,,"Rock,Michael T.",,,,,20,Open,9/5/17,12/22/17,6,A,TTH, 2:25 PM, 3:45 PM,DAL,25,NOEXAM,DAL25,20
+1798,BIOL,B271,001,Developmental Biology,,"Davis,Gregory Keith",,,,,22,Closed,9/5/17,12/22/17,20,A,MWF, 9:10 AM,10:00 AM,PK,229,TAKEHOME,PK229,40
+1799,PSYC,B206,001,Developmental Psychology,,"Albert,William Dustin",,,,,40,Open,9/5/17,12/22/17,38,A,MW, 1:10 PM, 2:30 PM,DAL,300,PAPER,DAL300,72
+1800,ARTD,B267,001,Diasporic Bodies and Dance,,"Jones,Lela Aisha",,,,,20,Open,9/5/17,12/22/17,14,A,TTH,12:55 PM, 2:15 PM,GO,B,PAPER,GOB,20
+1801,CMSC,B231,001,Discrete Mathematics I,,"Eisenberg,Richard Alan",,,,,30,Open,9/5/17,12/22/17,21,A,MW,10:10 AM,11:30 AM,PK,229,SELF,PK229,40
+1802,BIOL,B220,001,Ecology,,"Mozdzer,Thomas",,,,,16,Open,9/5/17,12/22/17,10,A,TTH, 9:55 AM,11:15 AM,PK,100,NOEXAM,PK100,50
+1803,ECON,B324,001,Econ Discrimination&Inequality,,"Nutting,Andrew Willis",,,,,10,Open,9/5/17,12/22/17,9,A,TTH,12:55 PM, 2:15 PM,DAL,006,NOEXAM,DAL6,16
+1804,ECON,B242,001,Econ of Local Environ Progs,,"Ross,David R.",,,,,30,Open,9/5/17,12/22/17,4,A,MW, 1:10 PM, 2:30 PM,DAL,25,NOEXAM,DAL25,20
+1805,ECON,B225,001,Economic Development,,"Rock,Michael T.",,,,,25,Closed,9/5/17,12/22/17,25,A,TTH,12:55 PM, 2:15 PM,DAL,119,NOEXAM,DAL119,42
+1806,PSYC,B203,001,Educational Psychology,,"Cassidy,Kimberly E.",,,,,28,Open,9/5/17,12/22/17,23,A,TTH, 8:25 AM, 9:45 AM,DAL,119,TAKEHOME,DAL119,42
+1807,SPAN,B234,001,El cuento de lo fantástico,,"Sacerio-Gari,Enrique",,,,,0,Open,9/5/17,10/24/17,8,A,MW, 1:10 PM, 2:30 PM,CH,116,PAPER,CH116,25
+1808,PHYS,B201,001,Electromagnetism,,"Schaffner,David A",,,,,18,Closed,9/5/17,12/22/17,22,A,MWF,10:10 AM,11:00 AM,PK,337,SELF,PK337,20
+1809,FREN,B001,001,Elementary French,,"Sanquer,Marie",,,,,18,Open,9/5/17,12/22/17,6,A,MWF, 8:10 AM, 9:00 AM,TAY,E,MONAM,TAYE,35
+1810,FREN,B001,002,Elementary French,,"Ragueneau,Corine M",,,,,18,Open,9/5/17,12/22/17,14,A,MWF, 9:10 AM,10:00 AM,TAY,B,MONAM,TAYB,21
+1811,FREN,B001,003,Elementary French,,"Suaudeau,Julien Mathieu",,,,,18,Open,9/5/17,12/22/17,14,A,MWF, 9:10 AM,10:00 AM,TAY,D,MONAM,TAYD,35
+1812,GERM,B001,001,Elementary German,,"Shen,Qinna",,,,,22,Open,9/5/17,12/22/17,15,A,MWF, 9:10 AM,10:00 AM,TAY,F,SELF,TAYF,50
+1813,HEBR,B001,001,Elementary Hebrew,,"Sataty,Nechama",,,,,0,Open,9/5/17,12/22/17,9,A,MWF,10:10 AM,11:00 AM,TAY,SEM,NOEXAM,TAYSEM,12
+1814,ITAL,B001,001,Elementary Italian,,"Kubati,Roni","Troncelliti,Gabriella",,,,18,Open,9/5/17,12/22/17,10,A,MWF, 9:10 AM,10:00 AM,CH,111,MONAM,CH111,30
+1815,ITAL,B001,002,Elementary Italian,,"Kubati,Roni","Troncelliti,Gabriella",,,,18,Open,9/5/17,12/22/17,5,A,MWF,10:10 AM,11:00 AM,CH,111,MONAM,CH111,30
+1816,LATN,B001,001,Elementary Latin,,"Baertschi,Annette Martine",,,,,20,Open,9/5/17,12/22/17,14,A,MWF,10:10 AM,11:00 AM,DAL,25,SELF,DAL25,20
+1817,RUSS,B001,001,Elementary Russian,,"Stavis,Jesse Samuel","Harte,Timothy",,,,25,Open,9/5/17,12/22/17,7,A,MWF,10:10 AM,11:00 AM,RC,CON,SELF,RCCON,12
+1818,SPAN,B232,001,Encuentros culturales,,"Gaspar,Martin L.",,,,,0,Open,9/5/17,12/22/17,13,A,MW, 2:40 PM, 4:00 PM,CH,102,TAKEHOME,CH102,14
+1819,GEOL,B206,001,Energy Resources& Sustainab,,"Barber,Donald",,,,,31,Closed,9/5/17,12/22/17,44,A,TTH, 9:55 AM,11:15 AM,PK,180,PAPER,PK180,70
+1820,HIST,B215,001,Europe and the Other 1492-1800,,"Gallup-Diaz,Ignacio",,,,,35,Open,9/5/17,12/22/17,9,A,MW, 1:10 PM, 2:30 PM,TAY,E,PROJECT,TAYE,35
+1821,CSTS,B175,001,Feminism in Classics,,"Conybeare,Catherine",,,,,25,Open,9/5/17,12/22/17,18,A,TTH, 2:25 PM, 3:45 PM,TAY,G,NOEXAM,TAYG,45
+1823,ARCH,B135,001,Focus: Arch Fieldwork & Method,,"Lindenlauf,Astrid",,,,,15,Open,9/5/17,10/24/17,12,A,MW, 9:10 AM,10:00 AM,CARP,25,TAKEHOME,CARP25,30
+1824,BIOL,B326,001,From Channels to Behavior,,"Brodfuehrer,Peter D.",,,,,12,Open,9/5/17,12/22/17,8,A,MWF, 9:10 AM,10:00 AM,PK,127,PAPER,PK127,20
+1825,ARTT,B251,001,Fundamentals of Acting,,"Ward,Molly",,,,,16,Closed,9/5/17,12/22/17,15,A,TTH, 2:25 PM, 3:45 PM,GO,COM,NOEXAM,GOCOM,35
+1826,CHEM,B103,001,General Chemistry I,,"White,Susan A.",,,,,25,Open,9/5/17,12/22/17,20,A,MWF,12:10 PM, 1:00 PM,PK,278,SELF,PK278,35
+1827,CHEM,B103,002,General Chemistry I,,"Karagiaridi,Olga",,,,,39,Closed,9/5/17,12/22/17,39,A,MWF,12:10 PM, 1:00 PM,PK,180,WEDAM,PK180,70
+1828,CHEM,B103,003,General Chemistry I,,"Miller,Bradley Robert",,,,,39,Open,9/5/17,12/22/17,38,A,MWF,12:10 PM, 1:00 PM,PK,229,SELF,PK229,40
+1833,BIOL,B201,001,Genetics,,"Davis,Tamara L.",,,,,34,Closed,9/5/17,12/22/17,37,A,TTH,11:15 AM,12:45 PM,PK,229,SELF,PK229,40
+1834,BIOL,B216,001,Genomics,,"Shapiro,Joshua",,,,,24,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,PK,010,PAPER,PK10,18
+1835,GEOL,B299,001,Geology Field Short Course,,"Weil,Arlo Brandon",,,,,20,Open,9/5/17,12/22/17,15,A,,,,DAL,212E,NOEXAM,,0
+1836,POLS,B256,001,Global Climate Politics,,"Hager,Carol",,,,,25,Open,9/5/17,12/22/17,24,A,MW, 1:10 PM, 2:30 PM,DAL,2,PAPER,DAL2,24
+1839,ARCH,B205,001,Greek Sculpture,,"Donohue,Alice A.",,,,,15,Open,9/5/17,12/22/17,2,A,MWF, 1:10 PM, 2:00 PM,CH,104,TUESAM,CH104,30
+1840,ANTH,B303,001,History Anthropological Theory,,"Campoamor,Leigh Miranda",,,,,15,Closed,9/5/17,12/22/17,16,A,W, 1:10 PM, 3:30 PM,PK,010,PAPER,PK10,18
+1841,HART,B299,001,History of Narrative Cinema,,"King,Homay",,,,,0,Open,9/5/17,12/22/17,44,A,TTH, 9:55 AM,11:15 AM,CH,224,PAPER,CH224,50
+1842,GEOL,B101,001,How the Earth Works,,"Weil,Arlo Brandon","Marenco,Katherine Nicholson",,,,20,Open,9/5/17,12/22/17,12,A,MWF, 9:10 AM,10:00 AM,PK,180,SELF,PK180,70
+1843,GEOL,B101,002,How the Earth Works,,"Weil,Arlo Brandon","Marenco,Katherine Nicholson",,,,20,Closed,9/5/17,12/22/17,21,A,MWF, 9:10 AM,10:00 AM,PK,180,SELF,PK180,70
+1844,GEOL,B101,003,How the Earth Works,,"Weil,Arlo Brandon","Marenco,Katherine Nicholson",,,,20,Open,9/5/17,12/22/17,17,A,MWF, 9:10 AM,10:00 AM,PK,180,SELF,PK180,70
+1845,EALC,B264,001,Human Rights in China,,"Jiang,Yonglin",,,,,0,Open,9/5/17,12/22/17,11,A,TTH,12:55 PM, 2:15 PM,TAY,G,PAPER,TAYG,45
+1846,ANTH,B354,001,Political Economy in Vietnam,,"Pashigian,Melissa J.",,,,,15,Open,9/5/17,12/22/17,11,A,M, 2:10 PM, 4:00 PM,DAL,212A,NOEXAM,DAL212A,18
+1847,BIOL,B352,001,Immunology,,"Yin,Melinda Ray-Lin",,,,,24,Open,9/5/17,12/22/17,17,A,MW,10:10 AM,11:30 AM,PK,227,PROJECT,PK227,15
+1848,ARAB,B403,001,Independent Study,,"Darwish,Manar",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,DAL,119,,,0
+1849,CITY,B403,001,Independent Study,,"Cohen,Jeffrey A.",,,,,8,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,TAY,C,,,0
+1850,ECON,B313,001,Industrial Org & Public Policy,,"Ross,David R.",,,,,15,Open,9/5/17,12/22/17,2,A,MW, 2:40 PM, 4:00 PM,DAL,10,NOEXAM,DAL10,16
+1851,BIOL,B375,001,Integ Biochem & Molculr Bio I,,"Chander,Monica",,,,,22,Open,9/5/17,12/22/17,21,A,TTH, 9:55 AM,11:15 AM,PK,229,TAKEHOME,PK229,40
+1852,FREN,B001IN,001,Intensive Elementary French,,"Zeiss,Agnes C",,,,,18,Open,9/5/17,12/22/17,16,A,MWF,10:10 AM,11:00 AM,TAY,D,MONAM,TAYD,35
+1853,CNSE,B001,001,Intensive First-Year Chinese,,"Liu,Ying",,,,,0,Open,9/5/17,12/22/17,10,A,TTH, 9:55 AM,11:15 AM,TAY,C,SELF,TAYC,20
+1854,CNSE,B001,002,Intensive First-Year Chinese,,"Liu,Ying",,,,,0,Open,9/5/17,12/22/17,10,A,TTH,12:55 PM, 2:15 PM,TAY,B,SELF,TAYB,21
+1855,FREN,B005,001,Intensive Intermediate French,,"Armstrong,Grace Morgan",,,,,18,Open,9/5/17,12/22/17,7,A,MWF,10:10 AM,11:00 AM,TAY,C,SELF,TAYC,20
+1856,FREN,B005,002,Intensive Intermediate French,,"Zeiss,Agnes C",,,,,18,Open,9/5/17,12/22/17,12,A,MWF,12:10 PM, 1:00 PM,TAY,C,SELF,TAYC,20
+1857,FREN,B003,001,Intermediate French,,"Mahuzier,Brigitte",,,,,18,Open,9/5/17,12/22/17,12,A,MWF, 9:10 AM,10:00 AM,TAY,G,MONAM,TAYG,45
+1858,FREN,B003,002,Intermediate French,,"Suaudeau,Julien Mathieu",,,,,18,Open,9/5/17,12/22/17,11,A,MWF,11:10 AM,12:00 PM,TAY,E,MONPM,TAYE,35
+1859,GERM,B101,001,Intermediate German,,"Seyhan,Azade",,,,,18,Open,9/5/17,12/22/17,8,A,MWF,11:10 AM,12:00 PM,DAL,212E,TAKEHOME,DAL212E,12
+1860,ITAL,B101,001,Intermediate Italian,,"Ricci,Roberta",,,,,18,Open,9/5/17,12/22/17,13,A,TTH, 9:55 AM,11:15 AM,CARP,13,MONAM,CARP13,15
+1861,LATN,B110,001,Intermediate Latin,,"Scott,Russell T.",,,,,0,Open,9/5/17,12/22/17,5,A,MWF,11:10 AM,12:00 PM,CARP,13,SELF,CARP13,15
+1862,ECON,B200,001,Intermediate Microeconomics,,"Nutting,Andrew Willis",,,,,30,Closed,9/5/17,12/22/17,34,A,TTH, 9:55 AM,11:15 AM,DAL,119,SELF,DAL119,42
+1863,RUSS,B101,001,Intermediate Russian,,"Grigoryan,Bella",,,,,15,Open,9/5/17,12/22/17,13,A,MWF, 9:10 AM,10:00 AM,RC,CON,SELF,RCCON,12
+1864,SPAN,B101,001,Intermediate Spanish I,,"Arribas,Ines Monique",,,,,18,Open,9/5/17,12/22/17,16,A,MWF,10:10 AM,11:00 AM,TAY,E,MONAM,TAYE,35
+1865,SPAN,B101,002,Intermediate Spanish I,,"Arribas,Ines Monique",,,,,18,Open,9/5/17,12/22/17,16,A,MWF,12:10 PM, 1:00 PM,TAY,E,MONAM,TAYE,35
+1866,SPAN,B102,001,Intermediate Spanish II,,"Quintero,Maria C.",,,,,18,Open,9/5/17,12/22/17,16,A,MWF,12:10 PM, 1:00 PM,TAY,F,TUESAM,TAYF,50
+1868,ECON,B316,001,International Macroeconomics,,"Ceglowski,Janet",,,,,10,Open,9/5/17,12/22/17,6,A,MW,10:10 AM,11:30 AM,DAL,1,NORESPON,DAL1,18
+1869,POLS,B391,001,International Political Econ,,"Allen,Michael H.",,,,,18,Open,9/5/17,12/22/17,14,A,W, 2:10 PM, 4:00 PM,CH,118,PAPER,CH118,12
+1870,CSTS,B375,001,Interpreting Mythology,,"Edmonds,Radcliffe",,,,,12,Open,9/5/17,12/22/17,4,A,TTH,12:55 PM, 2:15 PM,CH,223,PAPER,CH223,12
+1872,CMSC,B372,001,Intro Artificial Intelligence,,"Kumar,Deepak",,,,,24,Closed,9/5/17,12/22/17,26,A,MW,10:10 AM,11:30 AM,PK,278,NOEXAM,PK278,35
+1877,EALC,B110,001,Intro Chinese Literature,,"Clifford,Timothy Robert",,,,,0,Open,9/5/17,12/22/17,15,A,MW, 1:10 PM, 2:30 PM,TAY,C,PAPER,TAYC,20
+1879,ENVS,B101,001,Intro Environmental Studies,,"Barber,Donald","Hager,Carol",,,,40,Open,9/5/17,12/22/17,31,A,MW, 2:40 PM, 4:00 PM,DAL,119,SELF,DAL119,42
+1880,SPAN,B120,001,Intro al analisis literario,,"Sacerio-Gari,Enrique",,,,,18,Closed,9/5/17,12/22/17,18,A,TTH, 2:25 PM, 3:45 PM,CH,116,PAPER,CH116,25
+1881,HIST,B102,001,Intro to African Civilizations,,"Ngalamulume,Kalala",,,,,0,Open,9/5/17,12/22/17,29,A,MW, 1:10 PM, 2:30 PM,TAY,D,TAKEHOME,TAYD,35
+1882,CITY,B226,001,Intro to Archit & Urban Design,,"Voith,Daniela Holt","Olshin,Samuel",,,,15,Closed,9/5/17,12/22/17,14,A,T, 7:10 PM, 9:00 PM,RO,155,NORESPON,ROSTUD,15
+1883,COML,B200,001,Intro to Comparative Lit,,"Roses,Shiamin Kwa",,,,,0,Open,9/5/17,12/22/17,14,A,TTH, 9:55 AM,11:15 AM,CH,118,PAPER,CH118,12
+1884,POLS,B131,001,Intro to Comparative Politics,,"Fenner,Sofia Alia",,,,,35,Closed,9/5/17,12/22/17,36,A,TTH,11:25 AM,12:45 PM,TAY,G,PAPER,TAYG,45
+1885,ARTD,B137,001,Intro to Dance Tech I: Ballet,,"D'Angelo,Denise S","Cantor,Madeline R.",,,,12,Open,9/5/17,12/22/17,13,A,MW,12:10 PM, 1:00 PM,PE,STUD,NOEXAM,PEMSTD,50
+1886,ARTD,B136,001,Intro to Dance Tech I: Modern,,"Cantor,Madeline R.",,,,,12,Open,9/5/17,12/22/17,15,A,MW,11:10 AM,12:00 PM,PE,STUD,NOEXAM,PEMSTD,50
+1887,ARTD,B139,001,Intro to Dance Tech II: Ballet,,"D'Angelo,Denise S","Cantor,Madeline R.",,,,7,Open,9/5/17,12/22/17,1,A,MW,12:10 PM, 1:00 PM,PE,STUD,NOEXAM,PEMSTD,50
+1889,CMSC,B206,001,Intro to Data Structures,,"Kumar,Deepak",,,,,24,Open,9/5/17,12/22/17,18,A,TTH, 9:55 AM,11:15 AM,PK,336,NOEXAM,PK336,30
+1890,ENGL,B205,001,Intro to Film,,"Bryant,Sara Louise",,,,,30,Open,9/5/17,12/22/17,27,A,TTH, 2:25 PM, 3:45 PM,CARP,25,PAPER,CARP25,30
+1891,GERM,B201,001,Intro to German Studies,,"Shen,Qinna",,,,,0,Open,9/5/17,12/22/17,8,A,MW, 1:10 PM, 2:30 PM,CH,102,SELF,CH102,14
+1892,POLS,B141,001,Intro to International Politic,,"Allen,Michael H.",,,,,25,Closed,9/5/17,12/22/17,35,A,TTH, 2:25 PM, 3:45 PM,DAL,300,TAKEHOME,DAL300,72
+1893,LING,B101,001,Intro to Linguistics,,"Lillehaugen,Brook Danielle",,,,,35,Closed,9/5/17,12/22/17,40,A,TTH, 2:25 PM, 3:45 PM,PK,243,NOEXAM,PK243,75
+1894,FREN,B101,001,Intro à l'analyse litt/cult I,,"Le Mentheour,Rudy",,,,,0,Open,9/5/17,12/22/17,5,A,MWF,11:10 AM,12:00 PM,TAY,F,SELF,TAYF,50
+1895,FREN,B101,002,Intro à l'analyse litt/cult I,,"Armstrong,Grace Morgan",,,,,0,Open,9/5/17,12/22/17,11,A,MWF,12:10 PM, 1:00 PM,CH,116,SELF,CH116,25
+1896,ANTH,B101,001,Intro Anthropology: Bio & Arch,,"Seselj,Maja","VanSickle,Caroline Marie",,,,68,Open,9/5/17,12/22/17,64,A,TTH, 9:55 AM,11:15 AM,DAL,300,SELF,DAL300,72
+1902,ECON,B105,001,Introduction to Economics,,"Ceglowski,Janet",,,,,30,Open,9/5/17,12/22/17,21,A,MW, 1:10 PM, 2:30 PM,CARP,21,SELF,CARP21,73
+1903,ECON,B105,002,Introduction to Economics,,"Sfekas,Andrew Edward",,,,,30,Open,9/5/17,12/22/17,20,A,TTH, 9:55 AM,11:15 AM,TAY,E,SELF,TAYE,35
+1904,ECON,B105,003,Introduction to Economics,,"Sfekas,Andrew Edward",,,,,30,Open,9/5/17,12/22/17,20,A,TTH,12:55 PM, 2:15 PM,DAL,300,SELF,DAL300,72
+1905,HLTH,B115,001,Introduction to Health Studies,,"White,Susan A.","Montgomery,Anne M.",,,,30,Closed,9/5/17,12/22/17,33,A,TTH, 9:55 AM,11:15 AM,TAY,G,NOEXAM,TAYG,45
+1906,BIOL,B202,001,Introduction to Neuroscience,,"Greif,Karen F.",,,,,34,Open,9/5/17,12/22/17,14,A,TTH, 8:25 AM, 9:45 AM,PK,227,SELF,PK227,15
+1907,HIST,B234,001,Introduction: Middle East,,"Ashraf,Assef",,,,,24,Open,9/5/17,12/22/17,18,A,TTH, 9:55 AM,11:15 AM,TAY,B,SELF,TAYB,21
+1917,PSYC,B105,001,Introductory Psychology,,"Rescorla,Leslie",,,,,80,Open,9/5/17,12/22/17,73,A,TTH, 9:55 AM,11:15 AM,CARP,21,SELF,CARP21,73
+1918,ENGL,B308,001,Islam and Europe,,"Gordon,Colby William",,,,,18,Open,9/5/17,12/22/17,16,A,TTH, 9:55 AM,11:15 AM,EH,I,NOEXAM,EHI,25
+1920,SOCL,B303,001,Junior Conference:,,"Montes,Veronica",,,,,0,Open,9/5/17,12/22/17,16,A,T, 9:10 AM,12:00 PM,CARP,17,PAPER,CARP17,15
+1921,PSYC,B282,001,Laboratory in Cognitive Psyc,,"Thapar,Anjali",,,,,15,Open,9/5/17,12/22/17,9,A,T, 2:25 PM, 3:45 PM,BYC,131,NORESPON,BYC131,9
+1922,PSYC,B285,001,Laboratory in Cultural Psyc,,"Park,Heejung",,,,,15,Closed,9/5/17,12/22/17,15,A,W,10:10 AM,11:30 AM,BYC,131,PAPER,BYC131,9
+1924,FREN,B204,001,Le Siècle des lumières,La Liberté ou la mort,"Le Mentheour,Rudy",,,,,0,Open,9/5/17,12/22/17,13,A,MW, 1:10 PM, 2:30 PM,DAL,10,PAPER,DAL10,16
+1926,SPAN,B318,001,Lit Adaptions: Spanish Cinema,,"Song,H. Rosi",,,,,0,Open,9/5/17,12/22/17,7,A,T, 1:10 PM, 4:00 PM,DAL,212A,PAPER,DAL212A,18
+1927,SPAN,B370,001,Literatura y delincuencia,,"Quintero,Maria C.",,,,,0,Open,9/5/17,12/22/17,5,A,MW,10:10 AM,11:30 AM,DAL,006,PAPER,DAL6,16
+1928,GEOL,B302,001,Low Temperature Geochemistry,,"Marenco,Pedro Jose",,,,,14,Open,9/5/17,12/22/17,13,A,TTH, 2:25 PM, 3:45 PM,PK,200,TAKEHOME,PK200,20
+1929,PHYS,B306,001,Mathematical Meths in Phys Sci,,"Schaffner,David A",,,,,0,Open,9/5/17,12/22/17,15,A,MWF,12:10 PM, 1:00 PM,PK,337,SELF,PK337,20
+1930,HIST,B231,001,"Medicine, Magic & Miracles",,"Truitt,Elly Rachel",,,,,0,Open,9/5/17,12/22/17,54,A,TTH, 8:25 AM, 9:45 AM,DAL,300,TAKEHOME,DAL300,72
+1931,ENGL,B250,001,Methods of Literary Study,,"Taylor,Jamie K.",,,,,15,Closed,9/5/17,12/22/17,17,A,MW,10:10 AM,11:30 AM,EH,I,PAPER,EHI,25
+1932,SOCL,B235,001,Mexican-American Communities,,"Montes,Veronica",,,,,25,Open,9/5/17,12/22/17,23,A,TTH, 2:25 PM, 3:45 PM,TAY,E,TAKEHOME,TAYE,35
+1933,PHIL,B271,001,Minds and Machines,,"Prettyman,Adrienne",,,,,22,Closed,9/5/17,12/22/17,22,A,TTH,12:55 PM, 2:15 PM,TAY,F,PAPER,TAYF,50
+1934,ENGL,B302,001,Moby Dick,,"Schneider,Bethany",,,,,18,Open,9/5/17,12/22/17,13,A,MW,10:10 AM,11:30 AM,EH,II,NORESPON,EHII,18
+1935,PHYS,B121,001,Modern Physics,,"Daniel,Kathryne Jeannine",,,,,40,Open,9/5/17,12/22/17,28,A,MWF,11:10 AM,12:00 PM,PK,243,NOEXAM,PK243,75
+1936,PHYS,B121,00J,Modern Physics,,"Bahreyni,Newshaw","Cheng,Xuemei","Matlin,Mark",,,20,Open,9/5/17,12/22/17,14,A,TH, 1:10 PM, 4:00 PM,PK,150,,PK150,30
+1937,PHYS,B121,00K,Modern Physics,,"Bahreyni,Newshaw","Cheng,Xuemei","Matlin,Mark",,,20,Open,9/5/17,12/22/17,12,A,F, 1:10 PM, 4:00 PM,PK,150,,PK150,30
+1938,ARTD,B330,001,Modern: Advanced Technique,,"Malcolm-Naib,Rebecca Lynne",,,,,20,Open,9/5/17,12/22/17,8,A,TTH, 4:10 PM, 5:30 PM,PE,STUD,NOEXAM,PEMSTD,50
+1939,ARTD,B230,001,Modern: Intermediate Technique,,"Stortz,Michelle Winifred",,,,,20,Open,9/5/17,12/22/17,8,A,TTH, 5:40 PM, 7:00 PM,PE,STUD,NOEXAM,PEMSTD,50
+1940,ENGL,B290,001,Modernisms,,"Tratner,Michael",,,,,30,Open,9/5/17,12/22/17,26,A,MW,11:40 AM, 1:00 PM,CH,111,PAPER,CH111,30
+1941,SOCL,B350,001,Movements for Social Justice,,"Karen,David",,,,,15,Open,9/5/17,12/22/17,15,A,M, 7:10 PM,10:00 PM,DAL,1,TAKEHOME,DAL1,18
+1943,PSYC,B375,001,Movies and Madness,,"Rescorla,Leslie",,,,,16,Open,9/5/17,12/22/17,14,A,W, 1:10 PM, 4:00 PM,BYC,239,NOEXAM,BYC239,12
+1944,MATH,B201,001,Multivariable Calculus,,"Donnay,Victor J.",,,,,35,Closed,9/5/17,12/22/17,43,A,MWF,11:10 AM,12:00 PM,PK,338,SELF,PK338,50
+1945,MATH,B201,002,Multivariable Calculus,,"Kasius,Peter G.",,,,,35,Closed,9/5/17,12/22/17,42,A,MWF,12:10 PM, 1:00 PM,PK,338,SELF,PK338,50
+1946,HART,B281,001,Museum Studies,,"Feliz,Matthew C.",,,,,50,Open,9/5/17,12/22/17,28,A,F, 1:00 PM, 4:00 PM,CARP,25,NORESPON,CARP25,30
+1947,MATH,B390,001,Number Theory,,"Milicevic,Djordje",,,,,25,Open,9/5/17,12/22/17,20,A,MW, 1:10 PM, 2:30 PM,PK,349,TAKEHOME,PK349,42
+1958,GEOL,B203,001,Biosphere Through Time,,"Marenco,Pedro Jose","Marenco,Katherine Nicholson",,,,20,Open,9/5/17,12/22/17,13,A,TTH, 9:55 AM,11:15 AM,PK,200,PROJECT,PK200,20
+1959,ARTT,B253,001,Performance Ensemble,,"Kim,Seonjae","Lord,Mark Evans",,,,16,Open,9/5/17,12/22/17,4,A,, 0:00 AM, 0:00 AM,GO,COM,NORESPON,GOCOM,35
+1960,POLS,B245,001,Philosophy of Law,,"Elkins,Jeremy",,,,,25,Open,9/5/17,12/22/17,22,A,TTH, 9:55 AM,11:15 AM,BYC,127,PAPER,BYC127,30
+1961,PHIL,B310,001,Philosophy of Science,,"Rice,Collin Christopher",,,,,25,Open,9/5/17,12/22/17,14,A,MW,10:10 AM,11:30 AM,CH,116,TAKEHOME,CH116,25
+1962,CHEM,B221,001,Physical Chemistry I,,"Francl-Donnay,Michelle Miller",,,,,20,Open,9/5/17,12/22/17,15,A,MW, 1:10 PM, 2:30 PM,PK,264,TAKEHOME,PK264,15
+1963,HIST,B212,001,"Pirates, Trvlers, & Ntrl Hist",,"Gallup-Diaz,Ignacio",,,,,35,Closed,9/5/17,12/22/17,35,A,MW,10:10 AM,11:30 AM,TAY,G,PROJECT,TAYG,45
+1964,GREK,B201,001,Plato and Thucydides,,"Edmonds,Radcliffe",,,,,0,Open,9/5/17,12/22/17,9,A,MWF,12:10 PM, 1:00 PM,CARP,15,SELF,CARP15,18
+1965,ARTW,B262,001,Playwriting I,,"Feldman,Lauren M",,,,,15,Closed,9/5/17,12/22/17,16,A,T, 1:10 PM, 4:00 PM,DAL,10,,DAL10,16
+1966,ARTT,B430,001,Practicum in Stage Management,,"McDaniel,Justin",,,,,4,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,PK,227,,,0
+1967,MATH,B104,001,Probability and Statistics,,"Sudparid,Daisy",,,,,40,Open,9/5/17,12/22/17,38,A,MW, 2:40 PM, 4:00 PM,PK,338,SELF,PK338,50
+1968,MATH,B301,001,Real Analysis I,,"Milicevic,Djordje",,,,,22,Closed,9/5/17,12/22/17,22,A,MW,10:10 AM,11:30 AM,PK,336,TAKEHOME,PK336,30
+1969,MATH,B301,002,Real Analysis I,,"Donnay,Victor J.",,,,,22,Closed,9/5/17,12/22/17,23,A,MW, 2:40 PM, 4:00 PM,PK,336,TAKEHOME,PK336,30
+1970,ECON,B395,001,Res Sem: Economic Development,,"Rock,Michael T.",,,,,15,Open,9/5/17,12/22/17,7,A,W,12:10 PM, 2:00 PM,DAL,1,,DAL1,18
+1971,SOCL,B265,001,Quantitative Methods,,"Wright,Nathan Daniel",,,,,25,Open,9/5/17,12/22/17,22,A,MW, 1:10 PM, 2:30 PM,DAL,119,PAPER,DAL119,42
+1972,CHEM,B251,001,Research Methodology,,"Goldsmith,Jonas I.","Kung,Yan",,,,20,Open,9/5/17,12/22/17,19,A,T, 1:10 PM, 2:30 PM,PK,264,NOEXAM,PK264,15
+1973,PSYC,B205,001,Research Methods & Statistics,,"Thapar,Anjali",,,,,36,Open,9/5/17,12/22/17,35,A,TTH,11:25 AM,12:45 PM,CARP,21,NORESPON,CARP21,73
+1974,MATH,B395,001,Research Seminar,,"Cheng,Leslie C.",,,,,5,Closed,9/5/17,12/22/17,6,A,, 0:00 AM, 0:00 AM,,,,,0
+1976,MATH,B395,003,Research Seminar,,"Graham,Erica Janine",,,,,5,Closed,9/5/17,12/22/17,5,A,, 0:00 AM, 0:00 AM,,,,,0
+1987,ENGL,B106,001,Romance to Bromance,,"Taylor,Jamie K.",,,,,18,Closed,9/5/17,12/22/17,20,A,MW, 1:10 PM, 2:30 PM,EH,I,PAPER,EHI,25
+1989,RUSS,B254,001,Russian Culture & Civilization,,"Walsh,Irina K.",,,,,20,Open,9/5/17,12/22/17,3,A,MW, 2:40 PM, 4:00 PM,RC,CON,PAPER,RCCON,12
+1990,RUSS,B342,001,Russian Culture Today,,"Walsh,Irina K.",,,,,0,Open,9/5/17,12/22/17,5,A,TTH,12:55 PM, 2:15 PM,CARP,13,PAPER,CARP13,15
+1991,RUSS,B390,001,Russian: Pre-Professional I,,"Rojavin,Marina",,,,,10,Open,9/5/17,12/22/17,8,A,MWF,10:10 AM,11:00 AM,RC,SEM,TAKEHOME,RCSEM,12
+1992,PHIL,B102,001,Science&Morality in Modernity,,"Rice,Collin Christopher",,,,,35,Open,9/5/17,12/22/17,27,A,MW, 2:40 PM, 4:00 PM,TAY,G,SELF,TAYG,45
+1993,PHIL,B238,001,"Science, Tech & the Good Life",,"Dostal,Robert J.",,,,,0,Open,9/5/17,12/22/17,19,A,TTH, 2:25 PM, 3:45 PM,TAY,F,NOEXAM,TAYF,50
+1995,BIOL,B398,001,Sen.Sem: Science and Society,,"Mozdzer,Thomas",,,,,12,Open,9/5/17,12/22/17,6,A,M, 1:10 PM, 4:00 PM,PK,010,,PK10,18
+1996,GEOL,B399,001,Senior Capstone Seminar,,"Weil,Arlo Brandon","Barber,Donald","Marenco,Katherine Nicholson","Marenco,Pedro Jose",,20,Open,9/5/17,12/22/17,8,A,F, 2:10 PM, 4:00 PM,PK,200,TAKEHOME,PK200,20
+1997,ANTH,B398,001,Senior Conference,,"Pashigian,Melissa J.","Seselj,Maja",,,,0,Open,9/5/17,12/22/17,11,A,M,12:10 PM, 2:00 PM,DAL,1,NOEXAM,DAL1,18
+1998,EALC,B398,001,Senior Conference,,"Roses,Shiamin Kwa",,,,,0,Open,9/5/17,12/22/17,5,A,F, 8:00 AM,10:00 AM,CH,223,,CH223,12
+1999,FREN,B398,001,Senior Conference,,"Mahuzier,Brigitte",,,,,0,Open,9/5/17,12/22/17,10,A,TH, 1:10 PM, 4:00 PM,TAY,SEM,,TAYSEM,12
+2000,MATH,B398,001,Senior Conference,,"Graham,Erica Janine",,,,,12,Open,9/5/17,12/22/17,15,A,TTH,12:55 PM, 2:15 PM,PK,328,PAPER,PK328,12
+2001,SOCL,B398,001,Senior Conference,,"Washington,Robert",,,,,15,Open,9/5/17,12/22/17,13,A,T, 7:10 PM,10:00 PM,DAL,1,,DAL1,18
+2002,HART,B398,001,Senior Conference I,,"Saltzman,Lisa R.","Houghteling,Sylvia Waisbren",,,,0,Open,9/5/17,12/22/17,20,A,T, 2:10 PM, 4:00 PM,TAY,C,NOEXAM,TAYC,20
+2003,ARTD,B390,001,Senior Project/Thesis,,"Cantor,Madeline R.",,,,,2,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,PE,STUD,PROJECT,PEMSTD,50
+2004,ARCH,B398,001,Senior Seminar,,"Lindenlauf,Astrid",,,,,0,Open,9/5/17,12/22/17,6,A,T,12:10 PM, 2:00 PM,CARP,17,TAKEHOME,CARP17,15
+2005,CHEM,B398,001,Senior Seminar,,"Burgmayer,Sharon J.N.",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,STO,119,NOEXAM,,0
+2006,CHEM,B398,002,Senior Seminar,,"Francl-Donnay,Michelle Miller",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,PK,264,,,0
+2007,CHEM,B398,003,Senior Seminar,,"Goldsmith,Jonas I.",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,PK,264,,,0
+2008,CHEM,B398,004,Senior Seminar,,"Kung,Yan",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,PK,264,,,0
+2009,CHEM,B398,005,Senior Seminar,,"Malachowski,William P",,,,,0,Open,9/5/17,12/22/17,5,A,, 0:00 AM, 0:00 AM,PK,264,,,0
+2011,CHEM,B398,007,Senior Seminar,,"White,Susan A.",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,PK,264,,,0
+2012,CITY,B398,001,Senior Seminar,,"McDonogh,Gary Wray","Raddatz,Liv","Cohen,Jeffrey A.",,,0,Open,9/5/17,12/22/17,29,A,T, 2:10 PM, 4:00 PM,CH,104,PAPER,CH104,30
+2013,CSTS,B398,001,Senior Seminar,,"Conybeare,Catherine",,,,,0,Open,9/5/17,12/22/17,9,A,T, 7:10 PM,10:00 PM,TAY,SEM,,TAYSEM,12
+2014,ENGL,B398,001,Senior Seminar,,"Schneider,Bethany","Hemmeter,Gail C.",,,,0,Open,9/5/17,12/22/17,14,A,M, 2:40 PM, 4:00 PM,CARP,25,,CARP25,30
+2015,INST,B398,001,Senior Seminar,,"Allen,Michael H.",,,,,0,Open,9/5/17,12/22/17,13,A,M,12:10 PM, 2:00 PM,CARP,17,PAPER,CARP17,15
+2016,ITAL,B398,001,Senior Seminar,,"Ricci,Roberta",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,,,,,0
+2017,PHIL,B398,001,Senior Seminar,,"Prettyman,Adrienne",,,,,10,Open,9/5/17,12/22/17,5,A,T, 4:00 PM, 6:00 PM,CH,118,PAPER,CH118,12
+2018,PHYS,B398,001,Senior Seminar,,"Cheng,Xuemei",,,,,0,Open,9/5/17,12/22/17,16,A,F, 2:40 PM, 4:00 PM,PK,336,PAPER,PK336,30
+2019,SPAN,B398,001,Senior Seminar,,"Gaspar,Martin L.",,,,,0,Open,9/5/17,12/22/17,4,A,M, 7:10 PM,10:00 PM,CH,223,,CH223,12
+2020,BIOL,B393,001,Senior Seminar: Genetics,,"Shapiro,Joshua",,,,,12,Open,9/5/17,12/22/17,7,A,M, 1:10 PM, 4:00 PM,PK,227,PAPER,PK227,15
+2021,HIST,B398,001,Appr to Historical Praxis,,"Kurimay,Andrea Anita",,,,,10,Open,9/5/17,12/22/17,8,A,TH, 9:10 AM,12:00 PM,CH,223,PROJECT,CH223,12
+2022,PSYC,B398,001,Senior Thesis,,"Park,Heejung",,,,,0,Open,9/5/17,12/22/17,3,A,, 0:00 AM, 0:00 AM,,,,,0
+2023,PSYC,B398,002,Senior Thesis,,"Albert,William Dustin",,,,,0,Open,9/5/17,12/22/17,3,A,, 0:00 AM, 0:00 AM,,,,,0
+2024,PSYC,B398,003,Senior Thesis,,"Thapar,Anjali",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,,,,,0
+2025,PSYC,B398,004,Senior Thesis,,"Schulz,Marc S.",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,,,,,0
+2026,ARTT,B354,001,Shakespeare on the Stage,,"Slusar,Catharine Kevin",,,,,10,Open,9/5/17,12/22/17,4,A,M, 1:10 PM, 4:00 PM,GO,COM,PROJECT,GOCOM,35
+2027,ARTW,B260,001,Short Fiction I,,"Torday,Daniel P.",,,,,15,Open,9/5/17,12/22/17,13,A,TTH,12:55 PM, 2:15 PM,DAL,1,,DAL1,18
+2028,SOCL,B205,001,Social Inequality,,"Pinto-Coelho,Joanna Marie",,,,,25,Open,9/5/17,12/22/17,24,A,TTH, 2:25 PM, 3:45 PM,TAY,D,TAKEHOME,TAYD,35
+2029,SOCL,B302,001,Social Theory,,"Washington,Robert",,,,,20,Closed,9/5/17,12/22/17,25,A,MW, 2:40 PM, 4:00 PM,DAL,1,SELF,DAL1,18
+2030,SOCL,B102,001,"Society, Culture, & Individual",,"Pinto-Coelho,Joanna Marie",,,,,35,Closed,9/5/17,12/22/17,44,A,TTH,12:55 PM, 2:15 PM,TAY,D,TAKEHOME,TAYD,35
+2031,SOCL,B258,001,Sociology of Education,,"Karen,David",,,,,25,Open,9/5/17,12/22/17,13,A,TTH, 8:25 AM, 9:45 AM,DAL,2,TAKEHOME,DAL2,24
+2032,SOCL,B262,001,Public Opinion,,"Wright,Nathan Daniel",,,,,32,Open,9/5/17,12/22/17,30,A,MW,10:10 AM,11:30 AM,EH,LEC,PAPER,EHLEC,40
+2033,EDUC,B210,001,Special Education,,"Flaks,Debbie",,,,,22,Closed,9/5/17,12/22/17,23,A,M, 1:10 PM, 4:00 PM,BYC,127,PROJECT,BYC127,30
+2035,PSYC,B401,001,Sup Rsrch: Neuroscience,,"Albert,William Dustin",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,BYC,239,,,0
+2036,PSYC,B401,002,Sup Rsrch: Neuroscience,,"Thapar,Anjali",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,BYC,239,,,0
+2037,BIOL,B403,001,Supervised Laboratory Research,,"Brodfuehrer,Peter D.",,,,,4,Open,9/5/17,12/22/17,3,A,, 0:00 AM, 0:00 AM,HLS,110,,,0
+2038,BIOL,B403,002,Supervised Laboratory Research,,"Chander,Monica",,,,,4,Open,9/5/17,12/22/17,5,A,, 0:00 AM, 0:00 AM,HLS,110,,,0
+2039,BIOL,B403,003,Supervised Laboratory Research,,"Davis,Gregory Keith",,,,,4,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,HLS,110,,,0
+2040,BIOL,B403,004,Supervised Laboratory Research,,"Davis,Tamara L.",,,,,4,Open,9/5/17,12/22/17,3,A,, 0:00 AM, 0:00 AM,HLS,110,,,0
+2041,BIOL,B403,005,Supervised Laboratory Research,,"Greif,Karen F.",,,,,4,Open,9/5/17,12/22/17,6,A,, 0:00 AM, 0:00 AM,HLS,110,,,0
+2042,BIOL,B403,006,Supervised Laboratory Research,,"Mozdzer,Thomas",,,,,4,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,HLS,110,,,0
+2043,BIOL,B403,007,Supervised Laboratory Research,,"Shapiro,Joshua",,,,,4,Open,9/5/17,12/22/17,3,A,, 0:00 AM, 0:00 AM,HLS,110,,,0
+2044,CHEM,B403,001,Supervised Research,,"Burgmayer,Sharon J.N.",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,WDS,,,,0
+2045,CHEM,B403,002,Supervised Research,,"Francl-Donnay,Michelle Miller",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,WDS,,,,0
+2046,CHEM,B403,003,Supervised Research,,"Goldsmith,Jonas I.",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,WDS,,,,0
+2047,CHEM,B403,004,Supervised Research,,"Kung,Yan",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,WDS,,,,0
+2048,CHEM,B403,005,Supervised Research,,"Malachowski,William P",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,WDS,,,,0
+2050,CHEM,B403,007,Supervised Research,,"White,Susan A.",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,WDS,,,,0
+2051,GEOL,B403,001,Supervised Research,,"Barber,Donald",,,,,1,Open,9/5/17,12/22/17,4,A,, 0:00 AM, 0:00 AM,PK,200,,,0
+2052,GEOL,B403,002,Supervised Research,,"Hearth,Selby Christine Hardy",,,,,1,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,PK,200,,,0
+2053,GEOL,B403,003,Supervised Research,,"Marenco,Katherine Nicholson",,,,,1,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,PK,200,,,0
+2054,GEOL,B403,004,Supervised Research,,"Marenco,Pedro Jose",,,,,1,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,PK,200,,,0
+2055,GEOL,B403,005,Supervised Research,,"Weil,Arlo Brandon",,,,,1,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,PK,200,,,0
+2056,PHYS,B403,001,Supervised Research,,"Cheng,Xuemei",,,,,0,Open,9/5/17,12/22/17,3,A,, 0:00 AM, 0:00 AM,PE,STUD,,,0
+2057,PSYC,B403,001,Supervised Research,,"Wozniak,Robert H.",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,CARP,13,,,0
+2058,PSYC,B403,002,Supervised Research,,"Rescorla,Leslie",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,CARP,13,,,0
+2059,PSYC,B403,003,Supervised Research,,"Schulz,Marc S.",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,CARP,13,,,0
+2060,PSYC,B403,004,Supervised Research,,"Thapar,Anjali",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,CARP,13,,,0
+2061,PSYC,B403,005,Supervised Research,,"Albert,William Dustin",,,,,0,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,CARP,13,,,0
+2062,PSYC,B403,006,Supervised Research,,"Park,Heejung",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,CARP,13,,,0
+2063,ARCH,B403,001,Supervised Work,,"Donohue,Alice A.",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,CARP,25,,,0
+2064,ARCH,B403,002,Supervised Work,,"Lindenlauf,Astrid",,,,,0,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,CARP,25,,,0
+2065,ARCH,B403,003,Supervised Work,,"Magee,Peter",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,CARP,25,,,0
+2069,ARTT,B403,001,Supervised Work,,"Slusar,Catharine Kevin",,,,,4,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,DAL,10,,,0
+2070,ARTT,B403,002,Supervised Work,,"McDaniel,Justin",,,,,4,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,DAL,10,,,0
+2071,ARTT,B403,003,Supervised Work,,"Brick,David Dean",,,,,4,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,DAL,10,,,0
+2072,ARTT,B403,004,Supervised Work,,"Department staff,TBA",,,,,4,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,DAL,10,,,0
+2085,HART,B403,002,Supervised Work,,"Houghteling,Sylvia Waisbren",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,,,,,0
+2086,HART,B403,003,Supervised Work,,"King,Homay",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,,,,,0
+2087,HART,B403,004,Supervised Work,,"Levine,Steven Z.",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,,,,,0
+2088,HART,B403,005,Supervised Work,,"Saltzman,Lisa R.",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,,,,,0
+2089,HART,B403,006,Supervised Work,,"Walker,Alicia",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,,,,,0
+2104,RUSS,B403,001,Supervised Work,,"Rojavin,Marina",,,,,0,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,HLL,201,,,0
+2105,ARTD,B403,001,Supervised Work in Dance,,"Cantor,Madeline R.",,,,,3,Open,9/5/17,12/22/17,1,A,, 0:00 AM, 0:00 AM,WDS,,NOEXAM,,0
+2107,GREK,B010,001,TNT Greek,,"Edmonds,Radcliffe",,,,,0,Open,9/5/17,12/22/17,6,A,MWF,10:10 AM,11:00 AM,CARP,15,SELF,CARP15,18
+2108,ECON,B213,001,Taming the Modern Corporation,,"Sfekas,Andrew Edward",,,,,30,Open,9/5/17,12/22/17,8,A,TTH, 2:25 PM, 3:45 PM,CH,102,SELF,CH102,14
+2110,ARCH,B211,001,The Archaeology of Rubbish,,"Lindenlauf,Astrid",,,,,20,Open,9/5/17,12/22/17,17,A,TTH, 9:55 AM,11:15 AM,CARP,25,TAKEHOME,CARP25,30
+2111,HIST,B123,001,The Early Medieval World,,"Truitt,Elly Rachel",,,,,0,Open,9/5/17,12/22/17,19,A,TTH,12:55 PM, 2:15 PM,TAY,E,TAKEHOME,TAYE,35
+2112,HART,B240,001,The Global Baroque,,"Houghteling,Sylvia Waisbren",,,,,0,Open,9/5/17,12/22/17,29,A,TTH, 9:55 AM,11:15 AM,CH,110,NOEXAM,CH110,118
+2114,ANTH,B283,001,The Living Primates,,"Seselj,Maja",,,,,25,Open,9/5/17,12/22/17,19,A,TTH,12:55 PM, 2:15 PM,DAL,2,SELF,DAL2,24
+2115,POLS,B339,001,Policy Making in a Democracy,,"Golden,Marissa Martino",,,,,18,Open,9/5/17,12/22/17,13,A,W, 1:10 PM, 4:00 PM,DAL,212E,PAPER,DAL212E,12
+2116,SOCL,B201,001,The Study of Gender in Society,,"Coutinho-Sledge,Piper Elizabeth",,,,,25,Open,9/5/17,12/22/17,23,A,TTH, 9:55 AM,11:15 AM,DAL,2,NOEXAM,DAL2,24
+2117,COML,B398,001,Theories & Meths in Comp Lit,,"Seyhan,Azade",,,,,0,Open,9/5/17,12/22/17,8,A,M, 7:10 PM,10:00 PM,CH,102,PAPER,CH102,14
+2118,FREN,B213,001,Theory in Practice:Humanities,,"Sanquer,Marie",,,,,0,Open,9/5/17,12/22/17,20,A,MWF,10:10 AM,11:00 AM,CH,224,PAPER,CH224,50
+2119,CNSE,B101,001,Third Year Chinese,,"Chiang,Tz'u",,,,,0,Open,9/5/17,12/22/17,12,A,MWF,10:10 AM,11:00 AM,TAY,B,TAKEHOME,TAYB,21
+2120,ENGL,B263,001,Toni Morrison/Narr Conjure,,"Beard,Linda-Susan",,,,,30,Open,9/5/17,12/22/17,22,A,TTH,12:55 PM, 2:15 PM,EH,LEC,PAPER,EHLEC,40
+2121,HIST,B226,001,Topics in 20th c. Europe,Gender- Modern European State,"Kurimay,Andrea Anita",,,,,25,Open,9/5/17,12/22/17,8,A,TTH, 2:25 PM, 3:45 PM,EH,I,SELF,EHI,25
+2122,HIST,B337,001,Topics in African History,Hist of Global Health Africa,"Ngalamulume,Kalala",,,,,15,Open,9/5/17,12/22/17,11,A,T, 7:10 PM,10:00 PM,CARP,13,NORESPON,CARP13,15
+2123,HIST,B303,001,Topics in American History,"American ""Fascisms""","Ullman,Sharon R.",,,,,15,Open,9/5/17,12/22/17,9,A,W, 1:10 PM, 4:00 PM,CH,251,NORESPON,CH251,18
+2125,HART,B380,001,Topics in Contemporary Art,Strategies of Remembrance,"Saltzman,Lisa R.",,,,,15,Open,9/5/17,12/22/17,12,A,W, 2:10 PM, 4:00 PM,CH,104,PAPER,CH104,30
+2129,HART,B345,001,Topics in Material Culture,Textiles of Asia,"Houghteling,Sylvia Waisbren",,,,,12,Closed,9/5/17,12/22/17,13,A,TH, 2:10 PM, 4:00 PM,CH,104,NOEXAM,CH104,30
+2130,MATH,B295,001,Topics in Mathematics,Computational Modeling,"Graham,Erica Janine",,,,,20,Closed,9/5/17,12/22/17,20,A,TTH, 9:55 AM,11:15 AM,PK,349,PROJECT,PK349,42
+2132,HIST,B319,001,Topics in Mod European History,The History of the Far Right Movements in Europe,"Kurimay,Andrea Anita",,,,,15,Open,9/5/17,12/22/17,4,A,M, 1:10 PM, 4:00 PM,CARP,15,PAPER,CARP15,18
+2133,CITY,B377,001,Topics in Modern Architecture,City and Nature,"Lee,Min Kyung",,,,,15,Open,9/5/17,12/22/17,11,A,TH, 2:10 PM, 4:00 PM,TAY,C,PAPER,TAYC,20
+2135,POLS,B371,001,Topics in Political Philosophy,Justice,"Schlosser,Joel Alden",,,,,12,Open,9/5/17,12/22/17,11,A,TTH, 2:25 PM, 3:45 PM,DAL,006,PAPER,DAL6,16
+2137,FREN,B325,001,Topics: Etudes avancées,Les femmes au Maghreb,"Sanquer,Marie",,,,,0,Open,9/5/17,12/22/17,6,A,W, 1:10 PM, 4:00 PM,CH,223,PAPER,CH223,12
+2138,HIST,B237,001,Topics: Modern African History,Urban History,"Ngalamulume,Kalala",,,,,0,Open,9/5/17,12/22/17,10,A,MW, 2:40 PM, 4:00 PM,CARP,17,TAKEHOME,CARP17,15
+2139,ARCH,B316,001,Trade & Transport in Anc World,,"Magee,Peter",,,,,0,Open,9/5/17,12/22/17,2,A,F,12:10 PM, 2:00 PM,CARP,13,PAPER,CARP13,15
+2140,ITAL,B255,001,Uomini d’onore in Sicilia,,"Ricci,Roberta",,,,,0,Open,9/5/17,12/22/17,11,A,TTH, 2:25 PM, 3:45 PM,CH,223,PAPER,CH223,12
+2141,CITY,B185,001,Urban Culture and Society,,"McDonogh,Gary Wray","Raddatz,Liv",,,,70,Open,9/5/17,12/22/17,60,A,MW, 1:10 PM, 2:30 PM,TAY,F,NOEXAM,TAYF,50
+2142,CITY,B450,001,Urban Internships/Praxis,,"Raddatz,Liv",,,,,5,Open,9/5/17,12/22/17,0,A,, 0:00 AM, 0:00 AM,BYC,100,,,0
+2143,ENGL,B214,001,Refuse & Refusal Victorian Lit,,"Thomas,Kate Louise",,,,,30,Open,9/5/17,12/22/17,27,A,MW,10:10 AM,11:30 AM,DAL,119,PAPER,DAL119,42
+2145,ARCH,B110,001,World Through Classical Eyes,,"Donohue,Alice A.",,,,,20,Open,9/5/17,12/22/17,15,A,MWF,11:10 AM,12:00 PM,CH,104,SELF,CH104,30
+2146,ARTW,B261,001,Writing Poetry I,,"Matthews,Airea Dionne",,,,,15,Closed,9/5/17,12/22/17,15,A,TTH, 9:55 AM,11:15 AM,EH,III,,EHIII,15
+2147,ARTW,B360,001,Writing Short Fiction II,,"Torday,Daniel P.",,,,,15,Open,9/5/17,12/22/17,13,A,W, 1:10 PM, 4:00 PM,EH,III,,EHIII,15
+2148,WRIT,B120,001,Wrkshp for Multilingual Writer,,"Kopec,Stephen Dennis",,,,,15,Open,9/5/17,12/22/17,13,A,WF, 2:40 PM, 4:00 PM,EH,I,NOEXAM,EHI,25
+2150,RUSS,B206,001,Dostoevsky in Translation,,"Grigoryan,Bella",,,,,22,Open,9/5/17,12/22/17,7,A,MW, 1:10 PM, 2:30 PM,RC,CON,PAPER,RCCON,12
+2151,PHYS,B121,00Z,Modern Physics,,"Cheng,Xuemei","Bahreyni,Newshaw","Matlin,Mark",,,0,Open,9/5/17,12/22/17,2,A,,,,,,,,0
+2166,CITY,B185,002,Urban Culture and Society,,"McDonogh,Gary Wray","Raddatz,Liv",,,,35,Closed,9/5/17,12/22/17,0,S,MW, 1:10 PM, 2:30 PM,TAY,G,NOEXAM,TAYG,45
+2179,PSYC,B499,001,Junior Brown Bag,,,,,,,0,Closed,9/5/17,12/22/17,0,S,F,12:10 PM, 1:00 PM,BYC,127,,BYC127,30
+2180,POLS,B372,001,Comp Democratic Institutions,,"Fenner,Sofia Alia",,,,,16,Open,9/5/17,12/22/17,15,A,W, 1:10 PM, 4:00 PM,CARP,15,PAPER,CARP15,18
+2181,ITAL,B319,001,Multiculturalism and Diversity,,"Kubati,Roni",,,,,0,Open,9/5/17,12/22/17,2,A,MW, 2:40 PM, 4:00 PM,TAY,SEM,PAPER,TAYSEM,12
+2183,QUAN,B111,001,Modeling Change with Functions,,"Sudparid,Daisy",,,,,10,Open,9/5/17,12/22/17,6,A,MWF,11:10 AM,12:00 PM,CARP,15,SELF,CARP15,18
+2186,CITY,B254,001,History of Modern Architecture,,"Lee,Min Kyung",,,,,30,Open,9/5/17,12/22/17,26,A,MW, 2:40 PM, 4:00 PM,TAY,E,PAPER,TAYE,35
+2187,CMSC,B110,001,Introduction to Computing,,"Blank,Douglas",,,,,24,Open,9/5/17,12/22/17,21,A,TTH,12:55 PM, 2:15 PM,PK,338,SELF,PK338,50
+2188,CMSC,B110,00A,Introduction to Computing,,,,,,,12,Open,9/5/17,12/22/17,11,A,T, 2:25 PM, 3:15 PM,PK,230,,PK230,30
+2189,CMSC,B110,00B,Introduction to Computing,,,,,,,12,Open,9/5/17,12/22/17,10,A,TH,11:55 AM,12:45 PM,PK,230,,PK230,30
+2192,GNST,B290,001,Interdisc Sex/Gender,,"Balay,Anne G.",,,,,0,Open,9/5/17,12/22/17,20,A,MW, 1:10 PM, 2:30 PM,CARP,25,TAKEHOME,CARP25,30
+2199,CMSC,B113,001,Computer Science I,,"Eisenberg,Richard Alan",,,,,24,Closed,9/5/17,12/22/17,27,A,MW, 1:10 PM, 2:30 PM,PK,338,SELF,PK338,50
+2200,CMSC,B113,00A,Computer Science I,,"Eisenberg,Richard Alan",,,,,12,Closed,9/5/17,12/22/17,15,A,M, 2:40 PM, 3:30 PM,PK,231,SELF,PK231,30
+2201,CMSC,B113,00B,Computer Science I,,"Eisenberg,Richard Alan",,,,,12,Open,9/5/17,12/22/17,12,A,W,12:10 PM, 1:00 PM,PK,231,,PK231,30
+2204,ARTD,B349,001,Dance Ensemble: Outreach,,"Cantor,Madeline R.",,,,,10,Open,9/5/17,12/22/17,10,A,F, 4:40 PM, 6:00 PM,PE,STUD,PROJECT,PEMSTD,50
+2220,RUSS,B258,001,Soviet & E Euro Cinema of '60s,,"Harte,Timothy",,,,,0,Open,9/5/17,12/22/17,10,A,TTH, 2:25 PM, 3:45 PM,DAL,1,NOEXAM,DAL1,18
+2239,MATH,B225,001,Intro to Financial Mathematics,,"Cheng,Leslie C.",,,,,30,Closed,9/5/17,12/22/17,47,A,MW,11:40 AM, 1:00 PM,CARP,21,SELF,CARP21,73
+2271,ARTD,B232,001,Jazz: Intermediate Technique,,"Goodman,Yasmin",,,,,20,Open,9/5/17,12/22/17,6,A,MW, 5:40 PM, 7:00 PM,PE,STUD,NOEXAM,PEMSTD,50
+2275,EDUC,B240,001,Qualitative Research,,"Wilson,Chanelle Elizabeth",,,,,15,Open,9/5/17,12/22/17,5,A,M, 1:30 PM, 4:00 PM,CARP,13,NOEXAM,CARP13,15
+2333,PSYC,B398,005,Senior Thesis,,"Peterson,Laurel Marie",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2334,PSYC,B398,006,Senior Thesis,,"Thomas,Earl",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2335,PSYC,B398,007,Senior Thesis,,"Rescorla,Leslie",,,,,0,Open,9/5/17,12/22/17,5,A,,,,,,,,0
+2336,PSYC,B398,008,Senior Thesis,,"Wozniak,Robert H.",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2337,HIST,B245,001,Topics Modern US Hist,Making Public Queer History,"Vider,Stephen Joshua",,,,,0,Open,9/5/17,12/22/17,6,A,TTH, 9:55 AM,11:15 AM,DAL,10,PROJECT,DAL10,16
+2369,CHEM,B103,00A,General Chemistry I,,"Watkins,Lisa Marie",,,,,24,Closed,9/5/17,12/22/17,25,A,M, 1:10 PM, 2:00 PM,PK,278,,PK278,35
+2370,CHEM,B103,00B,General Chemistry I,,"Watkins,Lisa Marie",,,,,24,Closed,9/5/17,12/22/17,24,A,T, 1:10 PM, 2:00 PM,PK,278,,PK278,35
+2371,CHEM,B103,00C,General Chemistry I,,"Watkins,Lisa Marie",,,,,24,Closed,9/5/17,12/22/17,25,A,W, 1:10 PM, 2:00 PM,PK,278,,PK278,35
+2372,CHEM,B103,00D,General Chemistry I,,"Watkins,Lisa Marie",,,,,24,Closed,9/5/17,12/22/17,24,A,TH, 1:10 PM, 2:00 PM,PK,278,,PK278,35
+2373,CHEM,B103,00Z,General Chemistry I,,"Watkins,Lisa Marie",,,,,24,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2374,CHEM,B211,001,Organic Chemistry I,,"Nerz-Stormes,Maryellen",,,,,0,Open,9/5/17,12/22/17,60,A,MWF,10:10 AM,11:00 AM,PK,180,SELF,PK180,70
+2375,CHEM,B211,002,Organic Chemistry I,,"Malachowski,William P",,,,,85,Open,9/5/17,12/22/17,73,A,MWF,11:10 AM,12:00 PM,PK,025,WEDAM,PK25,110
+2376,CHEM,B211,00A,Organic Chemistry I,,"Benner,Britt VanKirk","Karagiaridi,Olga",,,,27,Open,9/5/17,12/22/17,23,A,M, 1:10 PM, 4:30 PM,PK,179,,PK179,20
+2377,CHEM,B211,00B,Organic Chemistry I,,"Karagiaridi,Olga",,,,,27,Open,9/5/17,12/22/17,23,A,T, 2:10 PM, 5:30 PM,PK,179,,PK179,20
+2378,CHEM,B211,00C,Organic Chemistry I,,"Benner,Britt VanKirk","Karagiaridi,Olga",,,,27,Open,9/5/17,12/22/17,25,A,W, 1:10 PM, 4:30 PM,PK,179,,PK179,20
+2379,CHEM,B211,00D,Organic Chemistry I,,"Benner,Britt VanKirk","Karagiaridi,Olga",,,,27,Open,9/5/17,12/22/17,17,A,TH, 1:10 PM, 4:30 PM,PK,179,,PK179,20
+2380,CHEM,B211,00E,Organic Chemistry I,,"Karagiaridi,Olga",,,,,27,Open,9/5/17,12/22/17,23,A,T, 9:40 AM, 1:00 PM,PK,179,,PK179,20
+2381,CHEM,B211,00F,Organic Chemistry I,,"Karagiaridi,Olga",,,,,27,Open,9/5/17,12/22/17,20,A,TH, 9:10 AM,12:30 PM,PK,179,,PK179,20
+2382,CHEM,B211,00Z,Organic Chemistry I,,"Karagiaridi,Olga",,,,,10,Open,9/5/17,12/22/17,2,A,, 0:00 AM, 0:00 AM,,,,,0
+2383,CHEM,B211,098,Organic Chemistry I,,"Karagiaridi,Olga",,,,,0,Open,9/5/17,12/22/17,133,A,F, 3:10 PM, 4:00 PM,PK,025,,PK25,110
+2387,PHYS,B101,001,Introductory Physics I,,"Noel,Michael",,,,,75,Open,9/5/17,12/22/17,70,A,MWF,10:10 AM,11:00 AM,PK,243,SELF,PK243,75
+2388,PHYS,B101,002,Introductory Physics I,,"Bahreyni,Newshaw","Cheng,Xuemei",,,,39,Open,9/5/17,12/22/17,36,A,MWF, 9:10 AM,10:00 AM,PK,243,SELF,PK243,75
+2389,PHYS,B101,00A,Introductory Physics I,,"Matlin,Mark",,,,,20,Closed,9/5/17,12/22/17,21,A,M, 1:40 PM, 3:30 PM,PK,234,,PK234,20
+2390,PHYS,B101,00B,Introductory Physics I,,"Matlin,Mark",,,,,26,Closed,9/5/17,12/22/17,26,A,M, 4:10 PM, 6:00 PM,PK,234,,PK234,20
+2391,PHYS,B101,00C,Introductory Physics I,,"Matlin,Mark",,,,,20,Closed,9/5/17,12/22/17,20,A,T, 1:10 PM, 3:00 PM,PK,234,,PK234,20
+2392,PHYS,B101,00D,Introductory Physics I,,"Matlin,Mark",,,,,20,Open,9/5/17,12/22/17,18,A,T, 3:40 PM, 5:30 PM,PK,234,,PK234,20
+2393,PHYS,B101,00E,Introductory Physics I,,"Matlin,Mark",,,,,20,Closed,9/5/17,12/22/17,20,A,W, 1:10 PM, 3:00 PM,PK,234,,PK234,20
+2394,PHYS,B101,00F,Introductory Physics I,,"Matlin,Mark",,,,,20,Open,9/5/17,12/22/17,16,A,TH, 3:40 PM, 5:30 PM,PK,234,,PK234,20
+2395,PHYS,B101,003,Introductory Physics I,,"Bahreyni,Newshaw","Cheng,Xuemei",,,,19,Open,9/5/17,12/22/17,14,A,MWF,12:10 PM, 1:00 PM,PK,349,SELF,PK349,42
+2396,ANTH,B101,00A,Intro Anthropology: Bio & Arch,,"VanSickle,Caroline Marie",,,,,17,Open,9/5/17,12/22/17,16,A,T,11:25 AM,12:45 PM,DAL,315,,DAL315,30
+2397,ANTH,B101,00B,Intro Anthropology: Bio & Arch,,"VanSickle,Caroline Marie",,,,,17,Open,9/5/17,12/22/17,16,A,T, 4:10 PM, 5:30 PM,DAL,315,,DAL315,30
+2398,ANTH,B101,00C,Intro Anthropology: Bio & Arch,,"VanSickle,Caroline Marie",,,,,17,Open,9/5/17,12/22/17,15,A,W, 1:10 PM, 2:30 PM,DAL,315,,DAL315,30
+2399,ANTH,B101,00D,Intro Anthropology: Bio & Arch,,"VanSickle,Caroline Marie",,,,,17,Closed,9/5/17,12/22/17,17,A,W, 2:40 PM, 4:00 PM,DAL,315,,DAL315,30
+2409,SOWK,B676,002,Pedagogy,,"Rho,Kathy Jun",,,,,0,Open,9/5/17,12/22/17,2,A,TH, 9:00 AM,11:00 AM,,,,,0
+2410,POLS,B381,001,Nietzsche,,"Elkins,Jeremy",,,,,18,Open,9/5/17,12/22/17,2,A,T, 1:10 PM, 4:00 PM,TAY,SEM,PAPER,TAYSEM,12
+2416,GNST,B425,001,Praxis III - Independent Study,AnaOno Data Analysis,,,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2427,HIST,B241,001,20th Cent American Society,,"Ullman,Sharon R.",,,,,40,Open,9/5/17,12/22/17,19,A,TTH,12:55 PM, 2:15 PM,CH,224,TAKEHOME,CH224,50
+2432,SOWK,B557,002,Organizational Behavior,,"Interim,Replacement",,,,,0,Open,9/5/17,12/22/17,0,A,T,11:00 AM, 1:20 PM,,,,,0
+2433,SOWK,B585,002,Legal Research Strategies,,"Albert,Raymond L.",,,,,0,Open,9/5/17,12/22/17,0,A,T, 2:40 PM, 5:00 PM,,,,,0
+2434,SOWK,B587,002,Integrated Health Care & SW,,"Bressi,Sara","Sousa,Cynthia",,,,0,Open,9/5/17,12/22/17,1,A,W,11:00 AM, 1:20 PM,,,,,0
+2436,ARCH,B135,00A,Focus: Arch Fieldwork & Method,,"Lindenlauf,Astrid",,,,,9,Open,9/5/17,12/22/17,5,A,F, 9:10 AM,10:00 AM,CARP,25,,CARP25,30
+2437,ARCH,B135,00B,Focus: Arch Fieldwork & Method,,"Lindenlauf,Astrid",,,,,9,Open,9/5/17,12/22/17,7,A,F,10:10 AM,11:00 AM,CARP,13,,CARP13,15
+2438,CITY,B403,002,Independent Study,,"McDonogh,Gary Wray",,,,,0,Open,9/5/17,12/22/17,4,A,,,,,,,,0
+2439,PHYS,B201,00A,Electromagnetism,,"Schaffner,David A",,,,,12,Closed,9/5/17,12/22/17,12,A,T, 1:10 PM, 4:00 PM,PK,337,,PK337,20
+2440,PHYS,B201,00B,Electromagnetism,,"Schaffner,David A",,,,,12,Open,9/5/17,12/22/17,10,A,F, 1:10 PM, 4:00 PM,PK,337,,PK337,20
+2441,PHYS,B403,002,Supervised Research,,"Daniel,Kathryne Jeannine",,,,,0,Open,9/5/17,12/22/17,2,A,,,,,,,,0
+2442,PHYS,B403,003,Supervised Research,,"Noel,Michael",,,,,0,Open,9/5/17,12/22/17,2,A,,,,,,,,0
+2443,PHYS,B403,004,Supervised Research,,"Schaffner,David A",,,,,0,Open,9/5/17,12/22/17,2,A,,,,,,,,0
+2444,PHYS,B101,00Z,Introductory Physics I,,"Matlin,Mark",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2445,BIOL,B110,00Z,Biological Exploration I,,"Skirkanich,Jennifer Nicole",,,,,0,Open,9/5/17,12/22/17,0,A,T,,,,,,,0
+2448,HART,B370,001,Topics in Chinese Art,Visual and Material Perspectives on the Silk Road,"Shi,Jie",,,,,15,Open,9/5/17,12/22/17,6,A,M, 2:10 PM, 4:00 PM,TAY,B,NOEXAM,TAYB,21
+2449,SOCL,B403,001,Supervised Work,,"Wright,Nathan Daniel",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2450,SOCL,B403,002,Supervised Work,,"Washington,Robert",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2451,SOCL,B403,005,Supervised Work,,"Coutinho-Sledge,Piper Elizabeth",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2452,SOCL,B403,003,Supervised Work,,"Karen,David",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2453,SOCL,B403,004,Supervised Work,,"Montes,Veronica",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2454,HART,B274,001,History of Chinese Art,,"Shi,Jie",,,,,40,Open,9/5/17,12/22/17,16,A,TTH, 2:25 PM, 3:45 PM,CARP,21,WEDAM,CARP21,73
+2456,PHYS,B403,005,Supervised Research,,"Schulz,Michael B.",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2457,CMSC,B113,00Z,Computer Science I,,"Eisenberg,Richard Alan",,,,,24,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2458,HART,B226,001,Perspectives on African Art,,"Labi,Kwame Amoah",,,,,0,Open,9/5/17,12/22/17,5,A,TTH,11:25 AM,12:45 PM,TAY,B,NORESPON,TAYB,21
+2461,FREN,B425,001,World Pulse Translation Praxis,,"Zeiss,Agnes C",,,,,5,Open,9/5/17,12/22/17,4,A,F, 1:00 PM, 2:00 PM,TAY,SEM,,TAYSEM,12
+2462,PSYC,B403,008,Supervised Research,,"Thomas,Earl",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2464,GNST,B403,001,Supervised Work,,"Romberg,David",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2552,HIST,B999,001,DID NOT REGISTER BUT BILL,,,,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2564,HIST,B101,001,The Historical Imagination,,"Kale,Madhavi",,,,,25,Open,9/5/17,12/22/17,13,A,MW, 1:10 PM, 2:30 PM,GO,B,NOEXAM,GOB,20
+2565,ARCH,B306,001,Monumental Painting,,"McFadden,Susanna E.",,,,,0,Open,9/5/17,12/22/17,6,A,T, 2:10 PM, 4:00 PM,CARP,17,NORESPON,CARP17,15
+2588,WRIT,B130,001,Adv WrkShp Multilingual Writer,,"Kopec,Stephen Dennis",,,,,15,Open,9/5/17,12/22/17,10,A,F, 1:10 PM, 2:30 PM,EH,II,NOEXAM,EHII,18
+2589,WRIT,B120,002,Wrkshp for Multilingual Writer,,"Litsinger,Betty Lou",,,,,15,Open,9/5/17,12/22/17,15,A,MW, 2:40 PM, 4:00 PM,EH,II,NOEXAM,EHII,18
+2590,ANTH,B285,001,"Development, Aid, and Activism",,"Campoamor,Leigh Miranda",,,,,25,Closed,9/5/17,12/22/17,24,A,TTH, 2:25 PM, 3:45 PM,DAL,2,PAPER,DAL2,24
+2591,ANTH,B279,001,Anth of Childhood and Youth,,"Campoamor,Leigh Miranda",,,,,25,Closed,9/5/17,12/22/17,26,A,TTH,11:25 AM,12:45 PM,TAY,F,NOEXAM,TAYF,50
+2592,WRIT,B120,003,Wrkshp for Multilingual Writer,,"Litsinger,Betty Lou",,,,,15,Open,9/5/17,12/22/17,14,A,TTH, 9:55 AM,11:15 AM,EH,II,NOEXAM,EHII,18
+2600,EMLY,B001,001,Emily Balch Seminars,Not Quite Human,"Callaghan,Jennefer",,,,,14,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,DAL,212A,,DAL212A,18
+2601,EMLY,B001,002,Emily Balch Seminars,Origins of Philosophy in China and Greece,"Salkever,Stephen G.",,,,,14,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,DAL,212E,,DAL212E,12
+2602,EMLY,B001,003,Emily Balch Seminars,Performance and Self,"Hemmeter,Gail C.",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,EH,I,,EHI,25
+2603,EMLY,B001,004,Emily Balch Seminars,Family Secrets,"Thomas,Kate Louise",,,,,14,Open,9/5/17,12/22/17,12,A,MW, 1:10 PM, 2:30 PM,EH,II,PAPER,EHII,18
+2604,EMLY,B001,006,Emily Balch Seminars,The Physician's Life,"Goldsmith,Jonas I.",,,,,14,Closed,9/5/17,12/22/17,14,A,TTH,11:25 AM,12:45 PM,PK,227,,PK227,15
+2605,EMLY,B001,007,Emily Balch Seminars,Food for Thought,"Brodfuehrer,Peter D.",,,,,14,Closed,9/5/17,12/22/17,14,A,TTH,11:25 AM,12:45 PM,TAY,SEM,,TAYSEM,12
+2606,EMLY,B001,008,Emily Balch Seminars,The Meaning of Work,"Stanford,Eleanor Mae",,,,,14,Closed,9/5/17,12/22/17,15,A,TTH,11:25 AM,12:45 PM,RC,SEM,,RCSEM,12
+2607,EMLY,B001,009,Emily Balch Seminars,The Meaning of Work,"Stanford,Eleanor Mae",,,,,14,Open,9/5/17,12/22/17,10,A,TTH,12:55 PM, 2:15 PM,RC,SEM,,RCSEM,12
+2608,EMLY,B001,010,Emily Balch Seminars,"Poverty, Affluence, and American Culture","Ruben,Matthew S.",,,,,14,Closed,9/5/17,12/22/17,14,A,TTH,11:25 AM,12:45 PM,RC,CON,,RCCON,12
+2609,EMLY,B001,011,Emily Balch Seminars,"Poverty, Affluence, and American Culture","Ruben,Matthew S.",,,,,14,Open,9/5/17,12/22/17,11,A,TTH,12:55 PM, 2:15 PM,RC,CON,,RCCON,12
+2610,EMLY,B001,012,Emily Balch Seminars,Reading and Writing Difference,"Sullivan,Mecca Jamilah",,,,,14,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,EH,II,NOEXAM,EHII,18
+2611,EMLY,B001,013,Emily Balch Seminars,Mind Your Manners!,"Griffith,Joann Denise",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,CARP,15,,CARP15,18
+2612,EMLY,B001,014,Emily Balch Seminars,Mind Your Manners!,"Griffith,Joann Denise",,,,,14,Open,9/5/17,12/22/17,12,A,TTH, 2:25 PM, 3:45 PM,CARP,15,,CARP15,18
+2613,EMLY,B001,015,Emily Balch Seminars,Forms of Celebrity,"Bryant,Sara Louise",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,CARP,13,PAPER,CARP13,15
+2614,EMLY,B001,016,Emily Balch Seminars,Terror,"Gordon,Colby William",,,,,14,Closed,9/5/17,12/22/17,14,A,TTH,11:25 AM,12:45 PM,TAY,C,PAPER,TAYC,20
+2615,EMLY,B001,017,Emily Balch Seminars,Building Bryn Mawr,"Walker,Alicia",,,,,14,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,CH,104,,CH104,30
+2616,EMLY,B001,018,Emily Balch Seminars,"Provoke, Subvert, Entertain:The Role/Humor","Liontas,Anna",,,,,14,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,CH,111,,CH111,30
+2617,EMLY,B001,019,Emily Balch Seminars,The Absurdity of the Real,"Matthews,Airea Dionne",,,,,14,Closed,9/5/17,12/22/17,14,A,TTH,11:25 AM,12:45 PM,DAL,1,,DAL1,18
+2618,EMLY,B001,020,Emily Balch Seminars,"Good Science, Bad Science and Nonsense","Matlin,Mark",,,,,14,Closed,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,CARP,25,,CARP25,30
+2619,EMLY,B001,021,Emily Balch Seminars,The Revoluntionary Set,"Walters,Jennifer L.",,,,,14,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,DAL,10,,DAL10,16
+2620,EMLY,B001,022,Emily Balch Seminars,"Drugs, Brain and Culture: Good, Bad & Ugly","Thomas,Earl",,,,,14,Open,9/5/17,12/22/17,10,A,TTH,11:25 AM,12:45 PM,BYC,239,,BYC239,12
+2621,EMLY,B001,023,Emily Balch Seminars,Refusal: Chinese Civil Resistance,"Jiang,Yonglin",,,,,14,Open,9/5/17,12/22/17,10,A,TTH,11:25 AM,12:45 PM,TAY,D,PAPER,TAYD,35
+2622,EMLY,B001,024,Emily Balch Seminars,Arguing with Songs,"Tratner,Michael",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,DAL,25,PAPER,DAL25,20
+2623,EMLY,B001,025,Emily Balch Seminars,Queering Utopia,"Coutinho-Sledge,Piper Elizabeth",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,DAL,2,TAKEHOME,DAL2,24
+2624,EMLY,B001,026,Emily Balch Seminars,The Sound of Numbers,"Myers,Amy N.",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,PK,336,PROJECT,PK336,30
+2625,EMLY,B001,027,Emily Balch Seminars,"Resistance, Rebellion, Revolution","Schlosser,Joel Alden",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,CH,116,PAPER,CH116,25
+2626,EMLY,B001,028,Emily Balch Seminars,"Attention, Please","Lord,Mark Evans",,,,,14,Open,9/5/17,12/22/17,12,A,TTH,11:25 AM,12:45 PM,TAY,E,NOEXAM,TAYE,35
+2627,EMLY,B001,029,Emily Balch Seminars,Reading & Writing in Internet Age,"Spohrer,Jennifer L.",,,,,14,Open,9/5/17,12/22/17,13,A,TTH,11:25 AM,12:45 PM,CH,102,,CH102,14
+2640,GNST,B048,001,Metacognition & College,,"Rose,Christina Marie",,,,,20,Open,9/5/17,12/22/17,19,A,MF, 1:10 PM, 2:30 PM,GIL,203,NOEXAM,GIL203,0
+2651,MATH,B303,003,Abstract Algebra I,,"Cheng,Leslie C.",,,,,22,Closed,9/5/17,12/22/17,24,A,TTH,12:55 PM, 2:15 PM,PK,336,TAKEHOME,PK336,30
+2654,BIOL,B101,001,Intro Bio I: Gen & Ctr Dogma,,"Wien,Michelle W.",,,,,65,Open,9/5/17,12/22/17,64,A,MWF, 9:10 AM,10:00 AM,PK,025,MONAM,PK25,110
+2655,BIOL,B101,00A,Intro Bio I: Gen & Ctr Dogma,,"Wien,Michelle W.",,,,,26,Open,9/5/17,12/22/17,25,A,T, 9:45 AM,12:45 PM,PK,020,,PK20,30
+2656,BIOL,B101,00B,Intro Bio I: Gen & Ctr Dogma,,"Wien,Michelle W.",,,,,26,Open,9/5/17,12/22/17,25,A,TH, 9:45 AM,12:45 PM,PK,020,,PK20,30
+2657,BIOL,B101,00C,Intro Bio I: Gen & Ctr Dogma,,"Wien,Michelle W.",,,,,26,Open,9/5/17,12/22/17,14,A,TH, 1:30 PM, 4:30 PM,PK,020,,PK20,30
+2668,ARTT,B251,002,Fundamentals of Acting,,"Ward,Molly",,,,,0,Closed,9/5/17,12/22/17,16,A,MW,10:10 AM,11:30 AM,GO,COM,NOEXAM,GOCOM,35
+2672,QUAN,B001,001,Quantitative Seminar,,"Horner,Betsy Helen",,,,,10,Closed,9/5/17,12/22/17,9,S,MWF,11:10 AM,12:00 PM,DAL,25,THURSAM,DAL25,20
+2673,QUAN,B001,003,Quantitative Seminar,,"Horner,Betsy Helen",,,,,10,Closed,9/5/17,12/22/17,9,S,TTH, 9:55 AM,11:15 AM,DAL,1,THURSAM,DAL1,18
+2674,QUAN,B001,002,Quantitative Seminar,,"Horner,Betsy Helen",,,,,10,Closed,9/5/17,12/22/17,14,S,MWF, 1:10 PM, 2:00 PM,TAY,B,THURSAM,TAYB,21
+2675,QUAN,B100,001,Intro to Quant & Comp Methods,,"Horner,Betsy Helen",,,,,0,Open,10/30/17,12/22/17,0,A,MWF,,,,,SELF,,0
+2676,QUAN,B100,002,Intro to Quant & Comp Methods,,"Horner,Betsy Helen",,,,,0,Open,10/30/17,12/22/17,0,A,MWF,12:10 PM, 1:00 PM,DAL,10,SELF,DAL10,16
+2678,SOCL,B248,001,Sociology of Bioethics,,"Joyce,Colette M.",,,,,35,Open,9/5/17,12/22/17,24,A,MW,11:40 AM, 1:00 PM,TAY,D,SELF,TAYD,35
+2682,EMLY,B001,005,Emily Balch Seminars,Family Secrets,"Schneider,Bethany",,,,,14,Open,9/5/17,12/22/17,11,A,MW, 1:10 PM, 2:30 PM,EH,LEC,,EHLEC,40
+2685,ACSK,B002,001,POSSE Meeting,,"Curl,Heather D.",,,,,0,Open,9/5/17,12/22/17,9,A,TH, 6:00 PM, 8:00 PM,BYC,100,,BYC100,10
+2686,QUAN,B001,099,Quantitative Seminar,,"Horner,Betsy Helen",,,,,0,Open,9/5/17,12/22/17,0,S,,,,,,THURSAM,,0
+2688,ACSK,B004,001,The Mellon Mays Fellows,,,,,,,0,Open,9/5/17,12/22/17,6,A,W, 5:30 PM, 7:00 PM,,,,,0
+2698,ENVS,B200,001,Edible Environmt: TheoryEthics,,"Borghini,Andrea",,,,,25,Open,9/5/17,12/22/17,16,A,MW, 2:40 PM, 4:00 PM,DAL,2,PAPER,DAL2,24
+2701,ARCH,B399,001,Senior Seminar,,"Lindenlauf,Astrid",,,,,0,Closed,9/5/17,12/22/17,1,S,,,,,,,,0
+2702,ARTT,B234,001,Lighting Design,,"Fossner,Lily Sophia",,,,,12,Open,9/5/17,12/22/17,4,A,TTH, 9:55 AM,11:15 AM,RO,146,PROJECT,RODESIGN,15
+2704,POLS,B220,001,Topics in Constitutional Law,First Amendment and Equality,"Snell,Steven L.",,,,,30,Open,9/5/17,12/22/17,21,A,TTH, 2:25 PM, 3:45 PM,EH,LEC,TAKEHOME,EHLEC,40
+2706,POLS,B251,001,"Democracy, Politics & Media",,"Walter,Dror",,,,,20,Open,9/5/17,12/22/17,13,A,TTH, 2:25 PM, 3:45 PM,GO,B,TAKEHOME,GOB,20
+2721,PSYC,B311,001,Personality and Social Context,,"Lee,Jeong Min",,,,,16,Closed,9/5/17,12/22/17,18,A,TTH, 9:55 AM,11:15 AM,CH,104,PAPER,CH104,30
+2745,CITY,B207,001,Topics in Urban Studies,Philadelphia Architecture & Urbanism,"Cohen,Jeffrey A.",,,,,20,Open,9/5/17,12/22/17,9,A,TTH, 9:55 AM,11:15 AM,BYC,100,PAPER,BYC100,10
+2746,VILLANOV,B999,001,Villanova Course,,,,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2760,BIOL,B403,008,Supervised Laboratory Research,,"Record,Sydne",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2761,PSYC,B208,001,Social Psychology,,"Lee,Jeong Min",,,,,36,Open,9/5/17,12/22/17,25,A,MW, 2:40 PM, 4:00 PM,TAY,F,SELF,TAYF,50
+2769,BIOL,B110,00E,Biological Exploration I,,"Skirkanich,Jennifer Nicole","Yin,Melinda Ray-Lin",,,,26,Open,9/5/17,12/22/17,14,A,T, 6:10 PM, 9:00 PM,PK,020,,PK20,30
+2778,MATH,B225,002,Intro to Financial Mathematics,,"Cheng,Leslie C.",,,,,25,Closed,9/5/17,12/22/17,35,A,MW, 2:40 PM, 4:00 PM,PK,349,SELF,PK349,42
+2825,EALC,B398,002,Senior Conference,,"Glassman,Hank",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2830,PHYS,B403,006,Supervised Research,,"Cheng,Xuemei",,,,,0,Open,9/5/17,12/22/17,2,A,,,,,,,,0
+2831,PHYS,B403,008,Supervised Research,,"Noel,Michael",,,,,0,Open,9/5/17,12/22/17,4,A,,,,,,,,0
+2832,PHYS,B403,007,Supervised Research,,"Daniel,Kathryne Jeannine",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2833,PHYS,B403,009,Supervised Research,,"Schaffner,David A",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2834,PHYS,B403,10,Supervised Research,,"Schulz,Michael B.",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2839,CITY,B415,001,Teaching Assistant,,"McDonogh,Gary Wray",,,,,0,Open,9/5/17,12/22/17,3,A,,,,,,,,0
+2842,SOWK,B588,002,Perspec. on Mental Health,,"Vider,Stephen Joshua",,,,,0,Open,9/5/17,12/22/17,0,A,W, 2:40 PM, 5:00 PM,SW,G8,,SW8,16
+2845,COML,B403,001,Supervised Work,,"Seyhan,Azade",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2848,SPAN,B000,001,Spanish TA/Drill Sessions,,,,,,,0,Open,9/5/17,12/22/17,0,A,T, 7:55 AM, 8:45 AM,CH,223,,CH223,12
+2859,SOWK,B556,002,Caring for an Aging America,,"Morrow,Nancy A.",,,,,0,Open,9/5/17,12/22/17,0,A,T,11:00 AM, 1:20 PM,SW,G8,,SW8,16
+2860,POLS,B403,001,Supervised Work,,"Hager,Carol",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2861,SPAN,B000,101,Spanish TA/Drill Sessions,,,,,,,0,Open,9/5/17,12/22/17,0,A,M, 5:10 PM, 6:00 PM,TAY,G,,TAYG,45
+2870,ARTW,B403,001,Supervised Work,,"Torday,Daniel P.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2901,CMSC,B403,001,Independent Study,,"Eisenberg,Richard Alan",,,,,0,Open,9/5/17,12/22/17,3,A,,,,,,,,0
+2916,BIOL,B403,009,Supervised Laboratory Research,,"Mozdzer,Thomas",,,,,0,Open,9/5/17,12/22/17,4,A,,,,,,,,0
+2920,BIOL,B403,010,Supervised Laboratory Research,,"Davis,Tamara L.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2941,BIOL,B403,011,Supervised Laboratory Research,,"Greif,Karen F.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2942,CMSC,B403,002,Independent Study,,"Xu,Yilun",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+2943,ENVS,B403,001,Independent Study,,"Barber,Donald",,,,,0,Open,9/5/17,12/22/17,2,A,,,,,,,,0
+2966,ITAL,B403,001,Supervised Work,,"Ricci,Roberta",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2967,PHIL,B403,001,Supervised Work,,"Dostal,Robert J.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2968,CITY,B425,001,Praxis III: Independent Study,"Immigration: Public Op, Politics & Media","Raddatz,Liv",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2969,CITY,B425,003,Praxis III: Independent Study,"Zoning, Planning and Preservation of Philadelphia'","McDonogh,Gary Wray",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2970,CITY,B425,004,Praxis III: Independent Study,Making & Keeping of LGBT Hist.,"Raddatz,Liv",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2971,CITY,B425,002,Praxis III: Independent Study,Urban Sustainability & the Solidarity Economy,"Raddatz,Liv",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2972,GNST,B425,002,Praxis III - Independent Study,In-house Media Production,"Romberg,David",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2973,GNST,B425,003,Praxis III - Independent Study,Financial Economics- U.S. Securities and Exchange,"Sfekas,Andrew Edward",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2974,GNST,B425,004,Praxis III - Independent Study,Citizenship and Belonging in Philadelphia,"Fenner,Sofia Alia",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2975,GNST,B425,005,Praxis III - Independent Study,Congressional Campaign Research,"Ngalamulume,Kalala",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2976,GNST,B425,006,Praxis III - Independent Study,Project Development in Museum Education,"Scott,Monique Renee",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2977,GNST,B425,007,Praxis III - Independent Study,Social Justice Initiative with Philadelphia VIP,"Montes,Veronica",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2978,SOCL,B425,001,Praxis III: Independent Study,Vamos Juntos: Community Organizing and Migrant Jus,,,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2983,CITY,B425,005,Praxis III: Independent Study,APM Zoning and Community outreach,"Raddatz,Liv",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+2985,GNST,B425,008,Praxis III - Independent Study,Using SQL & Python in Institutional Research,"Cheng,Leslie C.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3005,CITY,B425,006,Praxis III: Independent Study,Governing Difference: The Urban/Rural Divide in Pe,"Raddatz,Liv",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3007,GNST,B425,009,Praxis III - Independent Study,Praxis with Philadelphia Assembled,"Scott,Monique Renee",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3008,GNST,B425,010,Praxis III - Independent Study,Grassroots Organizing and the Importance of Runnin,"Golden,Marissa Martino",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3009,GNST,B425,011,Praxis III - Independent Study,Digital Archiving and Community Engagement,"Kurimay,Andrea Anita",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3010,EDUC,B425,001,Praxis III: Independent Study,,"Donnay,Victor J.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3011,MATH,B702,003,Research Seminar,,"Graham,Erica Janine",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+3011,MATH,B702,003,Research Seminar,,"Graham,Erica Janine",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+3012,MATH,B702,001,Research Seminar,,"Cheng,Leslie C.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3012,MATH,B702,001,Research Seminar,,"Cheng,Leslie C.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3013,MATH,B702,005,Research Seminar,,"Milicevic,Djordje",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+3013,MATH,B702,005,Research Seminar,,"Milicevic,Djordje",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+3014,MATH,B701,001,Supervised Work,,"Cheng,Leslie C.",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+3014,MATH,B701,001,Supervised Work,,"Cheng,Leslie C.",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+3015,MATH,B403,003,Supervised Work,,"Graham,Erica Janine",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3016,MATH,B403,005,Supervised Work,,"Milicevic,Djordje",,,,,0,Open,9/5/17,12/22/17,0,A,,,,,,,,0
+3023,GNST,B425,12,Praxis III - Independent Study,Reinvestment Fund-An analysis of affordable housin,,,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3046,CHEM,B701,001,Supervised Work,,"Burgmayer,Sharon J.N.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3046,CHEM,B701,001,Supervised Work,,"Burgmayer,Sharon J.N.",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
+3051,MATH,B395,007,Research Seminar,,"Milicevic,Djordje",,,,,0,Open,9/5/17,12/22/17,1,A,,,,,,,,0
