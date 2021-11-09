@@ -212,21 +212,34 @@ def write_teachers_to_file(list_of_dicts, f):
   #       f.write(b + "\t")
   #   f.write("\n")
 
-def write_classes_to_file(list_of_dicts):
-  unique_subjects = []
-  for enrollment in list:
-    if enrollment['Subject'] == "CSEM":
-      print(enrollment)
-    if enrollment['Subject'] not in unique_subjects:
-      unique_subjects.append(enrollment['Subject'])
-  print(unique_subjects)
+
+def write_classes_to_file(list_of_dicts, f):
+  courses_dict = get_courses(list_of_dicts)
+
+  unique_courses = {}
+  language = ["FREN", "SPAN", "GERM", "GREK", "HEBR", "RUSS", "ITAL", "CNSE", "JAPN", "LATN"]
+  for course_id in courses_dict:
+    course = courses_dict[course_id]
+    if course_id not in unique_courses:
+      unique_courses[course_id] = []
+      if course["Subject"] == "CSEM":
+        unique_courses[course_id].append("SEM")
+
+      if course['Subject'] in language and "Elementary" in course["Crs Descr"]:
+        unique_courses[course_id].append("LANG")
+
+  for course in unique_courses:
+    to_write = course + "\t"
+    labels = " ".join(unique_courses[course])
+    to_write += labels + "\n"
+    f.write(to_write)
 
 def write_constraints_to_file(list_of_dicts, filename):
   f = open(filename, 'w')
   write_class_times_to_file(list_of_dicts, f)
   write_rooms_to_file(list_of_dicts, f)
   write_num_classes_to_file(list_of_dicts, f)
-
+  write_classes_to_file(list_of_dicts, f)
   write_teachers_to_file(list_of_dicts, f)
   f.close()
 

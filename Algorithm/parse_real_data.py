@@ -1,7 +1,7 @@
 from args import parse_args
 import os
 import re
-from objects import TimeSlot, Room, Student, Professor
+from objects import TimeSlot, Room, Student, Professor, Class
 
 
 def get_day_format(raw_days):
@@ -98,6 +98,9 @@ def read_preferences(pref_filename):
         preferences = [int(class_id) for class_id in row_data[1:]]
         cur_student = Student(id, preferences)
         new_students.append(cur_student)
+
+    assert num_students == len(new_students)
+
     return new_students
 
 
@@ -121,8 +124,27 @@ def parse_professors(c_data, start_line):
 
     return list_of_profs
 
-def parse_courses(c_data):
-    pass
+
+def parse_courses(c_data, courses_line):
+    """
+
+    :param c_data: List[str] Raw data from text file, line by line.
+    :param courses_line: Int -> Starting line for the courses.
+    :return: List[Class]
+    """
+    num_of_courses = int(c_data[courses_line].split()[1])
+    courses = []
+    for cur_course_line in range(courses_line+1, courses_line + num_of_courses+1):
+        cur_line = c_data[cur_course_line].split()
+        course_id = int(cur_line[0])
+        lang = "LANG" in cur_line
+        sem = "SEM" in cur_line
+
+        cur_class = Class(id=course_id, writing_seminar=sem, language=lang)
+        courses.append(cur_class)
+
+    return courses
+
 
 def read_constraints(constraint_filename):
     """
@@ -134,46 +156,65 @@ def read_constraints(constraint_filename):
     c_data = c_file.readlines()  # Read constraint file into a list of lines
     c_file.close()
 
-    class_dict = dict()
+    # Parse the Time slots
     num_class_times = int(c_data[0].strip().split()[2])
     assert type(num_class_times) == int
     timeslots = parse_timeslots(c_data, num_class_times)
+    assert num_class_times == len(timeslots)
 
+    # Parse the Rooms
     rooms_line = num_class_times + 1
     num_rooms = int(c_data[rooms_line].split()[1])
     assert type(num_rooms) == int
     rooms = parse_rooms(c_data, num_class_times, num_rooms)
+    assert len(rooms) == num_rooms
+
+    # Parse the Rooms
     courses_line = num_class_times + num_rooms + 2
     num_of_courses = int(c_data[courses_line].split()[1])
+    courses = parse_courses(c_data, courses_line)
+    assert len(courses) == num_of_courses
 
-    professors = parse_professors(c_data, courses_line+1)
+    # Parse the Professors
+    professors_line = courses_line+num_of_courses+1
+    num_of_teachers = int(c_data[professors_line].split()[1])
+    professors = parse_professors(c_data, professors_line)
 
-    courses = parse_courses(c_data)
+    assert len(professors) == num_of_teachers
+
+    return rooms, courses, professors, timeslots
 
 
-    # room_dict = dict()
-    # for row in c_data[2:end_room_index]:
-    #     row_data = row.strip().split()
-    #     room_dict[int(row_data[0])] = int(row_data[1])
-    # num_classes = int(c_data[end_room_index].strip().split()[1])
-    # num_teachers = int(c_data[end_room_index + 1].strip().split()[1])
-    # teacher_dict = dict()
-    # class_dict = dict()
-    # for row in c_data[end_room_index + 2:]:
-    #     row_data = row.strip().split()
-    #     if class_dict.get(int(row_data[0])) is None:
-    #         class_dict[int(row_data[0])] = int(row_data[1])
-    #     if teacher_dict.get(int(row_data[1])) is None:
-    #         teacher_dict[int(row_data[1])] = {'class':[int(row_data[0])]}
-    #     else:
-    #         teacher_dict[int(row_data[1])]['class'].append(int(row_data[0]))
-    # return num_rooms, num_classes, num_class_times, num_teachers, room_dict, class_dict, teacher_dict
 
+def parse_data_into_objs(constrain_file, pref_file, debug=False):
+    S = read_preferences(pref_file)
+    R, C, P, T = read_constraints(constraint_file)
+
+    if debug:
+        print("Rooms:")
+        for room in R:
+            print("\t"+str(room))
+
+        print("Classes:")
+        for course in C:
+            print("\t"+str(course))
+
+        print("Professors:")
+        for prof in P:
+            print("\t"+str(prof))
+
+        print("Students:")
+        for student in S:
+            print("\t"+str(student))
+
+        print("Timeslots")
+        for ts in T:
+            print("\t"+str(ts))
+    return R, C, P, S, T
 
 if __name__ == "__main__":
     #args = parse_args("Parse real data.")
     constraint_file = "../data/new_constraints.txt"
     pref_file = "../data/new_prefs.txt"
+    parse_data_into_objs(constraint_file, pref_file, debug=True)
 
-    prefs = read_preferences(pref_file)
-    constraints = read_constraints(constraint_file)
