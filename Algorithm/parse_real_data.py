@@ -185,7 +185,6 @@ def read_constraints(constraint_filename):
     return rooms, courses, professors, timeslots
 
 
-
 def parse_data_into_objs(constrain_file, pref_file, debug=False):
     S = read_preferences(pref_file)
     R, C, P, T = read_constraints(constraint_file)
@@ -212,9 +211,12 @@ def parse_data_into_objs(constrain_file, pref_file, debug=False):
             print("\t"+str(ts))
     return R, C, P, S, T
 
+
 if __name__ == "__main__":
     #args = parse_args("Parse real data.")
-    constraint_file = "../data/new_constraints.txt"
-    pref_file = "../data/new_prefs.txt"
+    # constraint_file = "../data/new_constraints.txt"
+    # pref_file = "../data/new_prefs.txt"
+    constraint_file = "../data/constraints_S100C10T7P11R5.txt"
+    pref_file = "../data/prefs_S100C10T7P11R5.txt"
     parse_data_into_objs(constraint_file, pref_file, debug=True)
 
