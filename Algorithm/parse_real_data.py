@@ -1,7 +1,7 @@
 from args import parse_args
 import os
 import re
-from objects import TimeSlot, Room
+from objects import TimeSlot, Room, Student, Professor
 
 
 def get_day_format(raw_days):
@@ -83,24 +83,53 @@ def parse_rooms(c_data, num_class_times, num_rooms):
 
 def read_preferences(pref_filename):
     """
-    Same as other file.
-    :param pref_filename:
-    :return:
+    :param pref_filename: Str path to student pref file.
+    :return: List[Student]
     """
     p_file = open(pref_filename, "r")
     p_data = p_file.readlines()
     p_file.close()
-    student_dict = dict()
-    num_students = int(p_data[0].strip().split()[1])
+    new_students = []
+    num_students = int(p_data[0].strip().split()[1])  # Currently unused
     p_data = p_data[1:]
     for row in p_data:
         row_data = row.strip().split()
-        student_dict[int(row_data[0])] = [int(class_id) for class_id in row_data[1:]]
-    return num_students, student_dict
+        id = int(row_data[0])
+        preferences = [int(class_id) for class_id in row_data[1:]]
+        cur_student = Student(id, preferences)
+        new_students.append(cur_student)
+    return new_students
 
+
+def parse_professors(c_data, start_line):
+    """
+
+    :param c_data: List[Str] -> list of data in constraint file, line by line.
+    :param start_line: Int -> Line where professor data starts.
+    :return: List[Professor]
+    """
+
+    num_of_teachers = int(c_data[start_line].split()[1])
+    list_of_profs = []
+    for professor_line_num in range(start_line+1, start_line+num_of_teachers+1):
+        cur_line = c_data[professor_line_num]
+        cur_prof_data = cur_line.split()
+        prof_id = int(cur_prof_data[0])
+        courses = [int(c) for c in cur_prof_data[1:]]
+        new_prof = Professor(prof_id, courses)
+        list_of_profs.append(new_prof)
+
+    return list_of_profs
+
+def parse_courses(c_data):
+    pass
 
 def read_constraints(constraint_filename):
+    """
 
+    :param constraint_filename: Str: path to constraint file.
+    :return:
+    """
     c_file = open(constraint_filename, "r")
     c_data = c_file.readlines()  # Read constraint file into a list of lines
     c_file.close()
@@ -114,10 +143,12 @@ def read_constraints(constraint_filename):
     num_rooms = int(c_data[rooms_line].split()[1])
     assert type(num_rooms) == int
     rooms = parse_rooms(c_data, num_class_times, num_rooms)
+    courses_line = num_class_times + num_rooms + 2
+    num_of_courses = int(c_data[courses_line].split()[1])
 
-    for line in c_data[num_class_times + num_rooms:]:
-        # How to parse classes?
-        print(line)
+    professors = parse_professors(c_data, courses_line+1)
+
+    courses = parse_courses(c_data)
 
 
     # room_dict = dict()
@@ -141,9 +172,8 @@ def read_constraints(constraint_filename):
 
 if __name__ == "__main__":
     #args = parse_args("Parse real data.")
-    constraint_file = "../data/constraints.txt"
-    pref_file = "../data/student_pref.txt"
+    constraint_file = "../data/new_constraints.txt"
+    pref_file = "../data/new_prefs.txt"
 
     prefs = read_preferences(pref_file)
     constraints = read_constraints(constraint_file)
-    print(constraints)
