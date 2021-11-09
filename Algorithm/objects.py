@@ -55,7 +55,7 @@ class TimeSlot:
         self.conflicts = conflicts
 
     def __str__(self):
-        return "(TimeSlot:{} {}:{}-{})".format(self.id, self.days, self.start_time, self.end_time)
+        return "(TimeSlot:{} {}:{}-{})".format(self.id, self.days, self.start_times[0], self.end_times[0])
 
 
 class Room:
