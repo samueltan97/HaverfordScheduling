@@ -188,26 +188,45 @@ def write_num_classes_to_file(list_of_dicts, f):
   num_classes = len(get_courses(list_of_dicts))
   f.write("Classes\t" + str(num_classes) + "\n")
 
+
 def write_teachers_to_file(list_of_dicts, f):
   prof_courses = get_prof_courses(list_of_dicts)
   num_profs = len(prof_courses)
   courses = get_courses(list_of_dicts)
   subject_level = get_subject_level(list_of_dicts)
   building = get_building(list_of_dicts)
+
   f.write("Teachers\t" + str(num_profs) + "\n")
-  for course in courses:
-    f.write(course + "\t")
-    f.write(courses[course]["Instructor ID"] + "\t")
-    f.write(subject_level[course][0] + "\t")
-    for b in building[subject_level[course][0]]:
-        f.write(b + "\t")
-    f.write("\n")
+  for prof_id in prof_courses:
+    courses_prof_teaches = prof_courses[prof_id]
+    cur_line = prof_id + "\t"
+    cur_line += " ".join(courses_prof_teaches) + "\n"
+    f.write(cur_line)
+
+  # for course in courses:
+  #   #print(course)
+  #   f.write(course + "\t")
+  #   f.write(courses[course]["Instructor ID"] + "\t")
+  #   f.write(subject_level[course][0] + "\t")
+  #   for b in building[subject_level[course][0]]:
+  #       f.write(b + "\t")
+  #   f.write("\n")
+
+def write_classes_to_file(list_of_dicts):
+  unique_subjects = []
+  for enrollment in list:
+    if enrollment['Subject'] == "CSEM":
+      print(enrollment)
+    if enrollment['Subject'] not in unique_subjects:
+      unique_subjects.append(enrollment['Subject'])
+  print(unique_subjects)
 
 def write_constraints_to_file(list_of_dicts, filename):
   f = open(filename, 'w')
   write_class_times_to_file(list_of_dicts, f)
   write_rooms_to_file(list_of_dicts, f)
   write_num_classes_to_file(list_of_dicts, f)
+
   write_teachers_to_file(list_of_dicts, f)
   f.close()
 
