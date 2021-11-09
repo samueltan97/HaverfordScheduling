@@ -143,6 +143,9 @@ if __name__ == "__main__":
     # We are assuming that we get at least one professor for each course for random data.
     assert args.num_of_professors >= args.num_of_courses
 
+    # We only have 63 time slots from the real data to work with.
+    assert args.num_of_timeslots <= 63
+
     constraints_file = "constraints_"+generate_file_name(args)
     write_class_times(args.num_of_timeslots, constraints_file)
     write_rooms(args.num_of_rooms, constraints_file)
