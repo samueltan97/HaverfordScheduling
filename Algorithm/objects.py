@@ -1,6 +1,6 @@
 
 class Class:
-    def __init__(self, id, professor, corresponding_class=[],
+    def __init__(self, id, professor=None, corresponding_class=[],
                  stem=False, humanities=False,
                  writing_seminar=False, language=False):
 
@@ -77,7 +77,7 @@ class Room:
         self.music_valid = music_valid
 
     def __str__(self):
-        return "(Room:{}, capacity: {})".format(self.id, self.capacity)
+        return "(Room:{}, Capacity: {}, Building: {})".format(self.id, self.capacity, self.building_code)
 
 
 class Student:
