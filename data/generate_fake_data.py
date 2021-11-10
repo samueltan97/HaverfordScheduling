@@ -2,6 +2,12 @@ import optparse
 import sys
 import random
 
+"""
+Unique Subjects: ['ARTD', 'ECON', 'GNST', 'MATH', 'CMSC', 'HART', 'LATN', 'CHEM', 'CSEM', 'POLS', 'ITAL', 'HIST', 'PSYC', 'SPAN', 'EDUC', 'GEOL', 'ARTT', 'ENGL', 'BIOL', 'RUSS', 'FREN', 'CITY', 'ANTH', 'PHYS', 'SOCL', 'GERM', 'ARCH', 'EAST', 'CNSE', 'GREK', 'PHIL', 'ARTF', 'CSTS', 'HEBR', 'ARTW', 'COML']
+
+
+"""
+
 
 def parse_args(description):
     parser = optparse.OptionParser(description=description)
@@ -79,6 +85,12 @@ def write_classes(num_of_classes, output_file):
     percent_seminars = 0.05
     percent_language = 0.05
 
+    departments = ['ARTD', 'ECON', 'GNST', 'MATH', 'CMSC', 'HART', 'LATN', 'CHEM', 'CSEM', 'POLS', 'ITAL', 'HIST', 'PSYC', 'SPAN',
+     'EDUC', 'GEOL', 'ARTT', 'ENGL', 'BIOL', 'RUSS', 'FREN', 'CITY', 'ANTH', 'PHYS', 'SOCL', 'GERM', 'ARCH', 'EAST',
+     'CNSE', 'GREK', 'PHIL', 'ARTF', 'CSTS', 'HEBR', 'ARTW', 'COML']
+
+    levels = ["000", "100", "200", "300"]
+
     with open(output_file, "a") as output:
         header = "Classes \t" + str(num_of_classes) + "\n"
         output.write(header)
@@ -86,8 +98,12 @@ def write_classes(num_of_classes, output_file):
         for i in range(0, num_of_classes):
             cur_line = str(i) + "\t"
             r_value = random.uniform(0, 1)
+            level = random.choice(levels)
+            department = random.choice(departments)
             is_seminar = r_value < percent_seminars
             is_language = percent_seminars < r_value < percent_language+percent_seminars
+            cur_line += department + "\t"
+            cur_line += level + "\t"
 
             if is_seminar:
                 cur_line += "SEM"
