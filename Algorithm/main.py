@@ -217,14 +217,13 @@ def class_schedule(T,S,C,R,P, pandemic=False):
     matches = {}
     for c in sorted_class:
         #  define professor
-        p_ids = c.professor
-        for p_id in p_ids:
+        p_objects = c.professor
+        for p in p_objects:
             if c.chosen_professor is not None:
                 break
-            p = get_obj_by_id(P, p_id)
             for t in sorted_class_times:
                 overlap = False
-                print('here', type(c), type(p), p_id)
+                print('here', type(c), type(p))
                 for classes, timeslots in matches.items():
                     if doesCorrespond(c.department,classes.department) and does_conflict(timeslots[t], t):
                         overlap=True
