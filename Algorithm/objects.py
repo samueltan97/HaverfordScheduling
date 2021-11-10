@@ -86,7 +86,7 @@ class Room:
         """
         self.id = id
         self.capacity = capacity
-        self.building = building_code
+        self.building_code = building_code
         self.stem_valid = stem_valid
         self.humanities_valid = humanities_valid
         self.art_valid = art_valid
@@ -110,14 +110,14 @@ class Student:
 
 
 class Professor:
-    def __init__(self, id, classes, assigned_classes = []):
+    def __init__(self, id, classes, assigned_classes_slot = []):
         """
         :param id: Int
         :param classes: List[Int] -> list of classes the professor is able to teach.
         """
         self.id = id
         self.classes = classes
-        self.assigned_classes = assigned_classes
+        self.assigned_classes_slot = assigned_classes_slot
 
     def __str__(self):
         return "(Professor:{}, classes: {})".format(self.id, self.classes)
