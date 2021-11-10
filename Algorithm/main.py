@@ -230,16 +230,16 @@ def class_schedule(T,S,C,R,P, pandemic=False):
         #  define professor
         p_objects = c.professor
         for p in p_objects:
-            if len(p.assigned_classes) == 2 or c.chosen_professor is not None:
+            if len(p.assigned_classes_slot) == 2 or c.chosen_professor is not None:
                 break
             for conflicts in conflict_dict:
                 #loop through each entry in conflict dict, sorted by increasing number of conflicts
                 valid_timeslots = []
                 if c in matches.keys():
                     break
-                for t in conflicts:
+                for t in conflicts[1]:
                     overlap = False
-                    print('here', type(c), type(p))
+                    print('here', type(t), type(p), t)
                     for classes, timeslots in matches.items():
                         if doesCorrespond(c.department, classes.department) and does_conflict(timeslots[t], t):
                             overlap = True
@@ -247,15 +247,17 @@ def class_schedule(T,S,C,R,P, pandemic=False):
                     if prof_availability[p][t] == True and overlap == False:
                         valid_timeslots.append(t)
 
-                if valid_timeslots:
+                if len(valid_timeslots) > 0:
                     #check each valid timeslot, and see if professors already teach on that day and try and schedule a timeslot which fits that day
-                    if p.assigned_classes:
+                    if p.assigned_classes_slot:
                         for time in valid_timeslots:
-                            if p.assigned_classes_slot.days == time.days:
-                                match_class(rooms_for_classes, room_availability, prof_availability, class_interest_count, c, time, p)
+                            # TODO: find better way to check days
+                            print(tuple(time.days), set([tuple(x.days) for x in p.assigned_classes_slot]))
+                            if tuple(time.days) in set([tuple(x.days) for x in p.assigned_classes_slot]):
+                                match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, time, p)
                                 break
                     #case in which professors don't have assigned class yet, or no valid timeslots with overlapping days
-                    match_class(rooms_for_classes, room_availability, prof_availability, class_interest_count, c, valid_timeslots[0],
+                    match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, valid_timeslots[0],
                                 p)
 
             # for t in sorted_class_times:
@@ -285,7 +287,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
     score, matches = enroll_students(matches, S, R, T, C)
     return score, matches
 
-def match_class(rooms_for_classes, room_availability,prof_availability, class_interest_count, c,t,p):
+def match_class(matches, rooms_for_classes, room_availability,prof_availability, class_interest_count, c,t,p):
     for r in rooms_for_classes[c]:
         if room_availability[r][t] == True:
             matches[c] = {"timeslot": t, "room": r}
