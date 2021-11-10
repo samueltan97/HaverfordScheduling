@@ -36,7 +36,7 @@ def parse_args(description):
                       help="Tells the program how much to print. ")
 
     # mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
-    mandatories = []
+    mandatories = ["schedule_filename"]
     (opts, args) = parser.parse_args()
 
     if opts.folder_name is not None:  # Make the pref, constraint files only necessary if folder not given.
@@ -212,13 +212,15 @@ def evaluate_runtime_and_performance(class_schedule_function, pref_file, constra
     start_time = time.time()
     # score, matches = class_schedule_function(T, S, C, R, P)
     score, matches = class_schedule(T, S, C, R, P)
+    total = sum([len(s.preferences) for s in S])
     runtime = time.time() - start_time
 
     if debug:
         print("--- %s seconds ---" % runtime)
 
     convert_matches_to_schedule_file(matches, schedule_file)
-    student_pref_score = test(schedule_file, constraint_file, pref_file, debug)
+    student_pref_score = test(schedule_file, constraint_file, pref_file, debug) / total
+
     return student_pref_score, runtime
 
 
@@ -285,9 +287,10 @@ if __name__ == "__main__":
     # print(evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename))
     #print(run_all_test_cases_in_test_folder(args.folder_name))
 
-    evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename, args.debug)
+    score, runtime = evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename, args.debug)
 
-    if args.all_tests:
-        print(run_all_tests(args.debug))
-    else:
-        print(run_all_test_cases_in_test_folder(args.folder_name, args.debug))
+    print(score)
+    # if args.all_tests:
+    #     print(run_all_tests(args.debug))
+    # else:
+    #     print(run_all_test_cases_in_test_folder(args.folder_name, args.debug))
