@@ -14,7 +14,9 @@ WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s5
 MAC: 
 
 python3 ./test.py -p ../data/real_data/new_prefs.txt -c ../data/real_data/new_constraints.txt
-python3 ./test.py -p ../data/prefs.txt -c ../data/constraints.txt
+python3 ./test.py -p ../data/prefs.txt -c ../data/constraints.txt -s sched.txt
+python3 ./test.py -p ../data/prefs_S1146C297T63P297R68.txt -c ../data/constraints_S1146C297T63P297R68.txt -s schedFake.txt
+
 """
 
 
@@ -288,7 +290,7 @@ if __name__ == "__main__":
     #print(run_all_test_cases_in_test_folder(args.folder_name))
 
     score, runtime = evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename, args.debug)
-
+    #
     print(score)
     # if args.all_tests:
     #     print(run_all_tests(args.debug))
