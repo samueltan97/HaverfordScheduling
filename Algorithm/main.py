@@ -24,31 +24,30 @@ def sort_classes(S,C, first_year_seminar):
     :return: List[Class] -> C sorted by total interest.
     """
 
-    class_interest_count = {k.id:0 for k in C}
-    #print(class_interest_count)
+    class_interest_count = {k: 0 for k in C}
+
     for s in S:
         for p in s.preferences:
             course = get_obj_by_id(C, p)
             if first_year_seminar:
             #  and p is not a first year seminar
-                if course in class_interest_count.keys() and not course.writing_seminar and not course.language:
+                if course in class_interest_count and not course.writing_seminar and not course.language:
                     #CHECK IF THIS IS SUPPOSED TO INCREMENT OR SIMPLY SET TO 1
-                    class_interest_count[p] += 1
+                    class_interest_count[course] += 1
                 else:
-                    if course.writing_seminar and course.language:
+                    if course.writing_seminar and course.language: # Should be and right??
                         class_interest_count[course] = 0
                     #i  f p first year seminar, classInterestCount[p] = 0
                     else:
                         class_interest_count[course] = 1
             else:
-                if course in class_interest_count.keys():
-                    class_interest_count[course] +=1
+                if course in class_interest_count:
+                    class_interest_count[course] += 1
                 else:
                     class_interest_count[course] = 1
     #  sort by highest interest, descending order
-    # print([str(c) for c in C])
-    # print(class_interest_count)
-    sorted_class_interest_count = sorted(C, key=lambda c: class_interest_count[c.id], reverse=True)
+
+    sorted_class_interest_count = sorted(C, key=lambda c: class_interest_count[c], reverse=True)
     return sorted_class_interest_count, class_interest_count
 
 
