@@ -38,6 +38,7 @@ class Class:
             "Class Level: {}) ".format(self.id, self.professor, self.writing_seminar, self.language, self.department, self.class_level)
 
 
+
 class TimeSlot:
     def __init__(self, id, days, start_times, end_times, conflicts=0):
 

@@ -23,21 +23,25 @@ def sort_classes(S,C):
     :return: List[Class] -> C sorted by total interest.
     """
 
-    class_interest_count = {k.id:0for k in C}
+    class_interest_count = {k.id:0 for k in C}
     #print(class_interest_count)
     for s in S:
         for p in s.preferences:
             #  and p is not a first year seminar
-            if p in class_interest_count.keys():
-                class_interest_count[p] = 1
+            if p in class_interest_count.keys() and not p.writing_seminar and not p.language:
+                #CHECK IF THIS IS SUPPOSED TO INCREMENT OR SIMPLY SET TO 1
+                class_interest_count[p] += 1
             else:
+                if p.writing_seminar and p.language:
+                    class_interest_count[p] = 0
                 #i  f p first year seminar, classInterestCount[p] = 0
-                class_interest_count[p] = 1
+                else:
+                    class_interest_count[p] = 1
     #  sort by highest interest, descending order
     # print([str(c) for c in C])
     # print(class_interest_count)
     sorted_class_interest_count = sorted(C, key=lambda c: class_interest_count[c.id], reverse=True)
-    return sorted_class_interest_count
+    return sorted_class_interest_count, class_interest_count
 
 
 def sort_class_times(T):
@@ -64,10 +68,17 @@ def identify_rooms_for_class(R,C):
     :return: Dict[Class : List[Rooms] -> the rooms that each class can occupy.
     """
     rooms_for_classes = {}
-    sorted_rooms = sorted(R, key=lambda r: r.capacity, reverse=True)
-    for cur_class in C:
-        rooms_for_classes[cur_class] = sorted_rooms
+    # sorted_rooms = sorted(R, key=lambda r: r.capacity, reverse=True)
+    # for cur_class in C:
+    #     rooms_for_classes[cur_class] = sorted_rooms
 
+    for classes in C:
+        for rooms in R:
+            if rooms.building in classes.valid_buildings():
+                if classes in rooms_for_classes.keys:
+                    rooms_for_classes[classes].append(rooms)
+                else:
+                    rooms_for_classes[classes] = [rooms]
     return rooms_for_classes
 
 
@@ -165,8 +176,16 @@ def enroll_students(matches, S, R, T, C):
 
     return score, matches
 
+def doesCorrespond(class1, class2):
+    set_class_correspond = set([("MATH", "PHYS"), ("MATH", "CMSC"), ("CHEM", "BIOL"), ("COML", "ENGL"), ("HART", "ARTD")])
+    check_tuple = sorted((class1, class2))
+    if check_tuple in set_class_correspond:
+        return True
+    else:
+        return False
 
-def class_schedule(T,S,C,R,P):
+
+def class_schedule(T,S,C,R,P, pandemic=False):
     """
 
     :param T: List[TimeSlot]
@@ -176,7 +195,12 @@ def class_schedule(T,S,C,R,P):
     :param P: List[Professor]
     :return: Tuple[Int, Dict[Class : Dict[str : Obj]]] Score of the schedule + the matches it generated.
     """
-    sorted_class = sort_classes(S,C)
+    if pandemic:
+        for room in R:
+            room.capacity = room.capacity//3
+
+
+    sorted_class, class_interest_count = sort_classes(S,C)
     sorted_class_times = sort_class_times(T)
     rooms_for_classes = identify_rooms_for_class(R,C)
     room_availability = set_up_availabilty(R, sorted_class_times)
@@ -187,17 +211,21 @@ def class_schedule(T,S,C,R,P):
         p_id = c.professor
         p = get_obj_by_id(P, p_id)
         for t in sorted_class_times:
+            overlap = False
+            for classes, timeslots in matches.items():
+                if doesCorrespond(c.department,classes.department) and does_conflict(timeslots[t], t):
+                    overlap=True
             if c in matches.keys():
                 break
-            elif prof_availability[p][t] == True:
+            elif prof_availability[p][t] == True and overlap == False:
                 for r in rooms_for_classes[c]:
                     if room_availability[r][t] == True:
                         matches[c] = {"timeslot": t, "room": r}
                         room_availability[r][t] = False
                         prof_availability[p][t] = False
                         # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
-                        # t.conflicts *= min(r.capacity, sorted_class[c])
-                        t.conflicts *= r.capacity
+                        t.conflicts *= min(r.capacity, class_interest_count[c])
+                        #t.conflicts *= r.capacity
                         #  time conflicts
                         break
 
