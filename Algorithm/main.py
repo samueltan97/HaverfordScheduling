@@ -53,6 +53,7 @@ def sort_class_times(T):
     """
     #TODO: Primary key secondary key... NOt sure if this is what this does.
     T_sorted = sorted(T, key=lambda x: x.start_times, reverse=True)
+    conflict_dict = {}
     for t in T_sorted:
         T_copy  = T_sorted
         T_copy.remove(t)
@@ -60,7 +61,13 @@ def sort_class_times(T):
             if does_conflict(t, t_1):
                 t_1.conflicts += 1
     sorted_class_times = sorted(T, key=lambda x: x.conflicts)
-    return sorted_class_times
+    for t in T:
+        if t.conflicts in conflict_dict.keys():
+            conflict_dict[t.conflicts].append(t)
+        else:
+            conflict_dict[t.conflicts] = [t]
+    conflict_dict = sorted(conflict_dict.items())
+    return sorted_class_times, conflict_dict
 
 
 def identify_rooms_for_class(R,C):
@@ -214,7 +221,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
 
 
     sorted_class, class_interest_count = sort_classes(S,C)
-    sorted_class_times = sort_class_times(T)
+    sorted_class_times, conflict_dict = sort_class_times(T)
     rooms_for_classes = identify_rooms_for_class(R,C)
     room_availability = set_up_availabilty(R, sorted_class_times)
     prof_availability = set_up_availabilty(P, sorted_class_times)
@@ -223,7 +230,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
         #  define professor
         p_objects = c.professor
         for p in p_objects:
-            if c.chosen_professor is not None:
+            if len(p.assigned_classes) == 2 or c.chosen_professor is not None:
                 break
             for t in sorted_class_times:
                 overlap = False
@@ -250,7 +257,16 @@ def class_schedule(T,S,C,R,P, pandemic=False):
     score, matches = enroll_students(matches, S, R, T, C)
     return score, matches
 
-
+def match_class(rooms_for_classes, room_availability,prof_availability, class_interest_count, c,t,p):
+    for r in rooms_for_classes[c]:
+        if room_availability[r][t] == True:
+            matches[c] = {"timeslot": t, "room": r}
+            room_availability[r][t] = False
+            prof_availability[p][t] = False
+            c.chosen_professor = p
+            p.assigned_classes_slot.append(t)
+            # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
+            t.conflicts *= min(r.capacity, class_interest_count[c])
 if __name__ == "__main__":
     """
     example run: python main.py -p /misc/test_cases/k10r4c14t4s50/prefs_0 -c /misc/test_cases/k10r4c14t4s50/constraints_0
