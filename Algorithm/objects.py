@@ -1,6 +1,6 @@
 
 class Class:
-    def __init__(self, id, professor=None, corresponding_class=[],
+    def __init__(self, id, class_level=None, department=None, professor=None, corresponding_class=[],
                  stem=False, humanities=False,
                  writing_seminar=False, language=False):
 
@@ -17,6 +17,8 @@ class Class:
         self.language = language
         self.stem = stem
         self.humanities = humanities
+        self.class_level = class_level
+        self.department = department
         self.corresponding_class = corresponding_class
 
     def copy(self):
