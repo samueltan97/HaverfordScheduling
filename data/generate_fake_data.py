@@ -5,7 +5,7 @@ import random
 """
 Unique Subjects: ['ARTD', 'ECON', 'GNST', 'MATH', 'CMSC', 'HART', 'LATN', 'CHEM', 'CSEM', 'POLS', 'ITAL', 'HIST', 'PSYC', 'SPAN', 'EDUC', 'GEOL', 'ARTT', 'ENGL', 'BIOL', 'RUSS', 'FREN', 'CITY', 'ANTH', 'PHYS', 'SOCL', 'GERM', 'ARCH', 'EAST', 'CNSE', 'GREK', 'PHIL', 'ARTF', 'CSTS', 'HEBR', 'ARTW', 'COML']
 
-
+Unique Buildings: ['GIL', 'PK', 'DAL', 'TH', 'TAYE', 'EHIII', 'RCSEM', 'PEMSTD', 'CARP', 'TAYSEM', 'TAYF', 'TAYG', 'TAYD', 'TAYB', 'EHSEM', 'TAYC', 'CAN', 'EHII', 'RCCON', 'GOB', 'EHI', 'EHLEC', 'ROSTUD', 'ARNST']
 """
 
 
