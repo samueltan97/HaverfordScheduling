@@ -35,7 +35,7 @@ def sort_classes(S,C, first_year_seminar):
                     #CHECK IF THIS IS SUPPOSED TO INCREMENT OR SIMPLY SET TO 1
                     class_interest_count[course] += 1
                 else:
-                    if course.writing_seminar and course.language: # Should be and right??
+                    if course.writing_seminar or course.language:
                         class_interest_count[course] = 0
                     #i  f p first year seminar, classInterestCount[p] = 0
                     else:
