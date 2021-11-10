@@ -28,7 +28,9 @@ class Class:
         return "(Class: {}, " \
             "Professor: {}, " \
             "WritingSem: {}, " \
-            "Lang: {})".format(self.id, self.professor, self.writing_seminar, self.language)
+            "Lang: {}, " \
+            "Department: {}, " \
+            "Class Level: {}) ".format(self.id, self.professor, self.writing_seminar, self.language, self.department, self.class_level)
 
 
 class TimeSlot:
