@@ -219,7 +219,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
         #  define professor
         p_objects = c.professor
         for p in p_objects:
-            if c.chosen_professor is not None:
+            if len(p.assigned_classes) == 2 or c.chosen_professor is not None:
                 break
             for t in sorted_class_times:
                 overlap = False
@@ -236,6 +236,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
                             room_availability[r][t] = False
                             prof_availability[p][t] = False
                             c.chosen_professor = p
+                            p.assigned_classes.append(c)
                             # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
                             t.conflicts *= min(r.capacity, class_interest_count[c])
                             #t.conflicts *= r.capacity

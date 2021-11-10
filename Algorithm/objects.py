@@ -110,13 +110,14 @@ class Student:
 
 
 class Professor:
-    def __init__(self, id, classes):
+    def __init__(self, id, classes, assigned_classes = []):
         """
         :param id: Int
         :param classes: List[Int] -> list of classes the professor is able to teach.
         """
         self.id = id
         self.classes = classes
+        self.assigned_classes = assigned_classes
 
     def __str__(self):
         return "(Professor:{}, classes: {})".format(self.id, self.classes)
