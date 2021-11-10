@@ -1,3 +1,4 @@
+import json
 
 class Class:
     def __init__(self, id, class_level=None, department=None, professor=None, corresponding_class=[],
@@ -23,6 +24,10 @@ class Class:
 
     def copy(self):
         return self.__init__(self.id, self.professor, self.writing_seminar, self.language)
+
+    def valid_buildings(self):
+        valid_buildings_dict = json.load("valid_buildings.json")
+        return valid_buildings_dict[self.department]
 
     def __str__(self):
         return "(Class: {}, " \
