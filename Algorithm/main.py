@@ -128,6 +128,30 @@ def does_conflict(first_slot, second_slot):
     #     return False
 
 
+def make_time_absolute(day, time):
+    ordering = ["M", "T", "W", "Th", "F"]
+
+    day_order = ordering.index(day)
+    abs_time = day_order*100 + time
+    return abs_time
+
+
+def abs_time_for_course(course, matches, C):
+    course_obj = get_obj_by_id(C, course)
+    assigned_time_slot = matches[course_obj]["timeslot"]
+    day = assigned_time_slot.days[0]
+    time = assigned_time_slot.end_times[0]
+    abs_time = make_time_absolute(day, time)
+
+    return abs_time
+
+
+def sort_student_preferences(matches, preferences, C):
+
+    sorted_prefs = sorted(preferences, key=lambda course: abs_time_for_course(course, matches, C))
+    return sorted_prefs
+
+
 def interval_scheduling(matches, preferences, C, student):
     """
     :param matches: Dict[Class : Dict[str : Obj]]
@@ -137,19 +161,17 @@ def interval_scheduling(matches, preferences, C, student):
     """
 
     scheduled = []
-    # test = [matches[get_obj_by_id(C, x)]["timeslot"].end_times for x in preferences]
-    # print(preferences)
-    for pref in preferences:
-        obj = get_obj_by_id(C, pref)
-        if obj not in matches:
-            print(obj.id)
     scheduled_preferences = [class_id for class_id in preferences if get_obj_by_id(C, class_id) in matches]
-    sorted_preferences = sorted(scheduled_preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_times[0])
+    # sorted_preferences = sorted(scheduled_preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_times[0])
+    sorted_preferences = sort_student_preferences(matches, scheduled_preferences, C)
     # if student.id == 3411018:
     #     raise ValueError(matches[get_obj_by_id(C, 2659)]['timeslot'].end_times)
     previous_class = None
-    
+    # error_student = student.id == 3411018
+    # if error_student:
+    #     print([str(matches[get_obj_by_id(C, c)]["timeslot"]) for c in sorted_preferences])
     for current_class_id in sorted_preferences:
+
         current_class = get_obj_by_id(C, current_class_id)
         current_time_slot = matches[current_class]["timeslot"]
 
@@ -165,7 +187,6 @@ def interval_scheduling(matches, preferences, C, student):
                 #     raise ValueError(previous_time_slot.end_times[0], current_class_id, previous_class.id)
                 scheduled.append(current_class)
                 previous_class = current_class
-
     return scheduled
 
 
@@ -294,6 +315,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
     score, matches = enroll_students(matches, S, R, T, C)
     return score, matches
 
+
 def match_class(matches, rooms_for_classes, room_availability,prof_availability, class_interest_count, c,t,p):
     for r in rooms_for_classes[c]:
         if room_availability[r][t] == True:
@@ -304,6 +326,7 @@ def match_class(matches, rooms_for_classes, room_availability,prof_availability,
             p.assigned_classes_slot.append(t)
             # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
             t.conflicts *= min(r.capacity, class_interest_count[c])
+
 if __name__ == "__main__":
     """
     example run: python main.py -p /misc/test_cases/k10r4c14t4s50/prefs_0 -c /misc/test_cases/k10r4c14t4s50/constraints_0
