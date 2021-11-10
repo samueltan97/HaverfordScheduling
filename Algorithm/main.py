@@ -145,8 +145,8 @@ def interval_scheduling(matches, preferences, C, student):
             print(obj.id)
     scheduled_preferences = [class_id for class_id in preferences if get_obj_by_id(C, class_id) in matches]
     sorted_preferences = sorted(scheduled_preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_times[0])
-    if student.id == 3452561:
-                    raise ValueError(matches[get_obj_by_id(C, 2659)]['timeslot'].end_times)
+    # if student.id == 3411018:
+    #     raise ValueError(matches[get_obj_by_id(C, 2659)]['timeslot'].end_times)
     previous_class = None
     
     for current_class_id in sorted_preferences:
@@ -161,8 +161,8 @@ def interval_scheduling(matches, preferences, C, student):
             previous_time_slot = matches[previous_class]["timeslot"]
             
             if not does_conflict(previous_time_slot, current_time_slot):
-                if student.id == 3452561 and previous_time_slot.id == '13':
-                    raise ValueError(previous_time_slot.end_times[0], current_class_id, previous_class.id)
+                # if student.id == 3411018 and previous_time_slot.id == '31':
+                #     raise ValueError(previous_time_slot.end_times[0], current_class_id, previous_class.id)
                 scheduled.append(current_class)
                 previous_class = current_class
 
@@ -256,9 +256,11 @@ def class_schedule(T,S,C,R,P, pandemic=False):
                     #check each valid timeslot, and see if professors already teach on that day and try and schedule a timeslot which fits that day
                     if p.assigned_classes_slot:
                         for time in valid_timeslots:
-                            # TODO: find better way to check days
-                            #print(tuple(time.days), set([tuple(x.days) for x in p.assigned_classes_slot]))
-                            if tuple(time.days) in set([tuple(x.days) for x in p.assigned_classes_slot]):
+                            current_assigned_days = set()
+                            for slot in p.assigned_classes_slot:
+                                for day in slot.days:
+                                    current_assigned_days.add(day)
+                            if len(set(time.days) & current_assigned_days)>0:
                                 match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, time, p)
                                 break
                     #case in which professors don't have assigned class yet, or no valid timeslots with overlapping days
