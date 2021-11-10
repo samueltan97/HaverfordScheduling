@@ -2,6 +2,7 @@ import optparse
 import sys
 from args import parse_args
 from objects import *
+import parse_real_data
 
 """
 Example runs from command line: 
@@ -96,16 +97,9 @@ def load_variables_into_obj(pref_filename, constraint_filename):
     :param constraint_filename: str -> path to constraint file
     :return: Tuple[List[Obj]] -> Objects needed for the algorithm (Rooms, Classes, Professors, Students, TimeSlots)
     """
-    num_rooms, num_classes, num_class_times, num_teachers, room_dict, class_dict, teacher_dict = read_constraints(
-        constraint_filename)
 
-    num_students, student_dict = read_preferences(pref_filename)
+    R, C, P, S, T = parse_real_data.parse_data_into_objs(constraint_filename, pref_filename)
 
-    R = [Room(id=r[0], capacity=r[1]) for r in room_dict.items()]
-    C = [Class(id=c[0], professor=c[1]) for c in class_dict.items()]
-    P = [Professor(id=key, classes=teacher_dict[key]['class']) for key in list(teacher_dict.keys())]
-    S = [Student(id=s[0], preferences=s[1]) for s in student_dict.items()]
-    T = create_timeslots(num_class_times)
     return R, C, P, S, T
 
 
