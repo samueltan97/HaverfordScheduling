@@ -7,7 +7,7 @@ import pathlib
 import statistics
 from main import class_schedule
 from var_loading import load_variables_into_obj
-import parse_real_data
+from parse_real_data import parse_timeslots
 """
 Example runs from command line:
 WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\ -a
@@ -68,31 +68,36 @@ def read_constraints(constraint_filename):
     c_data = c_file.readlines()
     c_file.close()
     class_dict = dict()
-    num_class_times = c_data[0].strip().split()[2]
-    num_rooms = c_data[1].strip().split()[1]
-    end_room_index = 2+int(num_rooms)
+    num_class_times = int(c_data[0].strip().split()[2])
+    timeslots = parse_timeslots(c_data, num_class_times)
+    rooms_line = num_class_times + 1
+    num_rooms = int(c_data[rooms_line].strip().split()[1])
+    end_room_index = rooms_line + 1 +int(num_rooms)
     room_dict = dict()
-    for row in c_data[2:end_room_index]:
+    for index,row in enumerate(c_data[rooms_line + 1:end_room_index]):
         row_data = row.strip().split()
-        room_dict[row_data[0]] = row_data[1]
-    num_classes = c_data[end_room_index].strip().split()[1]
-    num_teachers = c_data[end_room_index + 1].strip().split()[1]
+        room_dict[str(index)] = row_data[1]
+    num_classes = int(c_data[end_room_index].strip().split()[1])
+    num_teachers = c_data[end_room_index + 1 + num_classes].strip().split()[1]
     teacher_dict = dict()
     class_dict = dict()
-    for row in c_data[end_room_index + 2:]:
+    for row in c_data[end_room_index + 2+ num_classes:]:
         row_data = row.strip().split()
-        if class_dict.get(row_data[0]) is None:
-            class_dict[row_data[0]] = row_data[1]
-        if teacher_dict.get(row_data[1]) is None:
-            teacher_dict[row_data[1]] = {'class':[row_data[0]]}
-        else:
-            teacher_dict[row_data[1]]['class'].append(row_data[0])
-    return num_rooms, num_classes, num_class_times, num_teachers, room_dict, class_dict, teacher_dict
+        for class_col in row_data[1:]:
+            if class_dict.get(str(int(class_col))) is None:
+                class_dict[str(int(class_col))] = [str(int(row_data[0]))]
+            else:
+                class_dict[str(int(class_col))].append(str(int(row_data[0])))
+            if teacher_dict.get(row_data[0]) is None:
+                teacher_dict[row_data[0]] = {'class':[str(int(class_col))]}
+            else:
+                teacher_dict[row_data[0]]['class'].append(str(int(class_col)))
+    return num_rooms, num_classes, num_class_times, timeslots, num_teachers, room_dict, class_dict, teacher_dict
 
 
 def test(schedule_filename, constraint_filename, pref_filename, debug=False):
     num_students, student_dict = read_preferences(pref_filename)
-    num_rooms, num_classes, num_class_times, num_teachers, room_dict, class_dict, teacher_dict = read_constraints(constraint_filename)
+    num_rooms, num_classes, num_class_times, timeslots, num_teachers, room_dict, class_dict, teacher_dict = read_constraints(constraint_filename)
     
     s_file = open(schedule_filename, "r")
     s_data = s_file.readlines()
@@ -137,8 +142,8 @@ def test(schedule_filename, constraint_filename, pref_filename, debug=False):
                     if class_size > int(room_dict[room]):
                         print("Room", room, "is too small to hold course", course, "with", class_size, "students.")
                         sys.exit()
-                    
-                    if class_dict[course] != teacher:
+                    if teacher not in class_dict[course]:
+                        print(teacher, course, class_dict[course])
                         print("Course", course, "does not have the correct teacher.")
                         sys.exit()
 
@@ -192,7 +197,7 @@ def convert_matches_to_schedule_file(matches,schedule_file):
         line = []
         line.append(str(key.id))
         line.append(str(value['room'].id))
-        line.append(str(key.professor))
+        line.append(str(key.chosen_professor.id))
         line.append(str(value['timeslot'].id))
         if "students" in value:  # If we have students in the class
             line.append(' '.join([str(x.id) for x in value['students']]))
@@ -205,7 +210,8 @@ def convert_matches_to_schedule_file(matches,schedule_file):
 def evaluate_runtime_and_performance(class_schedule_function, pref_file, constraint_file, schedule_file, debug=False):
     R, C, P, S, T = load_variables_into_obj(pref_file, constraint_file)
     start_time = time.time()
-    score, matches = class_schedule_function(T, S, C, R, P)
+    # score, matches = class_schedule_function(T, S, C, R, P)
+    score, matches = class_schedule(T, S, C, R, P)
     runtime = time.time() - start_time
 
     if debug:

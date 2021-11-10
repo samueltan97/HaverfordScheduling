@@ -121,7 +121,7 @@ def does_conflict(first_slot, second_slot):
     #     return False
 
 
-def interval_scheduling(matches, preferences, C):
+def interval_scheduling(matches, preferences, C, student):
     """
     :param matches: Dict[Class : Dict[str : Obj]]
     :param preferences: List[Class] the classes that some student s wishes to take.
@@ -130,8 +130,12 @@ def interval_scheduling(matches, preferences, C):
     """
 
     scheduled = []
-    sorted_preferences = sorted(preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_time)
+    test = [matches[get_obj_by_id(C, x)]["timeslot"].end_times for x in preferences]
+    sorted_preferences = sorted(preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_times[0])
+    if student.id == 3452561:
+                    raise ValueError(matches[get_obj_by_id(C, 2659)]['timeslot'].end_times)
     previous_class = None
+    
     for current_class_id in sorted_preferences:
         current_class = get_obj_by_id(C, current_class_id)
         current_time_slot = matches[current_class]["timeslot"]
@@ -141,10 +145,11 @@ def interval_scheduling(matches, preferences, C):
             previous_class = current_class
 
         else:
-
             previous_time_slot = matches[previous_class]["timeslot"]
-
+            
             if not does_conflict(previous_time_slot, current_time_slot):
+                if student.id == 3452561 and previous_time_slot.id == '13':
+                    raise ValueError(previous_time_slot.end_times[0], current_class_id, previous_class.id)
                 scheduled.append(current_class)
                 previous_class = current_class
 
@@ -168,10 +173,9 @@ def enroll_students(matches, S, R, T, C):
         for timeslot in T:
             room_capacities[room][timeslot] = room.capacity
 
-    for student in S:
-
-        enrolled_classes = interval_scheduling(matches, student.preferences, C)
-
+    for student in S:        
+        enrolled_classes = interval_scheduling(matches, student.preferences, C, student)
+        
         for desired_class in enrolled_classes:  # Attempt to enroll student in each class from interval scheduling.
             room = matches[desired_class]["room"]
             timeslot = matches[desired_class]["timeslot"]
@@ -187,7 +191,7 @@ def enroll_students(matches, S, R, T, C):
 
 def doesCorrespond(class1, class2):
     set_class_correspond = set([("MATH", "PHYS"), ("MATH", "CMSC"), ("CHEM", "BIOL"), ("COML", "ENGL"), ("HART", "ARTD")])
-    check_tuple = sorted((class1, class2))
+    check_tuple = tuple(sorted((class1, class2)))
     if check_tuple in set_class_correspond:
         return True
     else:
@@ -223,16 +227,15 @@ def class_schedule(T,S,C,R,P, pandemic=False):
                 break
             for t in sorted_class_times:
                 overlap = False
-                print('here', type(c), type(p))
                 for classes, timeslots in matches.items():
-                    if doesCorrespond(c.department,classes.department) and does_conflict(timeslots[t], t):
+                    if doesCorrespond(c.department,classes.department) and does_conflict(timeslots['timeslot'], t):
                         overlap=True
                 if c in matches.keys():
                     break
                 elif prof_availability[p][t] == True and overlap == False:
                     for r in rooms_for_classes[c]:
                         if room_availability[r][t] == True:
-                            matches[c] = {"timeslot": t, "room": r}
+                            matches[c] = {"timeslot": t, "room": r, "prof": p}
                             room_availability[r][t] = False
                             prof_availability[p][t] = False
                             c.chosen_professor = p
@@ -243,6 +246,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
                             break
 
         sorted_class_times = sorted(sorted_class_times, key=lambda x: x.conflicts)
+        
     score, matches = enroll_students(matches, S, R, T, C)
     return score, matches
 
