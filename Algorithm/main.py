@@ -137,8 +137,14 @@ def interval_scheduling(matches, preferences, C, student):
     """
 
     scheduled = []
-    test = [matches[get_obj_by_id(C, x)]["timeslot"].end_times for x in preferences]
-    sorted_preferences = sorted(preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_times[0])
+    # test = [matches[get_obj_by_id(C, x)]["timeslot"].end_times for x in preferences]
+    # print(preferences)
+    for pref in preferences:
+        obj = get_obj_by_id(C, pref)
+        if obj not in matches:
+            print(obj.id)
+    scheduled_preferences = [class_id for class_id in preferences if get_obj_by_id(C, class_id) in matches]
+    sorted_preferences = sorted(scheduled_preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_times[0])
     if student.id == 3452561:
                     raise ValueError(matches[get_obj_by_id(C, 2659)]['timeslot'].end_times)
     previous_class = None
@@ -239,9 +245,8 @@ def class_schedule(T,S,C,R,P, pandemic=False):
                     break
                 for t in conflicts[1]:
                     overlap = False
-                    print('here', type(t), type(p), t)
                     for classes, timeslots in matches.items():
-                        if doesCorrespond(c.department, classes.department) and does_conflict(timeslots[t], t):
+                        if doesCorrespond(c.department, classes.department) and does_conflict(timeslots["timeslot"], t):
                             overlap = True
                     #only valid when prof is available and no overlapping time slot
                     if prof_availability[p][t] == True and overlap == False:
@@ -252,7 +257,7 @@ def class_schedule(T,S,C,R,P, pandemic=False):
                     if p.assigned_classes_slot:
                         for time in valid_timeslots:
                             # TODO: find better way to check days
-                            print(tuple(time.days), set([tuple(x.days) for x in p.assigned_classes_slot]))
+                            #print(tuple(time.days), set([tuple(x.days) for x in p.assigned_classes_slot]))
                             if tuple(time.days) in set([tuple(x.days) for x in p.assigned_classes_slot]):
                                 match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, time, p)
                                 break
