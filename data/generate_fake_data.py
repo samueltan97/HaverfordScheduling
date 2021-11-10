@@ -62,7 +62,12 @@ def write_class_times(num_of_timeslots, output_file):
 
 
 def write_rooms(num_of_rooms, output_file):
-    fake_buildings = ["A", "B", "C", "D", "E"]
+    buildings_options = ['GIL', 'PK', 'DAL', 'TH',
+                      'TAYE', 'EHIII', 'RCSEM',
+                      'PEMSTD', 'CARP', 'TAYSEM',
+                      'TAYF', 'TAYG', 'TAYD', 'TAYB',
+                      'EHSEM', 'TAYC', 'CAN', 'EHII',
+                      'RCCON', 'GOB', 'EHI', 'EHLEC', 'ROSTUD', 'ARNST']
     smallest_room_size = 10
     largest_room_size = 100
 
@@ -72,7 +77,7 @@ def write_rooms(num_of_rooms, output_file):
         output.write(header)
 
         for i in range(1, num_of_rooms+1):
-            random_building = random.choice(fake_buildings)
+            random_building = random.choice(buildings_options)
             random_room_num = random.randrange(100, 399)
             random_room = random_building+str(random_room_num)
             random_capacity = random.randrange(smallest_room_size, largest_room_size)
