@@ -17,7 +17,7 @@ def get_obj_by_id(obj_list, id):
     return None
 
 
-def sort_classes(S,C):
+def sort_classes(S,C, first_year_seminar):
     """
     :param S: List[Student]
     :param C: List[Class]
@@ -29,14 +29,20 @@ def sort_classes(S,C):
     for s in S:
         for p in s.preferences:
             course = get_obj_by_id(C, p)
+            if first_year_seminar:
             #  and p is not a first year seminar
-            if course in class_interest_count.keys() and not course.writing_seminar and not course.language:
-                #CHECK IF THIS IS SUPPOSED TO INCREMENT OR SIMPLY SET TO 1
-                class_interest_count[p] += 1
+                if course in class_interest_count.keys() and not course.writing_seminar and not course.language:
+                    #CHECK IF THIS IS SUPPOSED TO INCREMENT OR SIMPLY SET TO 1
+                    class_interest_count[p] += 1
+                else:
+                    if course.writing_seminar and course.language:
+                        class_interest_count[course] = 0
+                    #i  f p first year seminar, classInterestCount[p] = 0
+                    else:
+                        class_interest_count[course] = 1
             else:
-                if course.writing_seminar and course.language:
-                    class_interest_count[course] = 0
-                #i  f p first year seminar, classInterestCount[p] = 0
+                if course in class_interest_count.keys():
+                    class_interest_count[course] +=1
                 else:
                     class_interest_count[course] = 1
     #  sort by highest interest, descending order
@@ -70,7 +76,7 @@ def sort_class_times(T):
     return sorted_class_times, conflict_dict
 
 
-def identify_rooms_for_class(R,C):
+def identify_rooms_for_class(R,C, rooms_buildings):
     """
     :param R: List[Room]
     :param C: List[Class]
@@ -80,14 +86,18 @@ def identify_rooms_for_class(R,C):
     # sorted_rooms = sorted(R, key=lambda r: r.capacity, reverse=True)
     # for cur_class in C:
     #     rooms_for_classes[cur_class] = sorted_rooms
-
-    for classes in C:
-        for rooms in R:
-            if rooms.building_code in classes.valid_buildings():
-                if classes in rooms_for_classes.keys():
-                    rooms_for_classes[classes].append(rooms)
-                else:
-                    rooms_for_classes[classes] = [rooms]
+    if rooms_buildings:
+        for classes in C:
+            for rooms in R:
+                if rooms.building_code in classes.valid_buildings():
+                    if classes in rooms_for_classes.keys():
+                        rooms_for_classes[classes].append(rooms)
+                    else:
+                        rooms_for_classes[classes] = [rooms]
+    else:
+        sorted_rooms = sorted(R, key=lambda r: r.capacity, reverse=True)
+        for cur_class in C:
+            rooms_for_classes[cur_class] = sorted_rooms
     return rooms_for_classes
 
 
@@ -113,6 +123,13 @@ def does_conflict(first_slot, second_slot):
     :param second_slot: Timeslot Object
     :return: Whether or not they conflict. (Assuming second slot starts after first slot.)
     """
+    interval_list = [first_slot, second_slot]
+    intervals_sorted = sorted(interval_list, key=lambda x:x.start_times)
+
+    first_slot = intervals_sorted[0]
+    #print("Start time 1: ", first_slot.start_times[0])
+    second_slot = intervals_sorted[1]
+    #print("Start time 2: ", second_slot.start_times[0])
     overlapping_days = list(set(first_slot.days) & set(second_slot.days))
     for index1, first_day in enumerate(first_slot.days):
         for index2, second_day in enumerate(second_slot.days):
@@ -232,7 +249,7 @@ def doesCorrespond(class1, class2):
         return False
 
 
-def class_schedule(T,S,C,R,P, pandemic=False):
+def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_class=True, first_year_seminar=True, prof_days = True):
     """
 
     :param T: List[TimeSlot]
@@ -247,9 +264,9 @@ def class_schedule(T,S,C,R,P, pandemic=False):
             room.capacity = room.capacity//3
 
 
-    sorted_class, class_interest_count = sort_classes(S,C)
+    sorted_class, class_interest_count = sort_classes(S,C, first_year_seminar)
     sorted_class_times, conflict_dict = sort_class_times(T)
-    rooms_for_classes = identify_rooms_for_class(R,C)
+    rooms_for_classes = identify_rooms_for_class(R,C, room_building)
     room_availability = set_up_availabilty(R, sorted_class_times)
     prof_availability = set_up_availabilty(P, sorted_class_times)
     matches = {}
@@ -259,34 +276,53 @@ def class_schedule(T,S,C,R,P, pandemic=False):
         for p in p_objects:
             if len(p.assigned_classes_slot) == 2 or c.chosen_professor is not None:
                 break
-            for conflicts in conflict_dict:
-                #loop through each entry in conflict dict, sorted by increasing number of conflicts
-                valid_timeslots = []
-                if c in matches.keys():
-                    break
-                for t in conflicts[1]:
-                    overlap = False
-                    for classes, timeslots in matches.items():
-                        if doesCorrespond(c.department, classes.department) and does_conflict(timeslots["timeslot"], t):
-                            overlap = True
-                    #only valid when prof is available and no overlapping time slot
-                    if prof_availability[p][t] == True and overlap == False:
-                        valid_timeslots.append(t)
+            if prof_days:
+                for conflicts in conflict_dict:
+                    #loop through each entry in conflict dict, sorted by increasing number of conflicts
+                    valid_timeslots = []
+                    if c in matches.keys():
+                        break
+                    for t in conflicts[1]:
+                        overlap = False
+                        if corresponding_class:
+                            for classes, timeslots in matches.items():
+                                if doesCorrespond(c.department, classes.department) and does_conflict(timeslots["timeslot"],t):
+                                    overlap = True
+                        #only valid when prof is available and no overlapping time slot
+                        if prof_availability[p][t] == True and overlap == False:
+                            valid_timeslots.append(t)
 
-                if len(valid_timeslots) > 0:
-                    #check each valid timeslot, and see if professors already teach on that day and try and schedule a timeslot which fits that day
-                    if p.assigned_classes_slot:
-                        for time in valid_timeslots:
-                            current_assigned_days = set()
-                            for slot in p.assigned_classes_slot:
-                                for day in slot.days:
-                                    current_assigned_days.add(day)
-                            if len(set(time.days) & current_assigned_days)>0:
-                                match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, time, p)
-                                break
-                    #case in which professors don't have assigned class yet, or no valid timeslots with overlapping days
-                    match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, valid_timeslots[0],
-                                p)
+                    if len(valid_timeslots) > 0:
+                        #check each valid timeslot, and see if professors already teach on that day and try and schedule a timeslot which fits that day
+                        if p.assigned_classes_slot:
+                            for time in valid_timeslots:
+                                current_assigned_days = set()
+                                for slot in p.assigned_classes_slot:
+                                    for day in slot.days:
+                                        current_assigned_days.add(day)
+                                if len(set(time.days) & current_assigned_days)>0:
+                                    match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, time, p)
+                                    break
+                        #case in which professors don't have assigned class yet, or no valid timeslots with overlapping days
+                        match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, valid_timeslots[0],
+                                    p)
+
+            else:
+                for t in sorted_class_times:
+
+                    overlap = False
+                    print('here', type(c), type(p))
+                    if corresponding_class:
+                        for classes, timeslots in matches.items():
+                            if doesCorrespond(c.department,classes.department) and does_conflict(timeslots[t], t):
+                                overlap=True
+                    if c in matches.keys():
+                        break
+                    elif prof_availability[p][t] == True and overlap == False:
+                        match_class(matches, rooms_for_classes, room_availability, prof_availability,
+                                    class_interest_count, c, t,
+                                    p)
+
 
             # for t in sorted_class_times:
             #     overlap = False
@@ -326,6 +362,7 @@ def match_class(matches, rooms_for_classes, room_availability,prof_availability,
             p.assigned_classes_slot.append(t)
             # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
             t.conflicts *= min(r.capacity, class_interest_count[c])
+            break
 
 if __name__ == "__main__":
     """
