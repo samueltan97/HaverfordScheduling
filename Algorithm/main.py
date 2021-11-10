@@ -217,26 +217,31 @@ def class_schedule(T,S,C,R,P, pandemic=False):
     matches = {}
     for c in sorted_class:
         #  define professor
-        p_id = c.professor
-        p = get_obj_by_id(P, p_id)
-        for t in sorted_class_times:
-            overlap = False
-            for classes, timeslots in matches.items():
-                if doesCorrespond(c.department,classes.department) and does_conflict(timeslots[t], t):
-                    overlap=True
-            if c in matches.keys():
+        p_ids = c.professor
+        for p_id in p_ids:
+            if c.chosen_professor is not None:
                 break
-            elif prof_availability[p][t] == True and overlap == False:
-                for r in rooms_for_classes[c]:
-                    if room_availability[r][t] == True:
-                        matches[c] = {"timeslot": t, "room": r}
-                        room_availability[r][t] = False
-                        prof_availability[p][t] = False
-                        # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
-                        t.conflicts *= min(r.capacity, class_interest_count[c])
-                        #t.conflicts *= r.capacity
-                        #  time conflicts
-                        break
+            p = get_obj_by_id(P, p_id)
+            for t in sorted_class_times:
+                overlap = False
+                print('here', type(c), type(p), p_id)
+                for classes, timeslots in matches.items():
+                    if doesCorrespond(c.department,classes.department) and does_conflict(timeslots[t], t):
+                        overlap=True
+                if c in matches.keys():
+                    break
+                elif prof_availability[p][t] == True and overlap == False:
+                    for r in rooms_for_classes[c]:
+                        if room_availability[r][t] == True:
+                            matches[c] = {"timeslot": t, "room": r}
+                            room_availability[r][t] = False
+                            prof_availability[p][t] = False
+                            c.chosen_professor = p
+                            # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
+                            t.conflicts *= min(r.capacity, class_interest_count[c])
+                            #t.conflicts *= r.capacity
+                            #  time conflicts
+                            break
 
         sorted_class_times = sorted(sorted_class_times, key=lambda x: x.conflicts)
     score, matches = enroll_students(matches, S, R, T, C)

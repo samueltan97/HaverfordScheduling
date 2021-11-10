@@ -8,13 +8,15 @@ class Class:
 
         """
         :param id: Int
-        :param professor: Professor that teaches given class.
+        :param professor: List[Professor] that can teach given class.
+        :param chosen_professor: Professor that is chosen to teach the class
         :param valid_buildings: List[str] -> buildings
         :param writing_seminar: Bool
         :param language: Bool
         """
         self.id = id
         self.professor = professor
+        self.chosen_professor = None
         self.writing_seminar = writing_seminar
         self.language = language
         self.stem = stem

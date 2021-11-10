@@ -102,7 +102,7 @@ def read_preferences(pref_filename):
     return new_students
 
 
-def parse_professors(c_data, start_line):
+def parse_professors(c_data, start_line, courses_objects):
     """
 
     :param c_data: List[Str] -> list of data in constraint file, line by line.
@@ -118,6 +118,12 @@ def parse_professors(c_data, start_line):
         prof_id = int(cur_prof_data[0])
         courses = [int(c) for c in cur_prof_data[1:]]
         new_prof = Professor(prof_id, courses)
+        for course_obj in courses_objects:
+            if int(course_obj.id) in courses:
+                if course_obj.professor is not None:
+                    course_obj.professor.append(new_prof)
+                else:
+                    course_obj.professor = [new_prof]
         list_of_profs.append(new_prof)
 
     return list_of_profs
@@ -178,7 +184,7 @@ def read_constraints(constraint_filename):
     # Parse the Professors
     professors_line = courses_line+num_of_courses+1
     num_of_teachers = int(c_data[professors_line].split()[1])
-    professors = parse_professors(c_data, professors_line)
+    professors = parse_professors(c_data, professors_line, courses)
 
     assert len(professors) == num_of_teachers
 
