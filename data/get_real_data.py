@@ -251,9 +251,29 @@ def write_constraints_to_file(list_of_dicts, filename):
   write_teachers_to_file(list_of_dicts, f)
   f.close()
 
+def unique_buildings_for_subject(list_of_dicts):
+  rooms_dict = get_building(list_of_dicts)
+  new_dict = {}
+  for subj in rooms_dict:
+
+    unique_buildings = []
+    for room in rooms_dict[subj]:
+      building = ""
+      index = 0
+      # seperate building and classroom
+      while index < len(room) and not room[index].isdigit():
+        building += room[index]
+        index += 1
+      if building not in unique_buildings:
+        unique_buildings.append(building)
+    new_dict[subj] = unique_buildings
+
+  return new_dict
+
 if len(sys.argv) != 4:
   print ("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
   exit(1)
 list_of_dicts = get_data_list_of_dicts(sys.argv[1])
+unique_buildings_for_subject(list_of_dicts)
 write_prefs_to_file(list_of_dicts, sys.argv[2])
 write_constraints_to_file(list_of_dicts, sys.argv[3])
