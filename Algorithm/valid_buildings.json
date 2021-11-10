@@ -33,4 +33,6 @@
   "SOCL": ["TAYG", "CARP", "TH", "GIL", "TAYD"],
   "LATN": ["CARP"],
   "MATH": ["PK"],
-  "COML": ["TH", "TAYG", "CARP", "EHIII", "EHLEC"]}
+  "COML": ["TH", "TAYG", "CARP", "EHIII", "EHLEC"],
+  "ARTA": ["GOB"],
+  "ARAB": ["TH"]}

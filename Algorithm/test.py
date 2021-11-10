@@ -7,10 +7,14 @@ import pathlib
 import statistics
 from main import class_schedule
 from var_loading import load_variables_into_obj
+import parse_real_data
 """
 Example runs from command line:
 WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\ -a
 MAC: 
+
+python3 ./test.py -p ../data/real_data/new_prefs.txt -c ../data/real_data/new_constraints.txt
+python3 ./test.py -p ../data/prefs.txt -c ../data/constraints.txt
 """
 
 
@@ -31,7 +35,8 @@ def parse_args(description):
                       action="store_true",
                       help="Tells the program how much to print. ")
 
-    mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
+    # mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
+    mandatories = []
     (opts, args) = parser.parse_args()
 
     if opts.folder_name is not None:  # Make the pref, constraint files only necessary if folder not given.
@@ -273,6 +278,9 @@ if __name__ == "__main__":
     # print(test(args.schedule_filename, args.constraint_filename, args.pref_filename))
     # print(evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename))
     #print(run_all_test_cases_in_test_folder(args.folder_name))
+
+    evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename, args.debug)
+
     if args.all_tests:
         print(run_all_tests(args.debug))
     else:

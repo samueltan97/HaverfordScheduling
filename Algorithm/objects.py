@@ -1,5 +1,6 @@
 import json
 
+
 class Class:
     def __init__(self, id, class_level=None, department=None, professor=None, corresponding_class=[],
                  stem=False, humanities=False,
@@ -26,7 +27,10 @@ class Class:
         return self.__init__(self.id, self.professor, self.writing_seminar, self.language)
 
     def valid_buildings(self):
-        valid_buildings_dict = json.load("valid_buildings.json")
+        with open("valid_buildings.json", "r") as json_file:
+
+            valid_buildings_dict = json.load(json_file)
+
         return valid_buildings_dict[self.department]
 
     def __str__(self):
@@ -80,7 +84,7 @@ class Room:
         """
         self.id = id
         self.capacity = capacity
-        self.building_code = building_code
+        self.building = building_code
         self.stem_valid = stem_valid
         self.humanities_valid = humanities_valid
         self.art_valid = art_valid

@@ -48,7 +48,6 @@ def parse_timeslots(c_data, num_class_times):
         else:
             end_time = int(timeslot_info[3].split(":")[0])
 
-        print(start_time < end_time)
         # TODO: Merge labs and normal classes.
         days = get_day_format(timeslot_info[5])
         start_times = [start_time] * len(days)

@@ -13,6 +13,7 @@ def get_obj_by_id(obj_list, id):
     for obj in obj_list:
         if obj.id == id:
             return obj
+
     return None
 
 
@@ -27,16 +28,17 @@ def sort_classes(S,C):
     #print(class_interest_count)
     for s in S:
         for p in s.preferences:
+            course = get_obj_by_id(C, p)
             #  and p is not a first year seminar
-            if p in class_interest_count.keys() and not p.writing_seminar and not p.language:
+            if course in class_interest_count.keys() and not course.writing_seminar and not course.language:
                 #CHECK IF THIS IS SUPPOSED TO INCREMENT OR SIMPLY SET TO 1
                 class_interest_count[p] += 1
             else:
-                if p.writing_seminar and p.language:
-                    class_interest_count[p] = 0
+                if course.writing_seminar and course.language:
+                    class_interest_count[course] = 0
                 #i  f p first year seminar, classInterestCount[p] = 0
                 else:
-                    class_interest_count[p] = 1
+                    class_interest_count[course] = 1
     #  sort by highest interest, descending order
     # print([str(c) for c in C])
     # print(class_interest_count)
@@ -49,8 +51,8 @@ def sort_class_times(T):
     :param T: List[TimeSlot]
     :return: List[TimeSlot] -> sorted by potential conflicts with other time slots.
     """
-
-    T_sorted = sorted(T, key=lambda x: x.start_time, reverse=True)
+    #TODO: Primary key secondary key... NOt sure if this is what this does.
+    T_sorted = sorted(T, key=lambda x: x.start_times, reverse=True)
     for t in T_sorted:
         T_copy  = T_sorted
         T_copy.remove(t)
@@ -75,7 +77,7 @@ def identify_rooms_for_class(R,C):
     for classes in C:
         for rooms in R:
             if rooms.building in classes.valid_buildings():
-                if classes in rooms_for_classes.keys:
+                if classes in rooms_for_classes.keys():
                     rooms_for_classes[classes].append(rooms)
                 else:
                     rooms_for_classes[classes] = [rooms]
@@ -105,11 +107,18 @@ def does_conflict(first_slot, second_slot):
     :return: Whether or not they conflict. (Assuming second slot starts after first slot.)
     """
     overlapping_days = list(set(first_slot.days) & set(second_slot.days))
+    for index1, first_day in enumerate(first_slot.days):
+        for index2, second_day in enumerate(second_slot.days):
+            if first_day == second_day:
+                if first_slot.end_times[index1] > second_slot.start_times[index2]:
+                    return True
 
-    if overlapping_days != [] and first_slot.end_time > second_slot.start_time:
-        return True
-    else:
-        return False
+    return False
+
+    # if overlapping_days != [] and first_slot.end_time > second_slot.start_time:
+    #     return True
+    # else:
+    #     return False
 
 
 def interval_scheduling(matches, preferences, C):
