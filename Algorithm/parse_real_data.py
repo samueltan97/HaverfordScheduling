@@ -3,7 +3,6 @@ import os
 import re
 from objects import TimeSlot, Room, Student, Professor, Class
 
-
 def get_day_format(raw_days):
     if raw_days == "M-F":
         days = ["M", "T", "W", "Th", "F"]
@@ -38,16 +37,18 @@ def parse_timeslots(c_data, num_class_times):
         timeslot_info = c_data[timeslot_line].split()
         id = timeslot_info[0]
         start_is_afternoon = timeslot_info[2] == "PM"
-        if start_is_afternoon:
+        if start_is_afternoon and int(timeslot_info[1].split(":")[0]) != 12:
             start_time = int(timeslot_info[1].split(":")[0]) + 12
         else:
             start_time = int(timeslot_info[1].split(":")[0])
         end_is_afternoon = timeslot_info[4] == "PM"
 
-        if end_is_afternoon:
+        if end_is_afternoon and int(timeslot_info[3].split(":")[0]) != 12:
             end_time = int(timeslot_info[3].split(":")[0]) + 12
         else:
             end_time = int(timeslot_info[3].split(":")[0])
+
+        print(start_time < end_time)
         # TODO: Merge labs and normal classes.
         days = get_day_format(timeslot_info[5])
         start_times = [start_time] * len(days)
@@ -62,7 +63,6 @@ def parse_timeslots(c_data, num_class_times):
 def parse_rooms(c_data, num_class_times, num_rooms):
     end_room_index = num_class_times + num_rooms
     rooms = []
-
     for room_line in range(num_class_times + 2, end_room_index + 2):
         current_room_line = c_data[room_line]
         line_data = current_room_line.split()
@@ -74,7 +74,6 @@ def parse_rooms(c_data, num_class_times, num_rooms):
         while index < len(code) and not code[index].isnumeric():
             building += code[index]
             index += 1
-
         capacity = int(line_data[1])
         new_room = Room(id, building, capacity)
         rooms.append(new_room)
@@ -187,7 +186,7 @@ def read_constraints(constraint_filename):
     return rooms, courses, professors, timeslots
 
 
-def parse_data_into_objs(constrain_file, pref_file, debug=False):
+def parse_data_into_objs(constraint_file, pref_file, debug=False):
     S = read_preferences(pref_file)
     R, C, P, T = read_constraints(constraint_file)
 
@@ -216,9 +215,9 @@ def parse_data_into_objs(constrain_file, pref_file, debug=False):
 
 if __name__ == "__main__":
     #args = parse_args("Parse real data.")
-    constraint_file = "../data/new_constraints.txt"
-    pref_file = "../data/new_prefs.txt"
+    constraint_file = "../data/constraints.txt"
+    pref_file = "../data/prefs.txt"
     # constraint_file = "../data/constraints_S100C10T7P11R5.txt"
     # pref_file = "../data/prefs_S100C10T7P11R5.txt"
-    parse_data_into_objs(constraint_file, pref_file, debug=True)
+    parse_data_into_objs(constraint_file, pref_file, debug=False)
 
