@@ -218,19 +218,27 @@ def write_classes_to_file(list_of_dicts, f):
 
   unique_courses = {}
   language = ["FREN", "SPAN", "GERM", "GREK", "HEBR", "RUSS", "ITAL", "CNSE", "JAPN", "LATN"]
+
   for course_id in courses_dict:
     course = courses_dict[course_id]
     if course_id not in unique_courses:
-      unique_courses[course_id] = []
-      if course["Subject"] == "CSEM":
-        unique_courses[course_id].append("SEM")
+      unique_courses[course_id] = {}
+      unique_courses[course_id]["labels"] = []
+      cur_subject = course["Subject"]
 
-      if course['Subject'] in language and "Elementary" in course["Crs Descr"]:
-        unique_courses[course_id].append("LANG")
+      unique_courses[course_id]["level"] = courses_dict[course_id]["Catalog"][1] + '00'
+      unique_courses[course_id]["department"] = cur_subject
+      if cur_subject == "CSEM":
+        unique_courses[course_id]["labels"].append("SEM")
+
+      if cur_subject in language and "Elementary" in course["Crs Descr"]:
+        unique_courses[course_id]["labels"].append("LANG")
 
   for course in unique_courses:
     to_write = course + "\t"
-    labels = " ".join(unique_courses[course])
+    to_write += unique_courses[course]["department"] + "\t"
+    to_write += unique_courses[course]["level"] + "\t"
+    labels = " ".join(unique_courses[course]["labels"])
     to_write += labels + "\n"
     f.write(to_write)
 

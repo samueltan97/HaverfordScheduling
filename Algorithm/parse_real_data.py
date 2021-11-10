@@ -137,10 +137,12 @@ def parse_courses(c_data, courses_line):
     for cur_course_line in range(courses_line+1, courses_line + num_of_courses+1):
         cur_line = c_data[cur_course_line].split()
         course_id = int(cur_line[0])
-        lang = "LANG" in cur_line
-        sem = "SEM" in cur_line
+        department = cur_line[1]
+        level = cur_line[2]
+        lang = "LANG" in cur_line[3:]
+        sem = "SEM" in cur_line[3:]
 
-        cur_class = Class(id=course_id, writing_seminar=sem, language=lang)
+        cur_class = Class(id=course_id, writing_seminar=sem, language=lang, department=department, class_level=level)
         courses.append(cur_class)
 
     return courses
@@ -214,9 +216,9 @@ def parse_data_into_objs(constrain_file, pref_file, debug=False):
 
 if __name__ == "__main__":
     #args = parse_args("Parse real data.")
-    # constraint_file = "../data/new_constraints.txt"
-    # pref_file = "../data/new_prefs.txt"
-    constraint_file = "../data/constraints_S100C10T7P11R5.txt"
-    pref_file = "../data/prefs_S100C10T7P11R5.txt"
+    constraint_file = "../data/new_constraints.txt"
+    pref_file = "../data/new_prefs.txt"
+    # constraint_file = "../data/constraints_S100C10T7P11R5.txt"
+    # pref_file = "../data/prefs_S100C10T7P11R5.txt"
     parse_data_into_objs(constraint_file, pref_file, debug=True)
 
