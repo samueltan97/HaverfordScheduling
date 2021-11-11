@@ -292,10 +292,18 @@ def run_test_case(args, folder):
 
 
 def run_on_real_folder(args):
-    tests = os.listdir(args.folder_name)[:5]
+    tests = os.listdir(args.folder_name)
     path_to_tests = [os.path.join(args.folder_name, t) for t in tests]
     results = {}
+    csv_to_ignore = ["Fall2000", "Fall2010", "Fall2011", "Fall2014"]
+
     for indiv_test in path_to_tests:
+        dont_eval = False
+        for csv in csv_to_ignore:
+            if csv in indiv_test:
+                dont_eval = True
+        if dont_eval:
+            continue
         score, runtime = run_test_case(args, indiv_test)
         key = os.path.basename(indiv_test)
         results[key] = {
@@ -305,7 +313,8 @@ def run_on_real_folder(args):
     values = list([r["score"] for r in results.values()])
     avg = sum(values) / len(values)
     mx = max(values)
-    return results, avg, mx
+    mn = min(values)
+    return results, avg, mx, mn
 
 
 if __name__ == "__main__":
@@ -318,7 +327,7 @@ if __name__ == "__main__":
     #print(run_all_test_cases_in_test_folder(args.folder_name))
     # print(run_test_case(args, args.folder_name))
     if args.all_tests:
-        r, score_avg, score_mx = run_on_real_folder(args)
+        r, score_avg, score_mx, score_mn = run_on_real_folder(args)
         for label in r:
             label_str = Color.BOLD + "Label: " + Color.BLUE + label + Color.ENDC
             runtime = Color.GREEN + "Runtime: " + str(r[label]["runtime"]) + Color.ENDC
@@ -327,7 +336,8 @@ if __name__ == "__main__":
 
         avg_score_str = Color.YELLOW + "Average: " + str(score_avg)+ Color.ENDC
         max_score_str = Color.RED + "Max: " + str(score_mx) + Color.ENDC
-        print(Color.BOLD+"Score: {} | {}".format(avg_score_str, max_score_str))
+        min_score_str = Color.PINK + "Min: " + str(score_mn) + Color.ENDC
+        print(Color.BOLD+"Score: {} | {} | {}".format(avg_score_str, max_score_str, min_score_str))
     else:
         score, runtime = run_test_case(args, args.folder_name)
         score_str = Color.CYAN + "Score: " + str(score) + Color.ENDC

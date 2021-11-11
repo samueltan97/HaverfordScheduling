@@ -210,7 +210,7 @@ def interval_scheduling(matches, preferences, C, student):
     return scheduled
 
 
-def enroll_students(matches, S, R, T, C):
+def enroll_students2(matches, S, R, T, C):
     """
         :param matches: Dictionary of dictionaries containing rooms, timeslots, professors assigned to each class.
         :param S: List[Student]
@@ -245,7 +245,7 @@ def enroll_students(matches, S, R, T, C):
     return score, matches
 
 
-def enroll_students2(matches, S, R, T, C):
+def enroll_students(matches, S, R, T, C):
     """
     :param matches: Dictionary of dictionaries containing rooms, timeslots, professors assigned to each class.
     :param S: List[Student]
@@ -263,18 +263,25 @@ def enroll_students2(matches, S, R, T, C):
             room_capacities[room][timeslot] = room.capacity
 
     sorted_students = sorted(S, key=lambda s: len(s.preferences), reverse=False)
-    time_conflicts = 0
+
     for student in sorted_students:
+        error_student = False
+        if student.id == 991763:
+            error_student = True
         cur_schedule = []
         class_objs = [get_obj_by_id(C, c) for c in student.preferences]
         sorted_objs = sorted(class_objs, key=lambda c: matches[c]["room"].capacity, reverse=True)
+
         for desired_class in sorted_objs:
             room = matches[desired_class]["room"]
             timeslot = matches[desired_class]["timeslot"]
             able_to_enroll = True
 
             for enrolled_class in cur_schedule:
-                if does_conflict(timeslot, enrolled_class["timeslot"]):
+                enrolled_timeslot = enrolled_class["timeslot"]
+                if error_student:
+                    print("here")
+                if does_conflict(timeslot, enrolled_timeslot):
                     able_to_enroll = False
                     break
 
@@ -362,8 +369,6 @@ def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_
                                             c.chosen_professor = p
                                             p.assigned_classes_slot.append(time)
                                             # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
-                                            print(time.conflicts)
-                                            print(conflict_dict[time.conflicts][1])
                                             conflict_dict[time.conflicts][1].remove(time)
 
                                             time.conflicts *= min(r.capacity, class_interest_count[c])
@@ -371,16 +376,28 @@ def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_
                                             break
 
 
-                                    break
+                                break
                         #case in which professors don't have assigned class yet, or no valid timeslots with overlapping days
-                        match_class(matches, rooms_for_classes, room_availability, prof_availability, class_interest_count, c, valid_timeslots[0],
-                                    p)
+                        time = valid_timeslots[0]
+                        for r in rooms_for_classes[c]:
+                            if room_availability[r][time] == True:
+                                matches[c] = {"timeslot": time, "room": r}
+                                room_availability[r][time] = False
+                                prof_availability[p][time] = False
+                                c.chosen_professor = p
+                                p.assigned_classes_slot.append(time)
+                                # TODO: Confused what # of students refers to pseudocode. Also, This line is broken.
+                                conflict_dict[time.conflicts][1].remove(time)
+
+                                time.conflicts *= min(r.capacity, class_interest_count[c])
+                                conflict_dict[time.conflicts][1].append(time)
+                                break
+
 
 
             else:
                 for t in sorted_class_times:
                     overlap = False
-                    print('here', type(c), type(p))
                     if corresponding_class:
                         for classes, timeslots in matches.items():
                             if doesCorrespond(c.department,classes.department) and does_conflict(timeslots[t], t):

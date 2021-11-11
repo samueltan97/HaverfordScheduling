@@ -275,6 +275,7 @@ def unique_buildings_for_subject(list_of_dicts):
 
   return new_dict
 
+
 def merge_dictionaries(dict1, dict2):
   for key in dict2:
     if key not in dict1:
@@ -282,6 +283,7 @@ def merge_dictionaries(dict1, dict2):
     else:
       dict1[key] = list(set(dict1[key] + dict2[key]))
   return dict1
+
 
 def generate_unique_buildings_for_subject(enrollment_path):
   import json
@@ -297,31 +299,31 @@ def generate_unique_buildings_for_subject(enrollment_path):
     json.dump(final_dict, output, indent=4)
 
 
-# p = "enrollment_files"
-# generate_unique_buildings_for_subject(p)
+p = "enrollment_files"
+generate_unique_buildings_for_subject(p)
 
-if ".csv" not in sys.argv[1]:
-  enrollment_path = sys.argv[1]
-  enrollment_files = [os.path.join(enrollment_path, file) for file in os.listdir(enrollment_path)]
-  dicts = [get_data_list_of_dicts(file) for file in enrollment_files]
-  for index, d in enumerate(dicts):
-    output_dir = "parsed_data"
-    label = os.path.basename(enrollment_files[index].split(".")[0])
-    test_dir = os.path.join(output_dir, label)
-    if not os.path.exists(test_dir):
-      os.makedirs(test_dir)
-
-    pref_file = os.path.join(test_dir, "prefs.txt")
-    constraint_file = os.path.join(test_dir, "constraints.txt")
-    unique_courses = write_constraints_to_file(d, constraint_file)
-    write_prefs_to_file(d, pref_file, unique_courses)
-
-
-else:
-  if len(sys.argv) != 4:
-    print("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
-    exit(1)
-  print(list_of_dicts)
-  list_of_dicts = get_data_list_of_dicts(sys.argv[1])
-  write_prefs_to_file(list_of_dicts, sys.argv[2])
-  write_constraints_to_file(list_of_dicts, sys.argv[3])
+# if ".csv" not in sys.argv[1]:
+#   enrollment_path = sys.argv[1]
+#   enrollment_files = [os.path.join(enrollment_path, file) for file in os.listdir(enrollment_path)]
+#   dicts = [get_data_list_of_dicts(file) for file in enrollment_files]
+#   for index, d in enumerate(dicts):
+#     output_dir = "parsed_data"
+#     label = os.path.basename(enrollment_files[index].split(".")[0])
+#     test_dir = os.path.join(output_dir, label)
+#     if not os.path.exists(test_dir):
+#       os.makedirs(test_dir)
+#
+#     pref_file = os.path.join(test_dir, "prefs.txt")
+#     constraint_file = os.path.join(test_dir, "constraints.txt")
+#     unique_courses = write_constraints_to_file(d, constraint_file)
+#     write_prefs_to_file(d, pref_file, unique_courses)
+#
+#
+# else:
+#   if len(sys.argv) != 4:
+#     print("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
+#     exit(1)
+#   print(list_of_dicts)
+#   list_of_dicts = get_data_list_of_dicts(sys.argv[1])
+#   write_prefs_to_file(list_of_dicts, sys.argv[2])
+#   write_constraints_to_file(list_of_dicts, sys.argv[3])
