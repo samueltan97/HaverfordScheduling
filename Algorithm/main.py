@@ -129,10 +129,8 @@ def does_conflict(first_slot, second_slot):
     intervals_sorted = sorted(interval_list, key=lambda x:x.start_times)
 
     first_slot = intervals_sorted[0]
-    #print("Start time 1: ", first_slot.start_times[0])
     second_slot = intervals_sorted[1]
-    #print("Start time 2: ", second_slot.start_times[0])
-    overlapping_days = list(set(first_slot.days) & set(second_slot.days))
+
     for index1, first_day in enumerate(first_slot.days):
         for index2, second_day in enumerate(second_slot.days):
             if first_day == second_day:
@@ -261,7 +259,9 @@ def enroll_students2(matches, S, R, T, C):
         for timeslot in T:
             room_capacities[room][timeslot] = room.capacity
 
-    for student in S:
+    sorted_students = sorted(S, key=lambda s: len(s.preferences), reverse=False)
+    time_conflicts = 0
+    for student in sorted_students:
         cur_schedule = []
         class_objs = [get_obj_by_id(C, c) for c in student.preferences]
         sorted_objs = sorted(class_objs, key=lambda c: matches[c]["room"].capacity, reverse=True)
@@ -287,21 +287,8 @@ def enroll_students2(matches, S, R, T, C):
                 else:
                     matches[desired_class]["students"].append(student)
 
-
-    # for student in S:
-    #     enrolled_classes = interval_scheduling(matches, student.preferences, C, student)
-    #     for desired_class in enrolled_classes:  # Attempt to enroll student in each class from interval scheduling.
-    #         room = matches[desired_class]["room"]
-    #         timeslot = matches[desired_class]["timeslot"]
-    #         if room_capacities[room][timeslot] > 0:  # There is still room in this class.
-    #             score += 1
-    #             room_capacities[room][timeslot] -= 1
-    #             if matches[desired_class].get("students") is None:
-    #                 matches[desired_class]["students"] = [student]
-    #             else:
-    #                 matches[desired_class]["students"].append(student)
-
     return score, matches
+
 
 def doesCorrespond(class1, class2):
     set_class_correspond = set([("MATH", "PHYS"), ("MATH", "CMSC"), ("CHEM", "BIOL"), ("COML", "ENGL"), ("HART", "ARTD")])
