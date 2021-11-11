@@ -29,6 +29,9 @@ def sort_classes(S,C, first_year_seminar):
     for s in S:
         for p in s.preferences:
             course = get_obj_by_id(C, p)
+            if course == None:
+                print(p)
+                continue
             if first_year_seminar:
             #  and p is not a first year seminar
                 if course in class_interest_count and not course.writing_seminar and not course.language:

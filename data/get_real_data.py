@@ -297,10 +297,24 @@ def generate_unique_buildings_for_subject(enrollment_path):
 # p = "enrollment_files"
 # generate_unique_buildings_for_subject(p)
 
-if len(sys.argv) != 4:
-  print ("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
-  exit(1)
+if ".csv" not in sys.argv[1]:
+  enrollment_path = sys.argv[1]
+  enrollment_files = [os.path.join(enrollment_path, file) for file in os.listdir(enrollment_path)]
+  dicts = [get_data_list_of_dicts(file) for file in enrollment_files]
+  for index, d in enumerate(dicts):
+    output_dir = "parsed_data"
+    label = enrollment_files[index].split(".")[0]
+    test_dir = label
+    pref_file = os.path.join(output_dir, label, "prefs.txt")
+    constraint_file = os.path.join(output_dir, label, "constrints.txt")
+    write_prefs_to_file(d, pref_file)
+    write_constraints_to_file(d, constraint_file)
 
-list_of_dicts = get_data_list_of_dicts(sys.argv[1])
-write_prefs_to_file(list_of_dicts, sys.argv[2])
-write_constraints_to_file(list_of_dicts, sys.argv[3])
+
+else:
+  if len(sys.argv) != 4:
+    print("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
+    exit(1)
+  list_of_dicts = get_data_list_of_dicts(sys.argv[1])
+  write_prefs_to_file(list_of_dicts, sys.argv[2])
+  write_constraints_to_file(list_of_dicts, sys.argv[3])
