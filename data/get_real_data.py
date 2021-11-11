@@ -2,6 +2,8 @@
 
 import csv
 import sys
+import os
+
 
 def get_data_list_of_dicts(filename):
   list = []
@@ -270,10 +272,35 @@ def unique_buildings_for_subject(list_of_dicts):
 
   return new_dict
 
+def merge_dictionaries(dict1, dict2):
+  for key in dict2:
+    if key not in dict1:
+      dict1[key] = dict2[key]
+    else:
+      dict1[key] = list(set(dict1[key] + dict2[key]))
+  return dict1
+
+def generate_unique_buildings_for_subject(enrollment_path):
+  import json
+
+  enrollment_files = [os.path.join(enrollment_path, file) for file in os.listdir(enrollment_path)]
+  dicts = [get_data_list_of_dicts(file) for file in enrollment_files]
+  building_dicts = [unique_buildings_for_subject(d) for d in dicts]
+  final_dict = building_dicts[0]
+  for other_dict in building_dicts[1:]:
+    final_dict = merge_dictionaries(final_dict, other_dict)
+
+  with open("valid_buildings.json", "w") as output:
+    json.dump(final_dict, output, indent=4)
+
+
+# p = "enrollment_files"
+# generate_unique_buildings_for_subject(p)
+
 if len(sys.argv) != 4:
   print ("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
   exit(1)
+
 list_of_dicts = get_data_list_of_dicts(sys.argv[1])
-unique_buildings_for_subject(list_of_dicts)
 write_prefs_to_file(list_of_dicts, sys.argv[2])
 write_constraints_to_file(list_of_dicts, sys.argv[3])
