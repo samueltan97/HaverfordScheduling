@@ -8,6 +8,7 @@ import statistics
 from main import class_schedule
 from var_loading import load_variables_into_obj
 from parse_real_data import parse_timeslots
+import pprint
 """
 Example runs from command line:
 WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\ -a
@@ -280,6 +281,28 @@ def run_all_tests(debug=False):
     return full_dict
 
 
+def run_test_case(args, folder):
+    constraint_file = os.path.join(folder, "constraints.txt")
+    pref_file = os.path.join(folder, "prefs.txt")
+    score, runtime = evaluate_runtime_and_performance(class_schedule, pref_file, constraint_file,
+                                     args.schedule_filename)
+    return score, runtime
+
+
+def run_on_real_folder(args):
+    tests = os.listdir(args.folder_name)
+    path_to_tests = [os.path.join(args.folder_name, t) for t in tests]
+    results = {}
+    for indiv_test in path_to_tests:
+        score, runtime = run_test_case(args, indiv_test)
+        key = os.path.basename(indiv_test)
+        results[key] = {
+            "score": score,
+            "runtime": runtime
+        }
+    return results
+
+
 if __name__ == "__main__":
     args = parse_args('Set up student dictionary')
     # print(read_constraints(args.constraint_filename))
@@ -288,10 +311,11 @@ if __name__ == "__main__":
     # print(test(args.schedule_filename, args.constraint_filename, args.pref_filename))
     # print(evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename))
     #print(run_all_test_cases_in_test_folder(args.folder_name))
+    # print(run_test_case(args, args.folder_name))
+    if args.all_tests:
+        r = run_on_real_folder(args)
+        pprint.pprint(r)
 
-    score, runtime = evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename, args.debug)
-    #
-    print(score)
     # if args.all_tests:
     #     print(run_all_tests(args.debug))
     # else:
