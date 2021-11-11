@@ -292,7 +292,7 @@ def run_test_case(args, folder):
 
 
 def run_on_real_folder(args):
-    tests = os.listdir(args.folder_name)[:3]
+    tests = os.listdir(args.folder_name)[:5]
     path_to_tests = [os.path.join(args.folder_name, t) for t in tests]
     results = {}
     for indiv_test in path_to_tests:
@@ -327,9 +327,12 @@ if __name__ == "__main__":
 
         avg_score_str = Color.YELLOW + "Average: " + str(score_avg)+ Color.ENDC
         max_score_str = Color.RED + "Max: " + str(score_mx) + Color.ENDC
-
-
         print(Color.BOLD+"Score: {} | {}".format(avg_score_str, max_score_str))
+    else:
+        score, runtime = run_test_case(args, args.folder_name)
+        score_str = Color.CYAN + "Score: " + str(score) + Color.ENDC
+        runtime_str = Color.GREEN + "Runtime: " + str(runtime) + Color.ENDC
+        print("{} | {} ".format(score_str, runtime_str))
 
     # if args.all_tests:
     #     print(run_all_tests(args.debug))
