@@ -9,6 +9,8 @@ from main import class_schedule
 from var_loading import load_variables_into_obj
 from parse_real_data import parse_timeslots
 import pprint
+
+from colors import Color
 """
 Example runs from command line:
 WINDOWS: python .\test.py -p .\misc\k10r4c14t4s50\prefs_0 -c .\misc\k10r4c14t4s50\constraints_0 -s .\schedule_file.txt -f .\misc\k10r4c14t4s50\ -a
@@ -290,7 +292,7 @@ def run_test_case(args, folder):
 
 
 def run_on_real_folder(args):
-    tests = os.listdir(args.folder_name)
+    tests = os.listdir(args.folder_name)[:3]
     path_to_tests = [os.path.join(args.folder_name, t) for t in tests]
     results = {}
     for indiv_test in path_to_tests:
@@ -300,7 +302,10 @@ def run_on_real_folder(args):
             "score": score,
             "runtime": runtime
         }
-    return results
+    values = list([r["score"] for r in results.values()])
+    avg = sum(values) / len(values)
+    mx = max(values)
+    return results, avg, mx
 
 
 if __name__ == "__main__":
@@ -313,8 +318,18 @@ if __name__ == "__main__":
     #print(run_all_test_cases_in_test_folder(args.folder_name))
     # print(run_test_case(args, args.folder_name))
     if args.all_tests:
-        r = run_on_real_folder(args)
-        pprint.pprint(r)
+        r, score_avg, score_mx = run_on_real_folder(args)
+        for label in r:
+            label_str = Color.BOLD + "Label: " + Color.BLUE + label + Color.ENDC
+            runtime = Color.GREEN + "Runtime: " + str(r[label]["runtime"]) + Color.ENDC
+            score = Color.CYAN + "Score: " + str(r[label]["score"]) + Color.ENDC
+            print("{} | {} | {}".format(label_str, runtime, score))
+
+        avg_score_str = Color.YELLOW + "Average: " + str(score_avg)+ Color.ENDC
+        max_score_str = Color.RED + "Max: " + str(score_mx) + Color.ENDC
+
+
+        print(Color.BOLD+"Score: {} | {}".format(avg_score_str, max_score_str))
 
     # if args.all_tests:
     #     print(run_all_tests(args.debug))
