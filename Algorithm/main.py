@@ -23,13 +23,13 @@ def sort_classes(S,C):
     :return: List[Class] -> C sorted by total interest.
     """
 
-    class_interest_count = {k.id:0for k in C}
+    class_interest_count = {k.id:0 for k in C}
     #print(class_interest_count)
     for s in S:
         for p in s.preferences:
             #  and p is not a first year seminar
             if p in class_interest_count.keys():
-                class_interest_count[p] = 1
+                class_interest_count[p] += 1
             else:
                 #i  f p first year seminar, classInterestCount[p] = 0
                 class_interest_count[p] = 1
@@ -93,28 +93,25 @@ def does_conflict(first_slot, second_slot):
     :param second_slot: Timeslot Object
     :return: Whether or not they conflict. (Assuming second slot starts after first slot.)
     """
-
-    if first_slot.end_time > second_slot.start_time:
+    if first_slot.end_time > second_slot.start_time and first_slot.days == second_slot.days:
         return True
     else:
         return False
 
 
-def interval_scheduling(matches, preferences, C):
+def interval_scheduling(matches, preferences, C, student):
     """
     :param matches: Dict[Class : Dict[str : Obj]]
     :param preferences: List[Class] the classes that some student s wishes to take.
     :return: a list of classes, representing their optimal schedule without conflicts.
 
-    """
-
+    """     
     scheduled = []
-    sorted_preferences = sorted(preferences, key=lambda class_id: matches[get_obj_by_id(C, class_id)]["timeslot"].end_time)
+    sorted_preferences = sorted(preferences, key=lambda class_id: (matches[get_obj_by_id(C, class_id)]["timeslot"].end_time, matches[get_obj_by_id(C, class_id)]["timeslot"].days))
     previous_class = None
     for current_class_id in sorted_preferences:
         current_class = get_obj_by_id(C, current_class_id)
         current_time_slot = matches[current_class]["timeslot"]
-
         if previous_class is None:
             scheduled.append(current_class)
             previous_class = current_class
@@ -148,8 +145,8 @@ def enroll_students(matches, S, R, T, C):
             room_capacities[room][timeslot] = room.capacity
 
     for student in S:
-
-        enrolled_classes = interval_scheduling(matches, student.preferences, C)
+    
+        enrolled_classes = interval_scheduling(matches, student.preferences, C, student)
 
         for desired_class in enrolled_classes:  # Attempt to enroll student in each class from interval scheduling.
             room = matches[desired_class]["room"]

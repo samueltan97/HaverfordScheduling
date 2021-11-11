@@ -218,7 +218,6 @@ def run_all_test_cases_in_test_folder(folder_name, offset=0, debug=False):
     :param debug: Bool -> whether or not to print
     :return: Dict[int, Tuple[int, int]] -> ditionary keyed by file index of run result.
     """
-
     iteration_count = int(folder_name.split('r')[0].split('k')[1])
     num_students = int(folder_name.split('s')[-1])
     results_dict = dict()
@@ -227,7 +226,7 @@ def run_all_test_cases_in_test_folder(folder_name, offset=0, debug=False):
         constraint_filename = os.path.join(folder_name, "constraints_" + str(i))
         schedule_filename = os.path.join(folder_name, "schedule_" + str(i))
         student_pref_score, runtime = evaluate_runtime_and_performance(class_schedule, pref_filename, constraint_filename, schedule_filename, debug)
-        results_dict[i+offset] = (student_pref_score/num_students, runtime)
+        results_dict[i+offset] = (student_pref_score/(num_students*4), runtime)
     return results_dict
 
 
@@ -237,7 +236,7 @@ def run_all_tests(debug=False):
     :return: Dict[str, Tuple[int, int]] Merged dictionary of test runs.
     """
 
-    test_dir = os.path.join("misc", "test_cases")
+    test_dir = os.path.join("misc", "class_cases")
     indiv_test_folders = os.listdir(test_dir)
     offset = 0
     full_dict = dict()

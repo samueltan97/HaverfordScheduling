@@ -62,7 +62,7 @@ def create_timeslots(num_slots):
     """
     slots = []
     first_class_start = 8
-    last_class_end = 16  # using 24 hour time
+    last_class_end = 24  # using 24 hour time
 
     mwf_counter = 0
     tth_counter = 0
