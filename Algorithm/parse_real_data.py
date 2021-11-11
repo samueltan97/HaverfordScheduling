@@ -38,15 +38,15 @@ def parse_timeslots(c_data, num_class_times):
         id = timeslot_info[0]
         start_is_afternoon = timeslot_info[2] == "PM"
         if start_is_afternoon and int(timeslot_info[1].split(":")[0]) != 12:
-            start_time = int(timeslot_info[1].split(":")[0]) + 12
+            start_time = int(timeslot_info[1].split(":")[0]) + 12 + int(timeslot_info[1].split(":")[1])/60.0
         else:
-            start_time = int(timeslot_info[1].split(":")[0])
+            start_time = int(timeslot_info[1].split(":")[0]) + int(timeslot_info[1].split(":")[1])/60.0
         end_is_afternoon = timeslot_info[4] == "PM"
 
         if end_is_afternoon and int(timeslot_info[3].split(":")[0]) != 12:
-            end_time = int(timeslot_info[3].split(":")[0]) + 12
+            end_time = int(timeslot_info[3].split(":")[0]) + 12 + int(timeslot_info[3].split(":")[1])/60.0
         else:
-            end_time = int(timeslot_info[3].split(":")[0])
+            end_time = int(timeslot_info[3].split(":")[0]) + int(timeslot_info[3].split(":")[1])/60.0
 
         # TODO: Merge labs and normal classes.
         days = get_day_format(timeslot_info[5])
