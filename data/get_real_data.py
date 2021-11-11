@@ -161,14 +161,15 @@ def write_building_to_file(list_of_dicts, filename):
         towrite = towrite + "\n"
         f.write(towrite)
 
-def write_prefs_to_file(list_of_dicts, filename):
+def write_prefs_to_file(list_of_dicts, filename, unique_courses):
   student_prefs = get_student_prefs_enrolled(list_of_dicts)
   f = open(filename, 'w')
   f.write("Students\t" + str(len(student_prefs)) + "\n")
   for student in student_prefs:
     towrite = student + "\t"
     for course in student_prefs[student]:
-      towrite = towrite + course + " "
+      if course in unique_courses:
+        towrite = towrite + course + " "
     towrite = towrite + "\n"
     f.write(towrite)
 
@@ -243,15 +244,17 @@ def write_classes_to_file(list_of_dicts, f):
     labels = " ".join(unique_courses[course]["labels"])
     to_write += labels + "\n"
     f.write(to_write)
+  return unique_courses
 
 def write_constraints_to_file(list_of_dicts, filename):
   f = open(filename, 'w')
   write_class_times_to_file(list_of_dicts, f)
   write_rooms_to_file(list_of_dicts, f)
   write_num_classes_to_file(list_of_dicts, f)
-  write_classes_to_file(list_of_dicts, f)
+  unique_courses = write_classes_to_file(list_of_dicts, f)
   write_teachers_to_file(list_of_dicts, f)
   f.close()
+  return unique_courses
 
 def unique_buildings_for_subject(list_of_dicts):
   rooms_dict = get_building(list_of_dicts)
@@ -303,18 +306,22 @@ if ".csv" not in sys.argv[1]:
   dicts = [get_data_list_of_dicts(file) for file in enrollment_files]
   for index, d in enumerate(dicts):
     output_dir = "parsed_data"
-    label = enrollment_files[index].split(".")[0]
-    test_dir = label
-    pref_file = os.path.join(output_dir, label, "prefs.txt")
-    constraint_file = os.path.join(output_dir, label, "constrints.txt")
-    write_prefs_to_file(d, pref_file)
-    write_constraints_to_file(d, constraint_file)
+    label = os.path.basename(enrollment_files[index].split(".")[0])
+    test_dir = os.path.join(output_dir, label)
+    if not os.path.exists(test_dir):
+      os.makedirs(test_dir)
+
+    pref_file = os.path.join(test_dir, "prefs.txt")
+    constraint_file = os.path.join(test_dir, "constraints.txt")
+    unique_courses = write_constraints_to_file(d, constraint_file)
+    write_prefs_to_file(d, pref_file, unique_courses)
 
 
 else:
   if len(sys.argv) != 4:
     print("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
     exit(1)
+  print(list_of_dicts)
   list_of_dicts = get_data_list_of_dicts(sys.argv[1])
   write_prefs_to_file(list_of_dicts, sys.argv[2])
   write_constraints_to_file(list_of_dicts, sys.argv[3])
