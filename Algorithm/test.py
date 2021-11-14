@@ -295,7 +295,7 @@ def run_on_real_folder(args):
     tests = os.listdir(args.folder_name)
     path_to_tests = [os.path.join(args.folder_name, t) for t in tests]
     results = {}
-    print(len(path_to_tests))
+    print("Number of Tests: ", len(path_to_tests))
     for indiv_test in path_to_tests:
         if indiv_test == "../data/parsed_data/.DS_Store":
             continue
