@@ -263,7 +263,6 @@ def enroll_students2(matches, S, R, T, C):
             room_capacities[room][timeslot] = room.capacity
 
     sorted_students = sorted(S, key=lambda s: len(s.preferences), reverse=False)
-    time_conflicts = 0
     for student in sorted_students:
         cur_schedule = []
         class_objs = [get_obj_by_id(C, c) for c in student.preferences]
