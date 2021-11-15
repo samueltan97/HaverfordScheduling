@@ -57,6 +57,10 @@ def parse_args(description):
     return opts
 
 def read_preferences(pref_filename):
+    """
+    :param pref_filename: str -> file_name containing student preferences
+    :return: Dict[str, List[str] -> dictionary keyed by student id with value set as the list of class ids.
+    """
     p_file = open(pref_filename, "r")
     p_data = p_file.readlines()
     p_file.close()
@@ -69,6 +73,13 @@ def read_preferences(pref_filename):
     return num_students, student_dict
 
 def read_constraints(constraint_filename):
+    """
+    :param constraint_filename: str -> file_name containing scheduling constraints
+    :return: Dict[str, List[str] -> dictionary keyed by student id with value set as the list of class ids.
+    :return: Tuple[int, int, int, List[TimeSlot], str, Dict[str, str], Dict[str, List[str]], Dict[str, Dict[str, List[str]]]] -> returns a tuple that contains 
+    number of rooms, number of classes, number of class times, a list of TimeSlot objects, number of teachers, dictionary with room ids as keys and capacity as values, dictionary with class ids as keys and list of teacher ids that can teach that class as value
+    , dictionary with teacher ids as keys and list of class ids as value
+    """
     c_file = open(constraint_filename, "r")
     c_data = c_file.readlines()
     c_file.close()
@@ -101,6 +112,13 @@ def read_constraints(constraint_filename):
 
 
 def test(schedule_filename, constraint_filename, pref_filename, debug=False):
+    """
+    :param schedule_filename: str -> file name containing generated schedule
+    :param constraint_filename: str -> file name containing constraints for scheduling
+    :param pref_filename: str -> file name containing student preferences for scheduling
+    :param debug: Bool -> whether or not to print
+    :return: int -> scheduling score i.e. number of preferences matched over total number of preferences.
+    """
     num_students, student_dict = read_preferences(pref_filename)
     num_rooms, num_classes, num_class_times, timeslots, num_teachers, room_dict, class_dict, teacher_dict = read_constraints(constraint_filename)
     
@@ -196,6 +214,10 @@ def test(schedule_filename, constraint_filename, pref_filename, debug=False):
 
 
 def convert_matches_to_schedule_file(matches,schedule_file):
+    """
+    :param matches: Dict[Class : Dict[str : Obj]] -> dictionary containing the matches made i.e. key = class and value = dictionary that describes the room, professor, and students
+    :param schedule_file: str -> file name for generated schedule
+    """
     lines = ['Course\tRoom\tTeacher\tTime\tStudents']
     f = open(schedule_file, 'w')
     for key,value in matches.items():
@@ -213,9 +235,16 @@ def convert_matches_to_schedule_file(matches,schedule_file):
 
 
 def evaluate_runtime_and_performance(class_schedule_function, pref_file, constraint_file, schedule_file, debug=False):
+    """
+    :param class_schedule_function: func -> function that schedules classes
+    :param pref_file: str -> file name that contains student preferences for scheduling.
+    :param constraint_file: str -> file name that contains constraints for scheduling.
+    :param schedule_file: str -> file name that we will write the schedule to
+    :param debug: Bool -> whether or not to print
+    :return: Tuple[int, float] -> tuple that contains the fit score and the runtime
+    """
     R, C, P, S, T = load_variables_into_obj(pref_file, constraint_file)
     start_time = time.time()
-    # score, matches = class_schedule_function(T, S, C, R, P)
     score, matches = class_schedule(T, S, C, R, P)
     total = sum([len(s.preferences) for s in S])
     runtime = time.time() - start_time
@@ -259,14 +288,6 @@ def run_all_tests(debug=False):
     indiv_test_folders = os.listdir(test_dir)
     offset = 0
     full_dict = dict()
-    # all_items = []
-    # indiv_test_folders.remove("k10r40c90t8s150")
-    # indiv_test_folders.remove("k10r40c70t8s150")
-    # indiv_test_folders.remove("k10r40c100t8s150")
-    # indiv_test_folders.remove("k10r40c40t6s50")
-    # indiv_test_folders.remove("k10r40c120t8s150")
-    # indiv_test_folders.remove("k10r40c110t8s150")
-    # indiv_test_folders.remove("k10r40c130t8s150")
     indiv_test_folders = sorted(indiv_test_folders)
 
     for test_folder in indiv_test_folders:
@@ -284,6 +305,11 @@ def run_all_tests(debug=False):
 
 
 def run_test_case(args, folder):
+    """
+    :param args: Values -> arguments from command line input.
+    :param folder: str -> folder name that contains test case
+    :return: Tuple[int, float] -> tuple that contains the fit score and the runtime
+    """
     constraint_file = os.path.join(folder, "constraints.txt")
     pref_file = os.path.join(folder, "prefs.txt")
     score, runtime = evaluate_runtime_and_performance(class_schedule, pref_file, constraint_file,
@@ -292,10 +318,15 @@ def run_test_case(args, folder):
 
 
 def run_on_real_folder(args):
+    """
+    :param args: Values -> arguments from command line input.
+    :return: Tuple[Dict[str, Dict[str, float]], float, float, float] -> tuple that contains the results dictionary that has the test case id as key and the runtime and score as key-values in the dictionary
+    , the average score as a float, the max score as a float, and the minimum score as a float
+    """
     tests = os.listdir(args.folder_name)
     path_to_tests = [os.path.join(args.folder_name, t) for t in tests]
     results = {}
-    print(len(path_to_tests))
+    print("Number of Tests: ", len(path_to_tests))
     for indiv_test in path_to_tests:
         if indiv_test == "../data/parsed_data/.DS_Store":
             continue
@@ -316,13 +347,7 @@ def run_on_real_folder(args):
 
 if __name__ == "__main__":
     args = parse_args('Set up student dictionary')
-    # print(read_constraints(args.constraint_filename))
-    # print(read_preferences(args.pref_filename))
 
-    # print(test(args.schedule_filename, args.constraint_filename, args.pref_filename))
-    # print(evaluate_runtime_and_performance(class_schedule, args.pref_filename, args.constraint_filename, args.schedule_filename))
-    #print(run_all_test_cases_in_test_folder(args.folder_name))
-    # print(run_test_case(args, args.folder_name))
     if args.all_tests:
         r, score_avg, score_mx, score_mn = run_on_real_folder(args)
         for label in r:
@@ -340,8 +365,3 @@ if __name__ == "__main__":
         score_str = Color.CYAN + "Score: " + str(score) + Color.ENDC
         runtime_str = Color.GREEN + "Runtime: " + str(runtime) + Color.ENDC
         print("{} | {} ".format(score_str, runtime_str))
-
-    # if args.all_tests:
-    #     print(run_all_tests(args.debug))
-    # else:
-    #     print(run_all_test_cases_in_test_folder(args.folder_name, args.debug))

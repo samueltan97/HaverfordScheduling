@@ -221,7 +221,7 @@ def write_classes_to_file(list_of_dicts, f):
 
   unique_courses = {}
   language = ["FREN", "SPAN", "GERM", "GREK", "HEBR", "RUSS", "ITAL", "CNSE", "JAPN", "LATN"]
-
+  # math_courses = []
   for course_id in courses_dict:
     course = courses_dict[course_id]
     if course_id not in unique_courses:
@@ -234,8 +234,19 @@ def write_classes_to_file(list_of_dicts, f):
       if cur_subject == "CSEM":
         unique_courses[course_id]["labels"].append("SEM")
 
+      # if cur_subject == "MATH":
+      #   desc = courses_dict[course_id]["Crs Descr"]
+      #   label = courses_dict[course_id]["Catalog"]
+      #   timeslot = courses_dict[course_id]["Start_1"] + "-" + courses_dict[course_id]["End 1"]
+      #   days = courses_dict[course_id]["Days 1"]
+      #   room = courses_dict[course_id]["Facil ID 1"]
+
+
+        math_courses.append([course_id, desc, label, room, timeslot, days])
+
       if cur_subject in language and "Elementary" in course["Crs Descr"]:
         unique_courses[course_id]["labels"].append("LANG")
+
 
   for course in unique_courses:
     to_write = course + "\t"
@@ -244,6 +255,10 @@ def write_classes_to_file(list_of_dicts, f):
     labels = " ".join(unique_courses[course]["labels"])
     to_write += labels + "\n"
     f.write(to_write)
+
+  # with open("math_courseS2015.txt", "w") as math_output:
+  #   for m in math_courses:
+  #     math_output.writelines("-".join(m)+"\n")
   return unique_courses
 
 def write_constraints_to_file(list_of_dicts, filename):
@@ -321,7 +336,7 @@ else:
   if len(sys.argv) != 4:
     print("Usage: " + sys.argv[0] + " <enrollment.csv> <student_prefs.txt> <constraints.txt>")
     exit(1)
-  print(list_of_dicts)
+
   list_of_dicts = get_data_list_of_dicts(sys.argv[1])
-  write_prefs_to_file(list_of_dicts, sys.argv[2])
-  write_constraints_to_file(list_of_dicts, sys.argv[3])
+  unique_courses = write_constraints_to_file(list_of_dicts, sys.argv[3])
+  write_prefs_to_file(list_of_dicts, sys.argv[2], unique_courses)
