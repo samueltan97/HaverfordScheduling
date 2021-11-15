@@ -31,7 +31,7 @@ def parse_args(description):
                       action="store_true",
                       help="Tells the program how much to print. ")
 
-    mandatories = ["pref_filename", "constraint_filename","schedule_filename","folder_name"]
+    mandatories = []
     (opts, args) = parser.parse_args()
 
     if opts.folder_name is not None:  # Make the pref, constraint files only necessary if folder not given.
@@ -236,7 +236,7 @@ def run_all_tests(debug=False):
     :return: Dict[str, Tuple[int, int]] Merged dictionary of test runs.
     """
 
-    test_dir = os.path.join("misc", "class_cases")
+    test_dir = os.path.join("misc", "test_cases")
     indiv_test_folders = os.listdir(test_dir)
     offset = 0
     full_dict = dict()
@@ -257,7 +257,7 @@ def run_all_tests(debug=False):
         results = run_all_test_cases_in_test_folder(full_path, offset, debug)
         averaged_student_pref_score = statistics.mean([y[0] for x,y in results.items()])
         averaged_runtime = statistics.mean([y[1] for x,y in results.items()])
-        full_dict[test_case] = (averaged_student_pref_score, averaged_runtime)
+        full_dict[test_case] = ('Score: ' + str(averaged_student_pref_score), 'Runtime: ' + str(averaged_runtime))
         # offset += len(results)
         # all_items += results.items()
     # full_dict = dict(all_items)
