@@ -435,7 +435,7 @@ def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_
                                 #  time conflicts
                                 break
         sorted_class_times = sorted(sorted_class_times, key=lambda x: x.conflicts)
-        print(sorted_class_times)
+        #print(sorted_class_times)
         
     score, matches = enroll_students2(matches, S, R, T, C)
     return score, matches
