@@ -12,7 +12,7 @@ Our `test.py` script (can be found in `~/Algorithm`) has a function called `test
 2. Navigate to `~/Algorithm` and run the following command
 
 ```sh
-python3 test.py -f ../data/[test_folder] -s ../data/[test_folder]/schedule.txt -a
+python3 test.py -f ../data/parsed_data -s ../data/parsed_data/schedule.txt -a
 ```
 
 To enable or disable constraints for the scheduling process, navigate to `~/Algorithm/main.py` and change the default keyword argument values for the constraint of interest. This would toggle the constraint and allow the algorithm to run with or without the constraint.
