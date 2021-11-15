@@ -74,10 +74,8 @@ def sort_class_times(T):
             conflict_dict[t.conflicts].append(t)
         else:
             conflict_dict[t.conflicts] = [t]
-    conflict_dict = sorted(conflict_dict.items())
 
-    conflict_dict = [list(x) for x in conflict_dict]
-    #print(conflict_dict)
+    #conflict_dict = [list(x) for x in conflict_dict]
     return sorted_class_times, conflict_dict
 
 
@@ -332,12 +330,12 @@ def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_
                 break
             if prof_days:
                 #print(conflict_dict)
-                for conflicts in conflict_dict:
+                for conflicts, slots in sorted(conflict_dict.items()):
                     #loop through each entry in conflict dict, sorted by increasing number of conflicts
                     valid_timeslots = []
                     if c in matches.keys():
                         break
-                    for t in conflicts[1]:
+                    for t in slots:
                         overlap = False
                         if corresponding_class:
                             for classes, timeslots in matches.items():
@@ -366,13 +364,13 @@ def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_
                                                 p.assigned_classes_slot.append(time)
                                                 #print(time.conflicts)
                                                 #print(conflict_dict[time.conflicts][1])
-                                                conflict_dict[time.conflicts][1].remove(time)
+                                                conflict_dict[time.conflicts].remove(time)
 
                                                 time.conflicts *= min(r.capacity, class_interest_count[c])
-                                                if time.conflicts not in conflict_dict[0]:
-                                                    conflict_dict.append([time.conflicts,[time]])
+                                                if time.conflicts not in conflict_dict:
+                                                    conflict_dict[time.conflicts]=[time]
                                                 else:
-                                                    conflict_dict[time.conflicts][1].append(time)
+                                                    conflict_dict[time.conflicts].append(time)
                                                 break
 
 
@@ -386,14 +384,14 @@ def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_
                                                 prof_availability[p][time] = False
                                                 c.chosen_professor = p
                                                 p.assigned_classes_slot.append(time)
-                                                conflict_dict[time.conflicts][1].remove(time)
+                                                conflict_dict[time.conflicts].remove(time)
                                                 time.conflicts *= min(r.capacity, class_interest_count[c])
-                                                time.conflicts *= min(r.capacity, class_interest_count[c])
-                                                if time.conflicts not in conflict_dict[0]:
-                                                    conflict_dict.append([time.conflicts, [time]])
+                                                if time.conflicts not in conflict_dict:
+                                                    conflict_dict[time.conflicts] = [time]
                                                 else:
-                                                    conflict_dict[time.conflicts][1].append(time)
+                                                    conflict_dict[time.conflicts].append(time)
                                                 break
+
                         #case in which professors don't have assigned class yet, or no valid timeslots with overlapping days
                         time = valid_timeslots[0]
                         for r in rooms_for_classes[c]:
@@ -403,14 +401,14 @@ def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_
                                 prof_availability[p][time] = False
                                 c.chosen_professor = p
                                 p.assigned_classes_slot.append(time)
-                                conflict_dict[time.conflicts][1].remove(time)
-
+                                conflict_dict[time.conflicts].remove(time)
                                 time.conflicts *= min(r.capacity, class_interest_count[c])
-                                if time.conflicts not in conflict_dict[0]:
-                                    conflict_dict.append([time.conflicts, [time]])
+                                if time.conflicts not in conflict_dict:
+                                    conflict_dict[time.conflicts] = [time]
                                 else:
-                                    conflict_dict[time.conflicts][1].append(time)
+                                    conflict_dict[time.conflicts].append(time)
                                 break
+
             else:
                 for t in sorted_class_times:
                     overlap = False
