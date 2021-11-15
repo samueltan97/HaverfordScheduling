@@ -303,7 +303,7 @@ def doesCorrespond(class1, class2):
         return False
 
 
-def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_class=True, first_year_seminar=True, prof_days = False):
+def class_schedule(T,S,C,R,P, pandemic=False, room_building=True, corresponding_class=True, first_year_seminar=True, prof_days = True):
     """
 
     :param T: List[TimeSlot]
