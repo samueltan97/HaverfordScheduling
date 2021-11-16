@@ -92,7 +92,7 @@ def read_constraints(constraint_filename):
     room_dict = dict()
     for index,row in enumerate(c_data[rooms_line + 1:end_room_index]):
         row_data = row.strip().split()
-        room_dict[str(index)] = row_data[1]
+        room_dict[str(row_data[0])] = row_data[1]
     num_classes = int(c_data[end_room_index].strip().split()[1])
     num_teachers = c_data[end_room_index + 1 + num_classes].strip().split()[1]
     teacher_dict = dict()
@@ -100,14 +100,14 @@ def read_constraints(constraint_filename):
     for row in c_data[end_room_index + 2+ num_classes:]:
         row_data = row.strip().split()
         for class_col in row_data[1:]:
-            if class_dict.get(str(int(class_col))) is None:
-                class_dict[str(int(class_col))] = [str(int(row_data[0]))]
+            if class_dict.get(str(class_col)) is None:
+                class_dict[str(class_col)] = [str(row_data[0])]
             else:
-                class_dict[str(int(class_col))].append(str(int(row_data[0])))
+                class_dict[str(class_col)].append(str(row_data[0]))
             if teacher_dict.get(row_data[0]) is None:
-                teacher_dict[row_data[0]] = {'class':[str(int(class_col))]}
+                teacher_dict[row_data[0]] = {'class':[str(class_col)]}
             else:
-                teacher_dict[row_data[0]]['class'].append(str(int(class_col)))
+                teacher_dict[row_data[0]]['class'].append(str(class_col))
     return num_rooms, num_classes, num_class_times, timeslots, num_teachers, room_dict, class_dict, teacher_dict
 
 
@@ -165,6 +165,7 @@ def test(schedule_filename, constraint_filename, pref_filename, debug=False):
                     if class_size > int(room_dict[room]):
                         print("Room", room, "is too small to hold course", course, "with", class_size, "students.")
                         sys.exit()
+                    
                     if teacher not in class_dict[course]:
                         print(teacher, course, class_dict[course])
                         print("Course", course, "does not have the correct teacher.")
@@ -223,7 +224,7 @@ def convert_matches_to_schedule_file(matches,schedule_file):
     for key,value in matches.items():
         line = []
         line.append(str(key.id))
-        line.append(str(value['room'].id))
+        line.append(str(value['room'].name))
         line.append(str(key.chosen_professor.id))
         line.append(str(value['timeslot'].id))
         if "students" in value:  # If we have students in the class

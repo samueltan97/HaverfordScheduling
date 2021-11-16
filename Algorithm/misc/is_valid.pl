@@ -70,7 +70,6 @@ while (<SCHED>) {
 			} else {
 				my @students = split(/ /, $stus);
 				my $classsize = $#students + 1;
-
 				if (defined $courseRoom{$course}) {
 					print "Course $course defined more than once.\n";
 					print "Line:$_\n";
@@ -187,6 +186,7 @@ sub readConstraints {
 		if ($isclass) {
 			my ($classnum, $classteach) = split(/\t/);
 			$origCourseTeacher{$classnum} = $classteach;
+			print "$classnum , $classteach";
 		}
 	}
 

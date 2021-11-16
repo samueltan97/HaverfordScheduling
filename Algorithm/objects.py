@@ -75,7 +75,7 @@ class TimeSlot:
 
 
 class Room:
-    def __init__(self, id, building_code, capacity, stem_valid=False, humanities_valid=False, art_valid=False, music_valid=False):
+    def __init__(self, id, building_code, capacity, name, stem_valid=False, humanities_valid=False, art_valid=False, music_valid=False):
         """
         :param id: Int
         :param capacity: Int
@@ -91,7 +91,8 @@ class Room:
         self.humanities_valid = humanities_valid
         self.art_valid = art_valid
         self.music_valid = music_valid
-
+        self.name = name
+        
     def __str__(self):
         return "(Room:{}, Capacity: {}, Building: {})".format(self.id, self.capacity, self.building_code)
 

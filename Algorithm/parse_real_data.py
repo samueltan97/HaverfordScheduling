@@ -74,7 +74,7 @@ def parse_rooms(c_data, num_class_times, num_rooms):
             building += code[index]
             index += 1
         capacity = int(line_data[1])
-        new_room = Room(id, building, capacity)
+        new_room = Room(id, building, capacity, code)
         rooms.append(new_room)
     return rooms
 
@@ -93,7 +93,7 @@ def read_preferences(pref_filename):
     for row in p_data:
         row_data = row.strip().split()
         id = int(row_data[0])
-        preferences = [int(class_id) for class_id in row_data[1:]]
+        preferences = [str(class_id) for class_id in row_data[1:]]
         cur_student = Student(id, preferences)
         new_students.append(cur_student)
 
@@ -115,11 +115,11 @@ def parse_professors(c_data, start_line, courses_objects):
     for professor_line_num in range(start_line+1, start_line+num_of_teachers+1):
         cur_line = c_data[professor_line_num]
         cur_prof_data = cur_line.split()
-        prof_id = int(cur_prof_data[0])
-        courses = [int(c) for c in cur_prof_data[1:]]
+        prof_id = str(cur_prof_data[0])
+        courses = [str(c) for c in cur_prof_data[1:]]
         new_prof = Professor(prof_id, courses)
         for course_obj in courses_objects:
-            if int(course_obj.id) in courses:
+            if str(course_obj.id) in courses:
                 if course_obj.professor is not None:
                     course_obj.professor.append(new_prof)
                 else:
@@ -140,7 +140,7 @@ def parse_courses(c_data, courses_line):
     courses = []
     for cur_course_line in range(courses_line+1, courses_line + num_of_courses+1):
         cur_line = c_data[cur_course_line].split()
-        course_id = int(cur_line[0])
+        course_id = str(cur_line[0])
         department = cur_line[1]
         level = cur_line[2]
         lang = "LANG" in cur_line[3:]
