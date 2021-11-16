@@ -8,8 +8,7 @@ Our `test.py` script (can be found in `~/Algorithm`) has a function called `test
 
 ## To run it on all of Bryn Mawr's data
 
-1. Place constraint and preference files in `~/data/[test_folder]`
-2. Navigate to `~/Algorithm` and run the following command
+1. Navigate to `~/Algorithm` and run the following command
 
 ```sh
 python3 test.py -f ../data/parsed_data -s ../data/parsed_data/schedule.txt -a
